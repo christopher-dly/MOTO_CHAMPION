@@ -35,7 +35,17 @@ class InformationForm extends AbstractType
             ->add('price', TextType::class)
             ->add('warrantyTime', TextType::class)
             ->add('availableForTrial', CheckboxType::class)
-            ->add('license', TextType::class);
+            ->add('license', ChoiceType::class, [
+                'choices' => [
+                    'A' => 'A',
+                    'A2' => 'A2',
+                    'B' => 'B',
+                    'AM' => 'AM',
+                    'A1' => 'A1',
+                ],
+                'expanded' => true,
+                'multiple' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

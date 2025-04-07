@@ -3,9 +3,10 @@
 namespace App\Form;
 
 use App\Entity\NewVehicle;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,13 +16,19 @@ class NewVehicleForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
+            ->add('name', TypeTextType::class)
             ->add('Information', InformationForm::class)
             ->add('Engine', EngineForm::class)
             ->add('Transmission', TransmissionForm::class)
             ->add('Dimension', DimensionForm::class)
             ->add('CyclePart', CyclePartForm::class)
-            ->add('NewVehicleImageForm', NewVehicleImageFormType::class)
+            ->add('newVehicleImages', CollectionType::class, [
+                'entry_type' => NewVehicleImageForm::class, // Le formulaire pour gérer chaque image
+                'allow_add' => true, // Permet d'ajouter des images
+                'allow_delete' => true, // Permet de supprimer des images
+                'by_reference' => false, // Assure que les entités sont bien liées
+                'prototype' => true, // Crée une version prototype de l'image
+            ])
             ->add('submit', SubmitType::class);
     }
     

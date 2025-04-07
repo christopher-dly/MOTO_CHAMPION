@@ -18,6 +18,7 @@ class MessageImageForm extends AbstractType
             ->add('image', FileType::class, [
                 'required' => false,
                 'multiple' => false,
+                'mapped' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '5M',
