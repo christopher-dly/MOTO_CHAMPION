@@ -11,11 +11,15 @@
 
 	</head>
 	<body>
-
-
+		<header>
+			{% include "components/header.html.twig" %}
+		</header>
 		<main>
 			{% block main %}{% endblock %}
 		</main>
+		<footer>
+			{% include "components/footer.html.twig" %}
+		</footer>
 		<script src="{{ asset('script/global.js') }}"></script>
 	</body>
 </html>
