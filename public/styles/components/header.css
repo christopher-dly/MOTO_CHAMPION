@@ -1,25 +1,40 @@
 .info-banner {
     background-color: #272727;
+    align-items: center;
     color: white;
     display: flex;
+    justify-content: space-between;
 }
 
 .info-banner-text {
+    margin-left: 10px;
 }
 
 .info-banner-social {
     display: flex;
     list-style: none;
-}
-
-.navbar {
-    background-color: #272727;
-    color: white;
+    margin-right: 10px;
 }
 
 .navbar-list {
+    color: white;
+    background-color: #272727;
     display: flex;
     list-style: none;
     display: flex;
     flex-direction: row;
+    margin-top: -4px;
+    padding: 15px;
+    justify-content: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.navbar-link {
+    margin-right: 20px;
 }

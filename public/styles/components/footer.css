@@ -1,4 +1,39 @@
 footer {
     background-color: #272727;
     color: white;
+    bottom: 0;
+    width: 100%;
+}
+.footer-informations {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 15px;
+}
+
+.footer-hours, .footer-contact, .footer-accessibility {
+    margin-top: 20px;
+}
+
+.footer-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.footer-text {
+    font-size: 12px;
+    margin-bottom: -5px;
+}
+
+.footer-legalText {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-legal {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 10px;
 }
