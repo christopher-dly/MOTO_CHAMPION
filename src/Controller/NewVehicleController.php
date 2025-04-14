@@ -68,7 +68,7 @@ class NewVehicleController extends AbstractController
             }
     
             return $this->render('admin/new_vehicle_add.html.twig', [
-                'form' => $form->createView(),
+                'add_new_vehicle_form' => $form->createView(),
             ]);
         }
     }

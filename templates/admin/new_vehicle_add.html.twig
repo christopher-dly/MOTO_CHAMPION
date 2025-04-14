@@ -2,33 +2,237 @@
 
 {% block main %}
     <h1>(admin)AJOUTEZ UN VÉHICULE NEUF</h1>
-<div>
-{{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.Information) }}
-    {{ form_row(form.Engine) }}
-    {{ form_row(form.Transmission) }}
-    {{ form_row(form.Dimension) }}
-    {{ form_row(form.CyclePart) }}
-
-    <div id="vehicle_images" data-prototype="{{ form_widget(form.newVehicleImages.vars.prototype)|e('html_attr') }}">
-        {% for imageForm in form.newVehicleImages %}
-            <div class="image-entry">
-                {{ form_row(imageForm.image) }}
+    <div>
+    {{ form_start(add_new_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+        <div>
+            <p>Nom du véhicule :</p>
+            {{ form_widget(add_new_vehicle_form.name) }}
+            {{ form_errors(add_new_vehicle_form.name) }}
+        </div>
+        <div>
+            <h3>Informations</h3>
+            <div>
+                <p>Marque :</p>
+                {{ form_widget(add_new_vehicle_form.Information.brand) }}
+                {{ form_errors(add_new_vehicle_form.Information.brand) }}
             </div>
-        {% endfor %}
+            <div>
+                <p>Modèle :</p>
+                {{ form_widget(add_new_vehicle_form.Information.model) }}
+                {{ form_errors(add_new_vehicle_form.Information.model) }}
+            </div>
+            <div>
+                <p>Catégorie :</p>
+                {{ form_widget(add_new_vehicle_form.Information.category) }}
+                {{ form_errors(add_new_vehicle_form.Information.category) }}
+            </div>
+            <div>
+                <p>Cylindrée (commercial):</p>
+                {{ form_widget(add_new_vehicle_form.Information.cylinders) }}
+                {{ form_errors(add_new_vehicle_form.Information.cylinders) }}
+            </div>
+            <div>
+                <p>Prix :</p>
+                {{ form_widget(add_new_vehicle_form.Information.price) }}
+                {{ form_errors(add_new_vehicle_form.Information.price) }}
+            </div>
+            <div>
+                <p>Temps de garantie :</p>
+                {{ form_widget(add_new_vehicle_form.Information.warrantyTime) }}
+                {{ form_errors(add_new_vehicle_form.Information.warrantyTime) }}
+            </div>
+            <div>
+                <p>Disponible à l'éssaie :</p>
+                {{ form_widget(add_new_vehicle_form.Information.availableForTrial) }}
+                {{ form_errors(add_new_vehicle_form.Information.availableForTrial) }}
+            </div>
+            <div>
+                <p>Permis :</p>
+                {{ form_widget(add_new_vehicle_form.Information.license) }}
+                {{ form_errors(add_new_vehicle_form.Information.license) }}
+            </div>
+        </div>
+        <div>
+            <h3>Moteur</h3>
+            <div>
+                <p>Type :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.type) }}
+                {{ form_errors(add_new_vehicle_form.Engine.type) }}
+            </div>
+            <div>
+                <p>Cylindrée (réelle):</p>
+                {{ form_widget(add_new_vehicle_form.Engine.cylinders) }}
+                {{ form_errors(add_new_vehicle_form.Engine.cylinders) }}
+            </div>
+            <div>
+                <p>Puissance annoncée :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.announcedPower) }}
+                {{ form_errors(add_new_vehicle_form.Engine.announcedPower) }}
+            </div>
+            <div>
+                <p>Couple annoncé :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.coupleAnnounced) }}
+                {{ form_errors(add_new_vehicle_form.Engine.coupleAnnounced) }}
+            </div>
+            <div>
+                <p>Alimentation :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.powerSupply) }}
+                {{ form_errors(add_new_vehicle_form.Engine.powerSupply) }}
+            </div>
+            <div>
+                <p>Consomation :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.consumption) }}
+                {{ form_errors(add_new_vehicle_form.Engine.consumption) }}
+            </div>
+            <div>
+                <p>Emmission de Co2 :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.co2Emissions) }}
+                {{ form_errors(add_new_vehicle_form.Engine.co2Emissions) }}
+            </div>
+        </div>
+        <div>
+            <h3>Transmission</h3>
+            <div>
+                <p>Transmission finale :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.finalTransmission) }}
+                {{ form_errors(add_new_vehicle_form.Transmission.finalTransmission) }}
+            </div>
+            <div>
+                <p>Embrayage :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.clutch) }}
+                {{ form_errors(add_new_vehicle_form.Transmission.clutch) }}
+            </div>
+            <div>
+                <p>Commande :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.command) }}
+                {{ form_errors(add_new_vehicle_form.Transmission.command) }}
+            </div>
+            <div>
+                <p>Boite de vitesse :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.gearbox) }}
+                {{ form_errors(add_new_vehicle_form.Transmission.gearbox) }}
+            </div>
+        </div>
+        <div>
+            <h3>Dimension</h3>
+            <div>
+                <p>Longueur X Largeur X Hauteur :</p>
+                <div>
+                    {{ form_widget(add_new_vehicle_form.Dimension.length) }}
+                    {{ form_errors(add_new_vehicle_form.Dimension.length) }}
+                </div>
+                <div>
+                    {{ form_widget(add_new_vehicle_form.Dimension.width) }}
+                    {{ form_errors(add_new_vehicle_form.Dimension.width) }}
+                </div>
+                <div>
+                    {{ form_widget(add_new_vehicle_form.Dimension.height) }}
+                    {{ form_errors(add_new_vehicle_form.Dimension.height) }}
+                </div>
+            </div>
+            <div>
+                <p>Hauteur de selle :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.saddleHeight) }}
+                {{ form_errors(add_new_vehicle_form.Dimension.saddleHeight) }}
+            </div>
+            <div>
+                <p>Garde au sol :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.groundClearance) }}
+                {{ form_errors(add_new_vehicle_form.Dimension.groundClearance) }}
+            </div>
+            <div>
+                <p>Carburant :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.gas) }}
+                {{ form_errors(add_new_vehicle_form.Dimension.gas) }}
+            </div>
+            <div>
+                <p>Huile :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.oil) }}
+                {{ form_errors(add_new_vehicle_form.Dimension.oil) }}
+            </div>
+            <div>
+                <p>Poids :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.weight) }}
+                {{ form_errors(add_new_vehicle_form.Dimension.weight) }}
+            </div>
+        </div>
+        <div>
+            <h3>Partie cycle</h3>
+            <div>
+                <p>Angle de chasse :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.casterAngle) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.casterAngle) }}
+            </div>
+            <div>
+                <p>Chasse :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.caster) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.caster) }}
+            </div>
+            <div>
+                <p>Empattement :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.wheelbase) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.wheelbase) }}
+            </div>
+            <div>
+                <p>Jante :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rim) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.rim) }}
+            </div>
+            <div>
+                <p>Cadre :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frame) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.frame) }}
+            </div>
+            <div>
+                <p>Suspension avant :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frontSuspension) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.frontSuspension) }}
+            </div>
+            <div>
+                <p>Suspension arrière :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rearSuspension) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.rearSuspension) }}
+            </div>
+            <div>
+                <p>Frein avant :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frontBrake) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.frontBrake) }}
+            </div>
+            <div>
+                <p>Frein arrière :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rearBrake) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.rearBrake) }}
+            </div>
+            <div>
+                <p>Roue avant :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frontWheel) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.frontWheel) }}
+            </div>
+            <div>
+                <p>Roue arrière :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rearWheel) }}
+                {{ form_errors(add_new_vehicle_form.CyclePart.rearWheel) }}
+            </div>
+        </div>
+
+        <div id="vehicle_images" data-prototype="{{ form_widget(add_new_vehicle_form.newVehicleImages.vars.prototype)|e('html_attr') }}">
+            {% for add_new_vehicle_imageForm in add_new_vehicle_form.newVehicleImages %}
+                <div class="image-entry">
+                    {{ form_row(add_new_vehicle_imageForm.image) }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="button" id="add_new_vehicle_image">Ajouter une image</button>
+
+        {{ form_row(add_new_vehicle_form.submit) }}
+    {{ form_end(add_new_vehicle_form) }}
+
     </div>
-
-    <button type="button" id="add_image">Ajouter une image</button>
-
-    {{ form_row(form.submit) }}
-{{ form_end(form) }}
-
-</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const container = document.querySelector('#vehicle_images');
-        const addButton = document.querySelector('#add_image');
+        const addButton = document.querySelector('#add_new_vehicle_image');
         let index = container.querySelectorAll('.image-entry').length;
 
         addButton.addEventListener('click', function () {
