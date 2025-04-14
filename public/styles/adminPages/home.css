@@ -1,0 +1,12 @@
+.admin-menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-menu-card {
+    margin: 10px;
+    border: solid 1px;
+    border-color: black;
+    text-decoration: none;
+    text-align: center;
+}

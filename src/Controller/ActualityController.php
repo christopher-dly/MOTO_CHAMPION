@@ -69,7 +69,7 @@ class ActualityController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/actuality/{id}/supprimer', name: 'actuality_delete', methods: ['POST'])]
+    #[Route('/admin/actuality/{id}/supprimer', name: 'Actuality_delete', methods: ['POST'])]
     public function delete(Request $request, Actuality $article, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {

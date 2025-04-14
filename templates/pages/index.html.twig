@@ -1,5 +1,69 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+    <div class="carousel-container">
+        <div class="carousel-slide" id="carousel-slide">
+            {% for actuality in actualitys %}
+                <div class="carousel-item">
+                    <div class='actuality-img'>
+                        {% if actuality.image %}
+                            <img src="{{ asset('uploads/' ~ actuality.image) }}" alt="{{ actuality.title }}">
+                        {% endif %}
+                    </div>
+                    <div class='actuality-content'>
+                        <h2>{{ actuality.title }}</h2>
+                        <p>{{ actuality.content|slice(0, 200) ~ '...' }}</p>
+                        <p><em>{{ actuality.date|date('d/m/Y H:i') }}</em></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination" id="carousel-pagination"></div>
+    </div>
 
+
+
+    <script>
+        const slideContainer = document.getElementById('carousel-slide');
+        const items = slideContainer.querySelectorAll('.carousel-item');
+        const pagination = document.getElementById('carousel-pagination');
+        const total = items.length;
+        let current = 0;
+        let interval = null;
+
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('span');
+            dot.dataset.index = i;
+            if (i === 0) dot.classList.add('active');
+            pagination.appendChild(dot);
+        }
+
+        const dots = pagination.querySelectorAll('span');
+
+        function goToSlide(index) {
+            current = index;
+            slideContainer.style.transform = `translateX(-${100 * index}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            current = (current + 1) % total;
+            goToSlide(current);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(interval);
+                goToSlide(+dot.dataset.index);
+                startAutoSlide();
+            });
+        });
+
+        function startAutoSlide() {
+            interval = setInterval(nextSlide, 5000);
+        }
+
+        startAutoSlide();
+    </script>
 {% endblock %}

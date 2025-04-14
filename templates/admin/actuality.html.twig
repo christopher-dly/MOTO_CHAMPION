@@ -2,7 +2,7 @@
 
 {% block main %}
     <h1>(admin) ACTUALITES</h1>
-
+    {# <a href="{{ path('Admin') }}">Liste des actus</a> #}
     <a href="{{ path('AdminActualityAdd') }}">Ajouter une nouvelle actu</a> 
 
     {% for actuality in actualitys %}
@@ -14,7 +14,7 @@
         {% endif %}
         <p><em>Publié le {{ actuality.date|date('d/m/Y H:i') }}</em></p>
     </div>
-    <form method="post" action="{{ path('actuality_delete', {id: actuality.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');">
+    <form method="post" action="{{ path('Actuality_delete', {id: actuality.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
     <button type="submit">🗑 Supprimer</button>
         <hr>

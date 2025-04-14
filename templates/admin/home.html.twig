@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    <div class='admin-menu'>
+        <a class='admin-menu-card'>
+            <h2>ADMINISTRATION</h2>
+            <p>Gérer les administrateurs</p>
+        </a>
+        <a class='admin-menu-card' href="{{ path('AdminActuality') }}">
+            <h2>ACTUALITES</h2>
+            <p>Créer ou supprimer des actualités</p>
+        </a>
+        <a class='admin-menu-card' href="{{ path('AdminNewVehicle') }}">
+            <h2>VEHICULES NEUFS</h2>
+            <p>Créer / Modifier / Supprimer <br>
+            des véhicules neufs</p>
+        </a>
+        <a class='admin-menu-card'>
+            <h2>VEHICULES D'OCCASIONS</h2>
+            <p>Créer / Modifier / Supprimer <br>
+            des véhicules d'occasions</p>
+        </a>
+        <a class='admin-menu-card'>
+            <h2>CONTACT</h2>
+            <p>Gérer les messages des utilisateurs</p>
+        </a>
+    </div>
+{% endblock %}
