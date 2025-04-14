@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    <h1>(admin) ACTUALITES</h1>
+
+    <a href="{{ path('AdminActualityAdd') }}">Ajouter une nouvelle actu</a> 
+
+    {% for actuality in actualitys %}
+    <div class="actuality">
+        <h2>{{ actuality.title }}</h2>
+        <p>{{ actuality.content|raw }}</p>
+        {% if actuality.image %}
+            <img src="{{ asset('uploads/' ~ actuality.image) }}" alt="{{ actuality.title }}" style="max-width: 300px;">
+        {% endif %}
+        <p><em>Publié le {{ actuality.date|date('d/m/Y H:i') }}</em></p>
+    </div>
+    <form method="post" action="{{ path('actuality_delete', {id: actuality.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
+    <button type="submit">🗑 Supprimer</button>
+        <hr>
+</form>
+
+{% else %}
+    <p>Aucune actualité trouvée.</p>
+{% endfor %}
+
+{% endblock %}

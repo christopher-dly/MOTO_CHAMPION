@@ -17,7 +17,6 @@ class NewActualityForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
             ->add('title', TextType::class)
             ->add('content', TextType::class)
             ->add('image', FileType::class, [

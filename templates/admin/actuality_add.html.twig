@@ -1,0 +1,30 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    <h1>(admin) NOUVELLE ACTU</h1>
+    {{ form_start(actualityForm, {'attr': {'enctype': 'multipart/form-data'}}) }}
+        <div>
+            {{ form_label(actualityForm.title) }}
+            {{ form_widget(actualityForm.title) }}
+            {{ form_errors(actualityForm.title) }}
+        </div>
+
+        <div>
+            {{ form_label(actualityForm.content) }}
+            {{ form_widget(actualityForm.content) }}
+            {{ form_errors(actualityForm.content) }}
+        </div>
+
+        <div>
+            {{ form_label(actualityForm.image) }}
+            {{ form_widget(actualityForm.image) }}
+            {{ form_errors(actualityForm.image) }}
+        </div>
+
+        <div>
+            {{ form_widget(actualityForm.submit) }}
+        </div>
+
+    {{ form_end(actualityForm) }}
+
+{% endblock %}
