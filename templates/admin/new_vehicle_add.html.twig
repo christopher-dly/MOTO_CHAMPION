@@ -1,216 +1,216 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    <h1>(admin)AJOUTEZ UN VÉHICULE NEUF</h1>
-    <div>
+    <h1 class='new_vehicle_add_title_page'>(admin)AJOUTEZ UN VÉHICULE NEUF</h1>
+    <div class="new_vehicle_add_form_container">
     {{ form_start(add_new_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
-        <div>
-            <p>Nom du véhicule :</p>
-            {{ form_widget(add_new_vehicle_form.name) }}
+        <div class='new_vehicle_add_form_section_namevhl'>
+            <h3 class='new_vehicle_add_form_section_title'>Nom du véhicule :</h3>
+            {{ form_widget(add_new_vehicle_form.name, {'attr': {'class': 'new_vehicle_add_input'}}) }}
             {{ form_errors(add_new_vehicle_form.name) }}
         </div>
-        <div>
-            <h3>Informations</h3>
-            <div>
-                <p>Marque :</p>
-                {{ form_widget(add_new_vehicle_form.Information.brand) }}
-                {{ form_errors(add_new_vehicle_form.Information.brand) }}
-            </div>
-            <div>
-                <p>Modèle :</p>
-                {{ form_widget(add_new_vehicle_form.Information.model) }}
-                {{ form_errors(add_new_vehicle_form.Information.model) }}
-            </div>
-            <div>
-                <p>Catégorie :</p>
-                {{ form_widget(add_new_vehicle_form.Information.category) }}
-                {{ form_errors(add_new_vehicle_form.Information.category) }}
-            </div>
-            <div>
-                <p>Cylindrée (commercial):</p>
-                {{ form_widget(add_new_vehicle_form.Information.cylinders) }}
-                {{ form_errors(add_new_vehicle_form.Information.cylinders) }}
-            </div>
-            <div>
-                <p>Prix :</p>
-                {{ form_widget(add_new_vehicle_form.Information.price) }}
-                {{ form_errors(add_new_vehicle_form.Information.price) }}
-            </div>
-            <div>
-                <p>Temps de garantie :</p>
-                {{ form_widget(add_new_vehicle_form.Information.warrantyTime) }}
-                {{ form_errors(add_new_vehicle_form.Information.warrantyTime) }}
-            </div>
-            <div>
-                <p>Disponible à l'éssaie :</p>
-                {{ form_widget(add_new_vehicle_form.Information.availableForTrial) }}
-                {{ form_errors(add_new_vehicle_form.Information.availableForTrial) }}
-            </div>
-            <div>
-                <p>Permis :</p>
-                {{ form_widget(add_new_vehicle_form.Information.license) }}
-                {{ form_errors(add_new_vehicle_form.Information.license) }}
-            </div>
+        <div class='new_vehicle_add_form_section'>
+            <h3 class='new_vehicle_add_form_section_title'>Informations</h3>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Marque :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.brand, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.brand) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Modèle :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.model, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.model) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Catégorie :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.category, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.category) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Cylindrée (commercial):</p>
+                    {{ form_widget(add_new_vehicle_form.Information.cylinders, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.cylinders) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Prix :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.price, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.price) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Temps de garantie :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.warrantyTime, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.warrantyTime) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Disponible à l'éssaie :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.availableForTrial, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.availableForTrial) }}
+                </div>
+                <div class='new_vehicle_add_input_container'>
+                    <p class='new_vehicle_add_input_description'>Permis :</p>
+                    {{ form_widget(add_new_vehicle_form.Information.license, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                    {{ form_errors(add_new_vehicle_form.Information.license) }}
+                </div>
         </div>
-        <div>
-            <h3>Moteur</h3>
-            <div>
-                <p>Type :</p>
-                {{ form_widget(add_new_vehicle_form.Engine.type) }}
+        <div class='new_vehicle_add_form_section'>
+            <h3 class='new_vehicle_add_form_section_title'>Moteur</h3>
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Type :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.type, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.type) }}
             </div>
-            <div>
-                <p>Cylindrée (réelle):</p>
-                {{ form_widget(add_new_vehicle_form.Engine.cylinders) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Cylindrée (réelle):</p>
+                {{ form_widget(add_new_vehicle_form.Engine.cylinders, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.cylinders) }}
             </div>
-            <div>
-                <p>Puissance annoncée :</p>
-                {{ form_widget(add_new_vehicle_form.Engine.announcedPower) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Puissance annoncée :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.announcedPower, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.announcedPower) }}
             </div>
-            <div>
-                <p>Couple annoncé :</p>
-                {{ form_widget(add_new_vehicle_form.Engine.coupleAnnounced) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Couple annoncé :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.coupleAnnounced, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.coupleAnnounced) }}
             </div>
-            <div>
-                <p>Alimentation :</p>
-                {{ form_widget(add_new_vehicle_form.Engine.powerSupply) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Alimentation :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.powerSupply, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.powerSupply) }}
             </div>
-            <div>
-                <p>Consomation :</p>
-                {{ form_widget(add_new_vehicle_form.Engine.consumption) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Consomation :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.consumption, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.consumption) }}
             </div>
-            <div>
-                <p>Emmission de Co2 :</p>
-                {{ form_widget(add_new_vehicle_form.Engine.co2Emissions) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Emmission de Co2 :</p>
+                {{ form_widget(add_new_vehicle_form.Engine.co2Emissions, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Engine.co2Emissions) }}
             </div>
         </div>
-        <div>
-            <h3>Transmission</h3>
-            <div>
-                <p>Transmission finale :</p>
-                {{ form_widget(add_new_vehicle_form.Transmission.finalTransmission) }}
+        <div class='new_vehicle_add_form_section'>
+            <h3 class='new_vehicle_add_form_section_title'>Transmission</h3>
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Transmission finale :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.finalTransmission, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Transmission.finalTransmission) }}
             </div>
-            <div>
-                <p>Embrayage :</p>
-                {{ form_widget(add_new_vehicle_form.Transmission.clutch) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Embrayage :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.clutch, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Transmission.clutch) }}
             </div>
-            <div>
-                <p>Commande :</p>
-                {{ form_widget(add_new_vehicle_form.Transmission.command) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Commande :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.command, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Transmission.command) }}
             </div>
-            <div>
-                <p>Boite de vitesse :</p>
-                {{ form_widget(add_new_vehicle_form.Transmission.gearbox) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Boite de vitesse :</p>
+                {{ form_widget(add_new_vehicle_form.Transmission.gearbox, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Transmission.gearbox) }}
             </div>
         </div>
-        <div>
-            <h3>Dimension</h3>
-            <div>
-                <p>Longueur X Largeur X Hauteur :</p>
+        <div class='new_vehicle_add_form_section'>
+            <h3 class='new_vehicle_add_form_section_title'>Dimension</h3>
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Longueur X Largeur X Hauteur :</p>
                 <div>
-                    {{ form_widget(add_new_vehicle_form.Dimension.length) }}
+                    {{ form_widget(add_new_vehicle_form.Dimension.length, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                     {{ form_errors(add_new_vehicle_form.Dimension.length) }}
                 </div>
                 <div>
-                    {{ form_widget(add_new_vehicle_form.Dimension.width) }}
+                    {{ form_widget(add_new_vehicle_form.Dimension.width, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                     {{ form_errors(add_new_vehicle_form.Dimension.width) }}
                 </div>
                 <div>
-                    {{ form_widget(add_new_vehicle_form.Dimension.height) }}
+                    {{ form_widget(add_new_vehicle_form.Dimension.height, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                     {{ form_errors(add_new_vehicle_form.Dimension.height) }}
                 </div>
             </div>
-            <div>
-                <p>Hauteur de selle :</p>
-                {{ form_widget(add_new_vehicle_form.Dimension.saddleHeight) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Hauteur de selle :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.saddleHeight, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Dimension.saddleHeight) }}
             </div>
-            <div>
-                <p>Garde au sol :</p>
-                {{ form_widget(add_new_vehicle_form.Dimension.groundClearance) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Garde au sol :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.groundClearance, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Dimension.groundClearance) }}
             </div>
-            <div>
-                <p>Carburant :</p>
-                {{ form_widget(add_new_vehicle_form.Dimension.gas) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Carburant :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.gas, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Dimension.gas) }}
             </div>
-            <div>
-                <p>Huile :</p>
-                {{ form_widget(add_new_vehicle_form.Dimension.oil) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Huile :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.oil, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Dimension.oil) }}
             </div>
-            <div>
-                <p>Poids :</p>
-                {{ form_widget(add_new_vehicle_form.Dimension.weight) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Poids :</p>
+                {{ form_widget(add_new_vehicle_form.Dimension.weight, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Dimension.weight) }}
             </div>
         </div>
-        <div>
-            <h3>Partie cycle</h3>
-            <div>
-                <p>Angle de chasse :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.casterAngle) }}
+        <div class='new_vehicle_add_form_section'>
+            <h3 class='new_vehicle_add_form_section_title'>Partie cycle</h3>
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Angle de chasse :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.casterAngle, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.casterAngle) }}
             </div>
-            <div>
-                <p>Chasse :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.caster) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Chasse :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.caster, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.caster) }}
             </div>
-            <div>
-                <p>Empattement :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.wheelbase) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Empattement :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.wheelbase, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.wheelbase) }}
             </div>
-            <div>
-                <p>Jante :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.rim) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Jante :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rim, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.rim) }}
             </div>
-            <div>
-                <p>Cadre :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.frame) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Cadre :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frame, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.frame) }}
             </div>
-            <div>
-                <p>Suspension avant :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.frontSuspension) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Suspension avant :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frontSuspension, {'attr': {'class': 'new_vehicle_add_input'}}) }}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.frontSuspension) }}
             </div>
-            <div>
-                <p>Suspension arrière :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.rearSuspension) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Suspension arrière :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rearSuspension, {'attr': {'class': 'new_vehicle_add_input'}}) }} }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.rearSuspension) }}
             </div>
-            <div>
-                <p>Frein avant :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.frontBrake) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Frein avant :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frontBrake, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.frontBrake) }}
             </div>
-            <div>
-                <p>Frein arrière :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.rearBrake) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Frein arrière :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rearBrake, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.rearBrake) }}
             </div>
-            <div>
-                <p>Roue avant :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.frontWheel) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Roue avant :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.frontWheel, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.frontWheel) }}
             </div>
-            <div>
-                <p>Roue arrière :</p>
-                {{ form_widget(add_new_vehicle_form.CyclePart.rearWheel) }}
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Roue arrière :</p>
+                {{ form_widget(add_new_vehicle_form.CyclePart.rearWheel, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.CyclePart.rearWheel) }}
             </div>
         </div>
@@ -222,7 +222,6 @@
                 </div>
             {% endfor %}
         </div>
-
         <button type="button" id="add_new_vehicle_image">Ajouter une image</button>
 
         {{ form_row(add_new_vehicle_form.submit) }}
