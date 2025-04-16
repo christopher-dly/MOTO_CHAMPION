@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    margin-bottom: 50px;
     background-color: rgb(218, 218, 218);
     margin-left: 100px;
     margin-right: 100px;
@@ -30,6 +31,9 @@
 .new_vehicle_add_input_container {
     display: flex;
     flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .new_vehicle_add_input {
@@ -38,4 +42,18 @@
     height: 30px;
     width: 300px;
     margin-left: 15px;
+}
+
+.new_vehicle_add_form_little_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.new_vehicle_add_form_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
