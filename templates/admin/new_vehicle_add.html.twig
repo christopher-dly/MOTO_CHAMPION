@@ -131,15 +131,15 @@
                 <div class='new_vehicle_add_input_container'>
                     <p class='new_vehicle_add_input_description'>Longueur X Largeur X Hauteur :</p>
                     <div>
-                        {{ form_widget(add_new_vehicle_form.Dimension.length, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                        {{ form_widget(add_new_vehicle_form.Dimension.length, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
                         {{ form_errors(add_new_vehicle_form.Dimension.length) }}
                     </div>
                     <div>
-                        {{ form_widget(add_new_vehicle_form.Dimension.width, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                        {{ form_widget(add_new_vehicle_form.Dimension.width, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
                         {{ form_errors(add_new_vehicle_form.Dimension.width) }}
                     </div>
                     <div>
-                        {{ form_widget(add_new_vehicle_form.Dimension.height, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                        {{ form_widget(add_new_vehicle_form.Dimension.height, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
                         {{ form_errors(add_new_vehicle_form.Dimension.height) }}
                     </div>
                 </div>

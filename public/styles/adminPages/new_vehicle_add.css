@@ -31,9 +31,7 @@
 .new_vehicle_add_input_container {
     display: flex;
     flex-direction: row;
-    text-align: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 .new_vehicle_add_input {
@@ -56,4 +54,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.new_vehicle_add_input_dimension{
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    margin-left: 15px;
+    margin-right: 15px;
 }

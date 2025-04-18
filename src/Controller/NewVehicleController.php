@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\NewVehicle;
 use App\Form\NewVehicleForm;
+use App\Repository\InformationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -14,9 +15,21 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class NewVehicleController extends AbstractController
 {
     #[Route('/admin/new-vehicle', name: 'AdminNewVehicle', methods: ['GET','POST'])]
-    public function adminNewVehicle()
+    public function adminNewVehicle(InformationRepository $informationRepository)
     {
-        return $this->render('admin/new_vehicle.html.twig');
+        $newVehicleTrails = $informationRepository->findBy(['category' => 'Trail']);  
+        $newVehicleSports = $informationRepository->findBy(['category' => 'Sport / GT']);
+        $newVehicleRoadsters = $informationRepository->findBy(['category' => 'Roadster']);
+        $newVehicleScooters = $informationRepository->findBy(['category' => 'Scooter']);
+        $newVehicleMoto125s = $informationRepository->findBy(['category' => 'Moto 125']);
+
+        return $this->render('admin/new_vehicle.html.twig', [
+            'newVehicleTrails' => $newVehicleTrails,  
+            'newVehicleSports' => $newVehicleSports,
+            'newVehicleRoadsters' => $newVehicleRoadsters,
+            'newVehicleScooters' => $newVehicleScooters,
+            'newVehicleMoto125s' => $newVehicleMoto125s,
+        ]);
     }
 
     #[Route('/admin/new-vehicle/add', name: 'AdminNewVehicleAdd', methods: ['GET','POST'])]
@@ -71,5 +84,23 @@ class NewVehicleController extends AbstractController
                 'add_new_vehicle_form' => $form->createView(),
             ]);
         }
+
+    #[Route('/admin/new-vehicle/edit/{id}', name: 'AdminNewVehicleEdit', methods: ['GET','POST'])]
+    function adminNewVehicleEdit(Request $request, EntityManagerInterface $entityManager, NewVehicle $newVehicle)
+    {
+        $form = $this->createForm(NewVehicleForm::class, $newVehicle);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('AdminNewVehicle');
+        }
+
+        return $this->render('admin/new_vehicle_edit.html.twig', [
+            'edit_new_vehicle_form' => $form->createView(),
+        ]);
     }
+
+}
 

@@ -3,4 +3,137 @@
 {% block main %}
     <h1>(admin) VÉHICULES NEUFS</h1>
     <a href="{{ path('AdminNewVehicleAdd') }}">Ajouter un véhicule neuf</a>
+
+    <div>
+        <div>
+            <h3>Trail<h3>
+            {% for newVehicleTrail in newVehicleTrails %}
+                {% for newVehicle in newVehicleTrail.newVehicles %}
+                <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
+                    <div class='adminNewVehicleTitleContainer'>
+                        <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
+                    </div>
+                    <div class='adminNewVehicleImageContainer'>
+                        {% set images = newVehicle.newVehicleImages %}
+                            {% if images|length > 0 %}
+                                <img class='adminNewVehicleImage'
+                                    src="{{ asset('uploads/' ~ images[0].image) }}"
+                                    alt="image du véhicule"
+                                    width="300" height="200">
+                            {% else %}
+                                <p>Pas d'image</p>
+                            {% endif %}
+                    </div>
+                    <div class='adminNewVehiclePriceContainer'>
+                        <p class='adminNewVehiclePrice'>{{ newVehicle.Information.price }} €</p>
+                    </div>
+                </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div>
+            <h3>Sport / GT<h3>
+            {% for newVehicleSport in newVehicleSports %}
+                {% for newVehicle in newVehicleSport.newVehicles %}
+                <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
+                    <div class='adminNewVehicleTitleContainer'>
+                        <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
+                    </div>
+                    <div class='adminNewVehicleImageContainer'>
+                        {% set images = newVehicle.newVehicleImages %}
+                            {% if images|length > 0 %}
+                                <img class='adminNewVehicleImage'
+                                    src="{{ asset('uploads/' ~ images[0].image) }}"
+                                    alt="image du véhicule"
+                                    width="300" height="200">
+                            {% else %}
+                                <p>Pas d'image</p>
+                            {% endif %}
+                    </div>
+                    <div class='adminNewVehiclePriceContainer'>
+                        <p class='adminNewVehiclePrice'>{{ newVehicle.Information.price }} €</p>
+                    </div>
+                </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div>
+            <h3>Roadster<h3>
+            {% for newVehicleRoadster in newVehicleRoadsters %}
+                {% for newVehicle in newVehicleRoadster.newVehicles %}
+                <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
+                    <div class='adminNewVehicleTitleContainer'>
+                        <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
+                    </div>
+                    <div class='adminNewVehicleImageContainer'>
+                        {% set images = newVehicle.newVehicleImages %}
+                            {% if images|length > 0 %}
+                                <img class='adminNewVehicleImage'
+                                    src="{{ asset('uploads/' ~ images[0].image) }}"
+                                    alt="image du véhicule"
+                                    width="300" height="200">
+                            {% else %}
+                                <p>Pas d'image</p>
+                            {% endif %}
+                    </div>
+                    <div class='adminNewVehiclePriceContainer'>
+                        <p class='adminNewVehiclePrice'>{{ newVehicle.Information.price }} €</p>
+                    </div>
+                </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div>
+            <h3>Scooter<h3>
+            {% for newVehicleScooter in newVehicleScooters %}
+                {% for newVehicle in newVehicleScooter.newVehicles %}
+                <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
+                    <div class='adminNewVehicleTitleContainer'>
+                        <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
+                    </div>
+                    <div class='adminNewVehicleImageContainer'>
+                        {% set images = newVehicle.newVehicleImages %}
+                            {% if images|length > 0 %}
+                                <img class='adminNewVehicleImage'
+                                    src="{{ asset('uploads/' ~ images[0].image) }}"
+                                    alt="image du véhicule"
+                                    width="300" height="200">
+                            {% else %}
+                                <p>Pas d'image</p>
+                            {% endif %}
+                    </div>
+                    <div class='adminNewVehiclePriceContainer'>
+                        <p class='adminNewVehiclePrice'>{{ newVehicle.Information.price }} €</p>
+                    </div>
+                </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div>
+            <h3>Moto 125 cc<h3>
+            {% for newVehicleMoto125 in newVehicleMoto125s %}
+                {% for newVehicle in newVehicleMoto125.newVehicles %}
+                <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
+                    <div class='adminNewVehicleTitleContainer'>
+                        <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
+                    </div>
+                    <div class='adminNewVehicleImageContainer'>
+                        {% set images = newVehicle.newVehicleImages %}
+                            {% if images|length > 0 %}
+                                <img class='adminNewVehicleImage'
+                                    src="{{ asset('uploads/' ~ images[0].image) }}"
+                                    alt="image du véhicule"
+                                    width="300" height="200">
+                            {% else %}
+                                <p>Pas d'image</p>
+                            {% endif %}
+                    </div>
+                    <div class='adminNewVehiclePriceContainer'>
+                        <p class='adminNewVehiclePrice'>{{ newVehicle.Information.price }} €</p>
+                    </div>
+                </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
