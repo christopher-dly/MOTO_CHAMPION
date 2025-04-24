@@ -28,6 +28,7 @@ class NewVehicleForm extends AbstractType
                 'allow_delete' => true, // Permet de supprimer des images
                 'by_reference' => false, // Assure que les entités sont bien liées
                 'prototype' => true, // Crée une version prototype de l'image
+                'label' => false,
             ])
             ->add('submit', SubmitType::class);
     }

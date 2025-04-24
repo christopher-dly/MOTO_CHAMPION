@@ -218,7 +218,8 @@
         <div id="vehicle_images" data-prototype="{{ form_widget(add_new_vehicle_form.newVehicleImages.vars.prototype)|e('html_attr') }}">
             {% for add_new_vehicle_imageForm in add_new_vehicle_form.newVehicleImages %}
                 <div class="image-entry">
-                    {{ form_row(add_new_vehicle_imageForm.image) }}
+                    {{ form_widget(add_new_vehicle_form.add_new_vehicle_imageForm.image, {'label': false}) }}
+                    {{ form_errors(add_new_vehicle_form.add_new_vehicle_imageForm.image) }}
                 </div>
             {% endfor %}
         </div>
