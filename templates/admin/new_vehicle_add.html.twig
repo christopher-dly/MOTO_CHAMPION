@@ -115,18 +115,18 @@
         </div>
         <h3 class='new_vehicle_add_form_section_title'>Dimension</h3>
         <div class='new_vehicle_add_form_section'>
-            <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Longueur X Largeur X Hauteur :</p>
-                <div>
+           <div class="new_vehicle_add_input_container">
+                <p class="new_vehicle_add_input_description">Longueur x Largeur x Hauteur :</p>
+                <div class="dimension-fields">
                     {{ form_widget(add_new_vehicle_form.Dimension.length, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
-                    {{ form_errors(add_new_vehicle_form.Dimension.length) }}
-                </div>
-                <div>
+                    <span class="dimension-separator">x</span>
                     {{ form_widget(add_new_vehicle_form.Dimension.width, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
-                    {{ form_errors(add_new_vehicle_form.Dimension.width) }}
-                </div>
-                <div>
+                    <span class="dimension-separator">x</span>
                     {{ form_widget(add_new_vehicle_form.Dimension.height, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
+                </div>
+                <div class="dimension-errors">
+                    {{ form_errors(add_new_vehicle_form.Dimension.length) }}
+                    {{ form_errors(add_new_vehicle_form.Dimension.width) }}
                     {{ form_errors(add_new_vehicle_form.Dimension.height) }}
                 </div>
             </div>

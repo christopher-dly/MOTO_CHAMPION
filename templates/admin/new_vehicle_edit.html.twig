@@ -225,6 +225,20 @@
         </div>
         <button type="button" id="add_new_vehicle_image">Ajouter une image</button>
 
+        <div class='show_vehicle_images'>
+            {% for image in vehicleImages %}
+                <div class="image-block">
+                    <img src="{{ asset('uploads/' ~ image.image) }}" alt="Vehicle Image" width="150">
+                    <form method="post" action="{{ path('AdminDeleteVehicleImage', {id: image.id}) }}" onsubmit="return confirm('Supprimer cette image ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </div>
+            {% else %}
+                <p>Aucune image pour ce véhicule.</p>
+            {% endfor %}
+        </div>
+
         {{ form_row(add_new_vehicle_form.submit) }}
     {{ form_end(add_new_vehicle_form) }}
 
@@ -249,3 +263,8 @@
 </script>
 
 {% endblock %}
+
+
+
+
+
