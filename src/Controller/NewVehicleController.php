@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\NewVehicle;
 use App\Entity\NewVehicleImage;
+use App\Form\EditNewVehicleForm;
 use App\Form\NewVehicleForm;
 use App\Repository\InformationRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -86,73 +87,23 @@ class NewVehicleController extends AbstractController
             ]);
         }
 
-    #[Route('/admin/new-vehicle/edit/{id}', name: 'AdminNewVehicleEdit', methods: ['GET','POST'])]
-    function adminNewVehicleEdit(Request $request, EntityManagerInterface $entityManager, NewVehicle $newVehicle, SluggerInterface $slugger)
-    {
-        $form = $this->createForm(NewVehicleForm::class, $newVehicle);
-        $form->handleRequest($request);
+        #[Route('/admin/new-vehicle/edit/{id}', name: 'AdminNewVehicleEdit', methods: ['GET','POST'])]
+        function adminNewVehicleEdit(Request $request, EntityManagerInterface $entityManager, NewVehicle $newVehicle, SluggerInterface $slugger)
+        {
+            $form = $this->createForm(EditNewVehicleForm::class, $newVehicle);
+            $form->handleRequest($request);
+            // dump($form->isSubmitted(), $form->isValid());
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            foreach ($form->get('newVehicleImages') as $key => $imageForm) {
-                /** @var UploadedFile|null $uploadedFile */
-                $uploadedFile = $imageForm->get('image')->getData();
         
-                // Vérifie s'il y a un fichier
-                if ($uploadedFile) {
-                    $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-                    $safeFilename = $slugger->slug($originalFilename);
-                    $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager->flush();
         
-                    try {
-                        $uploadedFile->move(
-                            $this->getParameter('images_directory'),
-                            $newFilename
-                        );
-                    } catch (FileException $e) {
-                        $this->addFlash('error', 'Erreur lors de l\'upload');
-                        continue;
-                    }
-        
-                    // Maintenant on récupère l'entité pour lui setter le nom de fichier
-                    $imageEntity = $newVehicle->getNewVehicleImages()[$key] ?? null;
-        
-                    if ($imageEntity) {
-                        $imageEntity->setImage($newFilename);
-                        $imageEntity->setNewVehicle($newVehicle);
-                    }
-                } else {
-                    // Si aucun fichier, on évite de persister une image vide
-                    $newVehicle->getNewVehicleImages()->remove($key);
-                }
+                return $this->redirectToRoute('AdminNewVehicle');
             }
-
-            $entityManager->flush();
-
-            return $this->redirectToRoute('AdminNewVehicle');
+        
+            return $this->render('admin/new_vehicle_edit.html.twig', [
+                'edit_new_vehicle_form' => $form->createView(),
+            ]);
         }
-
-        return $this->render('admin/new_vehicle_edit.html.twig', [
-            'add_new_vehicle_form' => $form->createView(),
-            'vehicleImages' => $newVehicle->getNewVehicleImages(),
-        ]);
-    }
-
-    #[Route('/admin/new-vehicle-image/delete/{id}', name: 'AdminDeleteVehicleImage', methods: ['POST'])]
-    public function deleteVehicleImage(Request $request, NewVehicleImage $newVehicleImage, EntityManagerInterface $entityManager)
-    {
-        if ($this->isCsrfTokenValid('delete' . $newVehicleImage->getId(), $request->request->get('_token'))) {
-            $imagePath = $this->getParameter('kernel.project_dir') . '/public/uploads/' . $newVehicleImage->getImage();
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
-
-            $entityManager->remove($newVehicleImage);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('AdminNewVehicle');
-    }
-
 }
 

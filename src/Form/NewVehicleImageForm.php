@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\NewVehicleImage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -18,7 +17,6 @@ class NewVehicleImageForm extends AbstractType
             ->add('image', FileType::class, [
                 'required' => false,
                 'multiple' => false,
-                'mapped' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '5M',

@@ -2,7 +2,7 @@
 @import url(components/footer.css);
 @import url(userPages/index.css);
 @import url(adminPages/home.css);
-@import url(adminPages/new_vehicle_add.css);
+@import url(adminPages/new_vehicle_add_edit.css);
 
 body {
     margin: 0;
