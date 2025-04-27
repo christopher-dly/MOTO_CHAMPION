@@ -8,7 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class UsedVehicleForm extends AbstractType
 {
@@ -30,14 +29,6 @@ class UsedVehicleForm extends AbstractType
             ->add('taxPower', TextType::class)
             ->add('power', TextType::class)
             ->add('statue', TextType::class)
-            ->add('UsedVehicleImages', CollectionType::class, [
-                'entry_type' => UsedVehicleImageForm::class, // Le formulaire pour gérer chaque image
-                'allow_add' => true, // Permet d'ajouter des images
-                'allow_delete' => true, // Permet de supprimer des images
-                'by_reference' => false, // Assure que les entités sont bien liées
-                'prototype' => true, // Crée une version prototype de l'image
-                'label' => false,
-            ])
             ->add('submit', SubmitType::class);
     }
     
