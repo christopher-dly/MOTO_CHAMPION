@@ -30,7 +30,7 @@ class UsedVehicleForm extends AbstractType
             ->add('taxPower', TextType::class)
             ->add('power', TextType::class)
             ->add('statue', TextType::class)
-            ->add('UsedVehicleImages', CollectionType::class, [
+            ->add('usedVehicleImages', CollectionType::class, [
                 'entry_type' => UsedVehicleImageForm::class, // Le formulaire pour gérer chaque image
                 'allow_add' => true, // Permet d'ajouter des images
                 'allow_delete' => true, // Permet de supprimer des images

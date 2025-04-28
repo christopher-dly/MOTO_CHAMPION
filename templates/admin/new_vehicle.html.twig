@@ -18,7 +18,7 @@
                             {% if images|length > 0 %}
                                 <img class='adminNewVehicleImage'
                                     src="{{ asset('uploads/' ~ images[0].image) }}"
-                                    alt="image du véhicule"
+                                    alt="image du véhicule {{ newVehicle.name }}"
                                     width="300" height="200">
                             {% else %}
                                 <p>Pas d'image</p>

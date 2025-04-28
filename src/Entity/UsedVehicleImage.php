@@ -18,8 +18,7 @@ class UsedVehicleImage
 
     #[ORM\ManyToOne(
         targetEntity: UsedVehicle::class,
-        inversedBy: "usedVehicleImages",
-        cascade: ["persist", "remove"]
+        inversedBy: "usedVehicleImages"
     )]
     #[ORM\JoinColumn(nullable: false)]
     private ?UsedVehicle $usedVehicle = null;

@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    <h1>(admin) VÉHICULES OCCASIONS</h1>
+    <a href="{{ path('AdminUsedVehicleAdd') }}">Ajouter un véhicule d'occasion</a>
+
+    <div>
+        {% for usedVehicle in usedVehicles %}
+            <a class='adminUsedVehicleCard' href='{{ path('AdminUsedVehicleEdit', {id: usedVehicle.id}) }}'>
+                <div class='adminUsedVehicleTitleContainer'>
+                    <p class='adminUsedVehicleTitle'>{{ usedVehicle.brand }} {{ usedVehicle.model }}</p>
+                </div>
+                <div class='adminUsedVehicleImageContainer'>
+                    {% set images = usedVehicle.usedVehicleImages %}
+                        {% if images|length > 0 %}
+                            <img class='adminUsedVehicleImage'
+                                src="{{ asset('uploads/' ~ images[0].image) }}"
+                                alt="image du véhicule {{ usedVehicle.brand }} {{ usedVehicle.model }}"
+                                width="300" height="200">
+                        {% else %}
+                            <p>Pas d'image</p>
+                        {% endif %}
+                </div>
+                <div class='adminUsedVehiclePriceContainer'>
+                    <p class='adminUsedVehiclePrice'>{{ usedVehicle.price }} €</p>
+                </div>
+            </a>
+        {% else %}
+            <p>Aucun véhicule d'occasion</p>
+        {% endfor %}
+    </div>
+{% endblock %}
