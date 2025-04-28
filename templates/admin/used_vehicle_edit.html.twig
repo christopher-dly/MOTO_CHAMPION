@@ -1,0 +1,90 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    <h1>(admin) AJOUTER UN VÉHICULE D'OCCASION</h1>
+    <div class="used_vehicle_edit_form_container">
+
+    {{ form_start(edit_used_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+        <div class='used_vehicle_edit_form_section'>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Marque :</p>
+                {{ form_widget(edit_used_vehicle_form.brand, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.brand) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Modèle :</p>
+                {{ form_widget(edit_used_vehicle_form.model, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.model) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Catégorie :</p>
+                {{ form_widget(edit_used_vehicle_form.category, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.category) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Cylindrée :</p>
+                {{ form_widget(edit_used_vehicle_form.cylinders, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.cylinders) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Prix :</p>
+                {{ form_widget(edit_used_vehicle_form.price, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.price) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Temps de garantie :</p>
+                {{ form_widget(edit_used_vehicle_form.warrantyTime, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.warrantyTime) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>description :</p>
+                {{ form_widget(edit_used_vehicle_form.description, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.description) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>disponible à l'éssaie :</p>
+                {{ form_widget(edit_used_vehicle_form.availableForTrial, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.availableForTrial) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Couleur :</p>
+                {{ form_widget(edit_used_vehicle_form.color, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.color) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Année d'immatriculation :</p>
+                {{ form_widget(edit_used_vehicle_form.year, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.year) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Kilométrages :</p>
+                {{ form_widget(edit_used_vehicle_form.kilometers, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.kilometers) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Crit'air :</p>
+                {{ form_widget(edit_used_vehicle_form.energyTax, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.energyTax) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Puissance fiscale :</p>
+                {{ form_widget(edit_used_vehicle_form.taxPower, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.taxPower) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Energie :</p>
+                {{ form_widget(edit_used_vehicle_form.power, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.power) }}
+            </div>
+            <div class='used_vehicle_edit_input_container'>
+                <p class='used_vehicle_edit_input_description'>Statue :</p>
+                {{ form_widget(edit_used_vehicle_form.statue, {'attr': {'class': 'used_vehicle_edit_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.statue) }}
+            </div>
+        </div>
+        {{ form_row(edit_used_vehicle_form.submit) }}
+    {{ form_end(edit_used_vehicle_form) }}
+    </div>
+
+
+{% endblock %}
