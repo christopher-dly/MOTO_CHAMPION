@@ -34,7 +34,7 @@ class UsedVehicleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            foreach ($form->get('UsedVehicleImages') as $key => $imageForm) {
+            foreach ($form->get('usedVehicleImages') as $key => $imageForm) {
                 /** @var UploadedFile|null $uploadedFile */
                 $uploadedFile = $imageForm->get('image')->getData();
 
