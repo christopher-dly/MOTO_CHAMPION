@@ -1,28 +1,28 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    <div class='admin-menu'>
-        <a class='admin-menu-card'>
-            <h2>ADMINISTRATION</h2>
-            <p>Gérer les administrateurs</p>
+    <div class='admin-home-menu'>
+        <a class='admin-home-menu-card'>
+            <h2 class='admin-home_little_title'>ADMINISTRATEUR</h2>
+            <p class='admin-home-card-description'>Gérer les administrateurs</p>
         </a>
-        <a class='admin-menu-card' href="{{ path('AdminActuality') }}">
-            <h2>ACTUALITES</h2>
-            <p>Créer ou supprimer des actualités</p>
+        <a class='admin-home-menu-card' href="{{ path('AdminActuality') }}">
+            <h2 class='admin-home_little_title'>ACTUALITES</h2>
+            <p class='admin-home-card-description'>Créer ou supprimer des actualités</p>
         </a>
-        <a class='admin-menu-card' href="{{ path('AdminNewVehicle') }}">
-            <h2>VEHICULES NEUFS</h2>
-            <p>Créer / Modifier / Supprimer <br>
+        <a class='admin-home-menu-card' href="{{ path('AdminNewVehicle') }}">
+            <h2 class='admin-home_little_title'>VEHICULES NEUFS</h2>
+            <p class='admin-home-card-description'>Créer / Modifier / Supprimer <br>
             des véhicules neufs</p>
         </a>
-        <a class='admin-menu-card' href="{{ path('AdminUsedVehicle') }}">
-            <h2>VEHICULES D'OCCASIONS</h2>
-            <p>Créer / Modifier / Supprimer <br>
+        <a class='admin-home-menu-card' href="{{ path('AdminUsedVehicle') }}">
+            <h2 class='admin-home_little_title'>VEHICULES D'OCCASIONS</h2>
+            <p class='admin-home-card-description'>Créer / Modifier / Supprimer <br>
             des véhicules d'occasions</p>
         </a>
-        <a class='admin-menu-card'>
-            <h2>CONTACT</h2>
-            <p>Gérer les messages des utilisateurs</p>
+        <a class='admin-home-menu-card'>
+            <h2 class='admin-home_little_title'>CONTACT</h2>
+            <p class='admin-home-card-description'>Gérer les messages des utilisateurs</p>
         </a>
     </div>
 {% endblock %}

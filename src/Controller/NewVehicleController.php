@@ -105,5 +105,14 @@ class NewVehicleController extends AbstractController
                 'edit_new_vehicle_form' => $form->createView(),
             ]);
         }
+
+        #[Route('/admin/new-vehicle/delete/{id}', name: 'AdminNewVehicleDelete', methods: ['GET','POST'])]
+        public function adminUsedVehicleDelete(Request $request, EntityManagerInterface $entityManager, NewVehicle $newVehicle)
+        {
+            $entityManager->remove($newVehicle);
+            $entityManager->flush();
+    
+            return $this->redirectToRoute('AdminNewVehicle');
+        }
 }
 

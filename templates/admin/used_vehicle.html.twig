@@ -25,6 +25,7 @@
                     <p class='adminUsedVehiclePrice'>{{ usedVehicle.price }} €</p>
                 </div>
             </a>
+            <a class='adminUsedVehicleDeleteButton' href='{{path('AdminUsedVehicleDelete', {id: usedVehicle.id})}}'>Supprimer</a>
         {% else %}
             <p>Aucun véhicule d'occasion</p>
         {% endfor %}

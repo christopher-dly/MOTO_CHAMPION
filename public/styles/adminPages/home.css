@@ -1,12 +1,24 @@
-.admin-menu {
+.admin-home-menu {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.admin-menu-card {
-    margin: 10px;
-    border: solid 1px;
+.admin-home-menu-card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    border: solid 5px;
     border-color: black;
     text-decoration: none;
     text-align: center;
+}
+
+.admin-home-menu-card:hover {
+    background-color: #007bff;
+    color: #fff;
+    transition : 0.5s;
+    cursor: pointer;
+    border-color: #0056b3;
 }
