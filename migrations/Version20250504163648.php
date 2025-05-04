@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250424000927 extends AbstractMigration
+final class Version20250504163648 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -33,7 +33,7 @@ final class Version20250424000927 extends AbstractMigration
             CREATE TABLE engine (id INT AUTO_INCREMENT NOT NULL, type VARCHAR(255) DEFAULT NULL, cylinders INT DEFAULT NULL, announced_power VARCHAR(150) DEFAULT NULL, couple_announced VARCHAR(150) DEFAULT NULL, power_supply VARCHAR(100) DEFAULT NULL, consumption VARCHAR(100) DEFAULT NULL, co2_emissions VARCHAR(100) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE information (id INT AUTO_INCREMENT NOT NULL, brand VARCHAR(50) NOT NULL, model VARCHAR(50) NOT NULL, category VARCHAR(50) NOT NULL, cylinders INT NOT NULL, price DOUBLE PRECISION NOT NULL, warranty_time INT NOT NULL, available_for_trial TINYINT(1) NOT NULL, license JSON NOT NULL COMMENT '(DC2Type:json)', PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+            CREATE TABLE information (id INT AUTO_INCREMENT NOT NULL, brand VARCHAR(50) NOT NULL, model VARCHAR(50) NOT NULL, category VARCHAR(50) NOT NULL, cylinders INT NOT NULL, price DOUBLE PRECISION NOT NULL, warranty_time INT NOT NULL, available_for_trial TINYINT(1) DEFAULT NULL, license JSON NOT NULL COMMENT '(DC2Type:json)', PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
             CREATE TABLE message (id INT AUTO_INCREMENT NOT NULL, sender VARCHAR(255) DEFAULT NULL, object VARCHAR(255) DEFAULT NULL, message VARCHAR(255) DEFAULT NULL, phone INT DEFAULT NULL, date DATETIME DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
@@ -45,7 +45,7 @@ final class Version20250424000927 extends AbstractMigration
             CREATE TABLE new_vehicle (id INT AUTO_INCREMENT NOT NULL, cycle_part_id INT DEFAULT NULL, dimension_id INT DEFAULT NULL, engine_id INT DEFAULT NULL, information_id INT DEFAULT NULL, transmission_id INT DEFAULT NULL, name VARCHAR(50) NOT NULL, INDEX IDX_C0C3B7684C3EEEA3 (cycle_part_id), INDEX IDX_C0C3B768277428AD (dimension_id), INDEX IDX_C0C3B768E78C9C0A (engine_id), INDEX IDX_C0C3B7682EF03101 (information_id), INDEX IDX_C0C3B76878D28519 (transmission_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE new_vehicle_image (id INT AUTO_INCREMENT NOT NULL, new_vehicle_id INT NOT NULL, image VARCHAR(255) NOT NULL, INDEX IDX_FC126658896CF41D (new_vehicle_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+            CREATE TABLE new_vehicle_image (id INT AUTO_INCREMENT NOT NULL, new_vehicle_id INT NOT NULL, image VARCHAR(255) NOT NULL, color LONGTEXT DEFAULT NULL, INDEX IDX_FC126658896CF41D (new_vehicle_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
             CREATE TABLE transmission (id INT AUTO_INCREMENT NOT NULL, final_transmission VARCHAR(255) DEFAULT NULL, clutch VARCHAR(255) DEFAULT NULL, command VARCHAR(255) DEFAULT NULL, gearbox VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB

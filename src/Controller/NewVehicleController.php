@@ -42,12 +42,10 @@ class NewVehicleController extends AbstractController
             $form->handleRequest($request);
     
             if ($form->isSubmitted() && $form->isValid()) {
-                // On récupère tous les sous-formulaires d'images
                 foreach ($form->get('newVehicleImages') as $key => $imageForm) {
                     /** @var UploadedFile|null $uploadedFile */
                     $uploadedFile = $imageForm->get('image')->getData();
             
-                    // Vérifie s'il y a un fichier
                     if ($uploadedFile) {
                         $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
                         $safeFilename = $slugger->slug($originalFilename);
@@ -63,7 +61,6 @@ class NewVehicleController extends AbstractController
                             continue;
                         }
             
-                        // Maintenant on récupère l'entité pour lui setter le nom de fichier
                         $imageEntity = $newVehicle->getNewVehicleImages()[$key] ?? null;
             
                         if ($imageEntity) {
@@ -71,7 +68,6 @@ class NewVehicleController extends AbstractController
                             $imageEntity->setNewVehicle($newVehicle);
                         }
                     } else {
-                        // Si aucun fichier, on évite de persister une image vide
                         $newVehicle->getNewVehicleImages()->remove($key);
                     }
                 }
@@ -92,8 +88,6 @@ class NewVehicleController extends AbstractController
         {
             $form = $this->createForm(EditNewVehicleForm::class, $newVehicle);
             $form->handleRequest($request);
-            // dump($form->isSubmitted(), $form->isValid());
-
         
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager->flush();

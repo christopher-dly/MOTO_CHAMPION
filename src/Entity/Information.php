@@ -45,7 +45,7 @@ class Information
     #[Assert\GreaterThanOrEqual(0, message: "Le temps de garantie ne peut pas être négatif.")]
     private ?int $warrantyTime = 5;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $availableForTrial = false;
 
     #[ORM\Column(type: 'json')]

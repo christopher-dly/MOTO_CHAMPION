@@ -221,6 +221,10 @@
                     {{ form_widget(add_new_vehicle_form.add_new_vehicle_imageForm.image, {'label': false}) }}
                     {{ form_errors(add_new_vehicle_form.add_new_vehicle_imageForm.image) }}
                 </div>
+                <div>
+                    {{ form_widget(add_new_vehicle_form.add_new_vehicle_imageForm.color, {'label': false}) }}
+                    {{ form_errors(add_new_vehicle_form.add_new_vehicle_imageForm.color) }}
+                </div>
             {% endfor %}
         </div>
         <button type="button" id="add_new_vehicle_image">Ajouter une image</button>

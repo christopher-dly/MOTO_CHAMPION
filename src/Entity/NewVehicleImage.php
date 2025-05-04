@@ -16,6 +16,9 @@ class NewVehicleImage
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $image = null;
     
+    #[ORM\Column(type:'text', nullable: true)]
+    private ?string $color = null;
+
     #[ORM\ManyToOne(
         targetEntity: NewVehicle::class,
         inversedBy: "newVehicleImages"
@@ -26,6 +29,17 @@ class NewVehicleImage
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
+        return $this;
     }
 
     public function getImage(): ?string
