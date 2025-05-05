@@ -16,15 +16,20 @@ class InformationForm extends AbstractType
     public function buildForm (FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('brand', TextType::class)
+            ->add('brand', ChoiceType::class, [
+                'choices' => [
+                    'Suzuki' => 'Suzuki',
+                    'Kymco' => 'Kymco',
+                ],
+                'expanded' => true,
+                'multiple' => false,
+            ])
             ->add('model', TextType::class)
             ->add('category', ChoiceType::class, [
                 'choices' => [
                     'Trail' => 'Trail',
                     'Sport / GT' => 'Sport / GT',
                     'Roadster' => 'Roadster',
-                    'Tout-terrain' => 'Tout-terrain',
-                    'Supermoto' => 'Supermoto',
                     'Scooter' => 'Scooter',
                     'Moto 125' => 'Moto 125',
                 ],
@@ -34,7 +39,14 @@ class InformationForm extends AbstractType
             ->add('cylinders', TextType::class)
             ->add('price', TextType::class)
             ->add('warrantyTime', TextType::class)
-            ->add('availableForTrial', CheckboxType::class)
+            ->add('availableForTrial', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => true,
+                    'Non' => false,
+                ],
+                'expanded' => true,
+                'multiple' => false,
+            ])
             ->add('license', ChoiceType::class, [
                 'choices' => [
                     'A' => 'A',

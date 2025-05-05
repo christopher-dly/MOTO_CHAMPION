@@ -5,8 +5,9 @@
     <a href="{{ path('AdminNewVehicleAdd') }}">Ajouter un véhicule neuf</a>
 
     <div>
-        <div>
+        <div class='adminNewVehicleCategory'>
             <h3>Trail<h3>
+            <div class='adminNewVehicleCategoryContainer'>
             {% for newVehicleTrail in newVehicleTrails %}
                 {% for newVehicle in newVehicleTrail.newVehicles %}
                 <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
@@ -31,9 +32,11 @@
                 <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
                 {% endfor %}
             {% endfor %}
+            </div>
         </div>
-        <div>
+        <div class='adminNewVehicleCategory'>
             <h3>Sport / GT<h3>
+            <div class='adminNewVehicleCategoryContainer'>
             {% for newVehicleSport in newVehicleSports %}
                 {% for newVehicle in newVehicleSport.newVehicles %}
                 <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
@@ -58,9 +61,11 @@
                 <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
                 {% endfor %}
             {% endfor %}
+            </div>
         </div>
-        <div>
+        <div class='adminNewVehicleCategory'>
             <h3>Roadster<h3>
+            <div class='adminNewVehicleCategoryContainer'>
             {% for newVehicleRoadster in newVehicleRoadsters %}
                 {% for newVehicle in newVehicleRoadster.newVehicles %}
                 <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
@@ -85,9 +90,11 @@
                 <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
                 {% endfor %}
             {% endfor %}
+            </div>
         </div>
-        <div>
+        <div class='adminNewVehicleCategory'>
             <h3>Scooter<h3>
+            <div class='adminNewVehicleCategoryContainer'>
             {% for newVehicleScooter in newVehicleScooters %}
                 {% for newVehicle in newVehicleScooter.newVehicles %}
                 <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
@@ -112,9 +119,11 @@
                 <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
                 {% endfor %}
             {% endfor %}
+            </div>
         </div>
-        <div>
+        <div class='adminNewVehicleCategory'>
             <h3>Moto 125 cc<h3>
+            <div class='adminNewVehicleCategoryContainer'>
             {% for newVehicleMoto125 in newVehicleMoto125s %}
                 {% for newVehicle in newVehicleMoto125.newVehicles %}
                 <a class='adminNewVehicleCard' href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
@@ -139,6 +148,7 @@
                 <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
                 {% endfor %}
             {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

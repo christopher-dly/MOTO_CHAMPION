@@ -13,7 +13,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
-class UsedVehicleController extends AbstractController
+class AdminUsedVehicleController extends AbstractController
 {
     #[Route('/admin/used-vehicle', name: 'AdminUsedVehicle', methods: ['GET','POST'])]
     public function adminUsedVehicle(UsedVehicleRepository $usedVehiclesRepository)

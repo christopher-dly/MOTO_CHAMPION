@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class ActualityController extends AbstractController
+class AdminActualityController extends AbstractController
 {
     #[Route('/actuality', name: 'Actuality')]
     public function actuality()

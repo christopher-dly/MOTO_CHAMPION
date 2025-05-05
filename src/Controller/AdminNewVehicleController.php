@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class NewVehicleController extends AbstractController
+class AdminNewVehicleController extends AbstractController
 {
     #[Route('/admin/new-vehicle', name: 'AdminNewVehicle', methods: ['GET','POST'])]
     public function adminNewVehicle(InformationRepository $informationRepository)
