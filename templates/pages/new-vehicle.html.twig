@@ -1,11 +1,56 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+    <h1 class='new_vehicle_title_page'>Véhicule neuf</h1>
+    <div class="new_vehicle">
+        <div class='new_vehicle_left_container'>
+            <p>Filtres</p> 
+        </div>
 
+        <div class='new_vehicle_right_container'>
+            <div class="new_vehicle_filter_form_container">
+                {{ form_start(newVehicleFilterForm, { method: 'get' }) }}
 
+                    {{ form_widget(newVehicleFilterForm.brand, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
+                    {{ form_errors(newVehicleFilterForm.brand) }}
 
-<script>
+                    {{ form_widget(newVehicleFilterForm.category, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
+                    {{ form_errors(newVehicleFilterForm.category) }}
 
+                    {{ form_widget(newVehicleFilterForm.model, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
+                    {{ form_errors(newVehicleFilterForm.model) }}
 
-</script>
+                    {{ form_widget(newVehicleFilterForm.cylinders, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
+                    {{ form_errors(newVehicleFilterForm.cylinders) }}
+
+                    {# {{ form_widget(newVehicleFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input' }}) }} #}
+                    {# {{ form_errors(newVehicleFilterForm.A2) }} #}
+
+                    <p>Dispo à l'éssaie :</p>
+                    {{ form_widget(newVehicleFilterForm.availableForTrial, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
+                    {{ form_errors(newVehicleFilterForm.availableForTrial) }}
+
+                    {{ form_row(newVehicleFilterForm.submit) }}
+
+                {{ form_end(newVehicleFilterForm) }}
+            </div>
+
+            {% if vehicles is defined %}
+                <h2>Résultats de la recherche</h2>
+
+                {% if vehicles is empty %}
+                    <p>Aucun véhicule ne correspond aux critères sélectionnés.</p>
+                {% else %}
+                <ul>
+                    {% for vehicle in vehicles %}
+                        <li>
+                            {{ vehicle.information.brand }} {{ vehicle.information.model }}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
 {% endblock %}

@@ -3,7 +3,7 @@
 @import url(userPages/index.css);
 @import url(adminPages/home.css);
 @import url(adminPages/new_vehicle_add_edit.css);
-@import url(adminPages/new_vehicle.css);
+@import url(userPages/new_vehicle.css);
 
 body {
     margin: 0;

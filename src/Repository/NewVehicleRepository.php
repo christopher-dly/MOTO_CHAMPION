@@ -12,4 +12,44 @@ class NewVehicleRepository extends ServiceEntityRepository
     {
         parent::__construct($doctrine, NewVehicle::class);
     }
+
+    public function findByFilters(array $filters): array
+{
+    $qb = $this->createQueryBuilder('v')
+        ->leftJoin('v.information', 'i')
+        ->addSelect('i');
+
+    if (!empty($filters['brand'])) {
+        $qb->andWhere('i.brand LIKE :brand')
+           ->setParameter('brand', '%' . $filters['brand'] . '%');
+    }
+
+    if (!empty($filters['category'])) {
+        $qb->andWhere('i.category LIKE :category')
+           ->setParameter('category', '%' . $filters['category'] . '%');
+    }
+
+    if (!empty($filters['model'])) {
+        $qb->andWhere('i.model LIKE :model')
+           ->setParameter('model', '%' . $filters['model'] . '%');
+    }
+
+    if (!empty($filters['cylinders'])) {
+        $qb->andWhere('i.cylinders = :cylinders')
+           ->setParameter('cylinders', $filters['cylinders']);
+    }
+
+    if (!empty($filters['A2']) && $filters['A2'] === true) {
+        $qb->andWhere(':license MEMBER OF i.license')
+           ->setParameter('license', 'A2');
+    }
+
+    if (!is_null($filters['availableForTrial'])) {
+        $qb->andWhere('i.availableForTrial = :available')
+           ->setParameter('available', $filters['availableForTrial']);
+    }
+
+    return $qb->getQuery()->getResult();
+}
+
 }   

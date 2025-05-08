@@ -1,0 +1,35 @@
+.new_vehicle {
+    display: flex;
+    flex-direction: row;
+}
+
+.new_vehicle_title_page {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.new_vehicle_left_container {
+    width: 15%;
+}
+
+.new_vehicle_right_container {
+    width: 85%;
+}
+
+.new_vehicle_filter_form_container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.new_vehicle_filter_form_input {
+    height: 50px;
+    width: 300px;
+    text-transform: uppercase;
+    border: solid 1px;
+    border-radius: 15px;
+}
+
+.new_vehicle_filter_form_input:hover {
+    outline: none;
+    border: 3px solid #007bff;
+}
