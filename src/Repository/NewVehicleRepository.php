@@ -39,9 +39,9 @@ class NewVehicleRepository extends ServiceEntityRepository
            ->setParameter('cylinders', $filters['cylinders']);
     }
 
-    if (!empty($filters['A2']) && $filters['A2'] === true) {
-        $qb->andWhere(':license MEMBER OF i.license')
-           ->setParameter('license', 'A2');
+    if (!is_null($filters['A2'])) {
+        $qb->andWhere('i.A2 = :A2')
+           ->setParameter('A2', $filters['A2']);
     }
 
     if (!is_null($filters['availableForTrial'])) {

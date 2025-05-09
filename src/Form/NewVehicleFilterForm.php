@@ -73,9 +73,9 @@ class NewVehicleFilterForm extends AbstractType
                 'placeholder' => 'Choisissez le nombre de cylindres',
                 'required' => false,
             ])
-            // ->add('A2', CheckboxType::class, [
-            //     'required' => false,
-            // ])
+            ->add('A2', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('availableForTrial', CheckboxType::class, [
                 'required' => false,
             ])

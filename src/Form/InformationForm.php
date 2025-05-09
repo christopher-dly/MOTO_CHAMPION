@@ -39,24 +39,11 @@ class InformationForm extends AbstractType
             ->add('cylinders', TextType::class)
             ->add('price', TextType::class)
             ->add('warrantyTime', TextType::class)
-            ->add('availableForTrial', ChoiceType::class, [
-                'choices' => [
-                    'Oui' => true,
-                    'Non' => false,
-                ],
-                'expanded' => true,
-                'multiple' => false,
+            ->add('availableForTrial', CheckboxType::class, [
+                'required' => false,
             ])
-            ->add('license', ChoiceType::class, [
-                'choices' => [
-                    'A' => 'A',
-                    'A2' => 'A2',
-                    'B' => 'B',
-                    'AM' => 'AM',
-                    'A1' => 'A1',
-                ],
-                'expanded' => true,
-                'multiple' => true,
+            ->add('a2', CheckboxType::class, [
+                'required' => false,
             ]);
     }
 

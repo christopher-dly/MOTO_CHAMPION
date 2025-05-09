@@ -33,25 +33,25 @@ public function newVehicle(Request $request, NewVehicleRepository $repo): Respon
             ->leftJoin('v.information', 'i')
             ->addSelect('i');
 
-        foreach ($data as $field => $value) {
-            if ($value !== null && $value !== '') {
-                // Champs dans Information
-                if (in_array($field, ['brand', 'category', 'model'])) {
-                    $qb->andWhere("i.$field LIKE :$field")
-                       ->setParameter($field, "%$value%");
-                }
-                // Champs spéciaux (booleens)
-                elseif (in_array($field, ['A2', 'availableForTrial'])) {
-                    $qb->andWhere("i.$field = :$field")
-                       ->setParameter($field, $value);
-                }
-                // Champ JSON (license) – méthode fragile
-                elseif ($field === 'license') {
-                    $qb->andWhere("i.license LIKE :license")
-                       ->setParameter('license', "%$value%");
+            foreach ($data as $field => $value) {
+                if ($value !== null && $value !== '') {
+
+                    if (in_array($field, ['brand', 'category', 'model'])) {
+                        $qb->andWhere("i.$field LIKE :$field")
+                           ->setParameter($field, "%$value%");
+                    }
+
+                    elseif ($field === 'A2') {
+                        $qb->andWhere("i.A2 = :A2")
+                           ->setParameter('A2', $value);
+                    }
+
+                    elseif ($field === 'availableForTrial') {
+                        $qb->andWhere("i.availableForTrial = :availableForTrial")
+                           ->setParameter('availableForTrial', $value);
+                    }
                 }
             }
-        }
 
         $vehicles = $qb->getQuery()->getResult();
     }

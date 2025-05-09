@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250504163648 extends AbstractMigration
+final class Version20250509083007 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -33,7 +33,7 @@ final class Version20250504163648 extends AbstractMigration
             CREATE TABLE engine (id INT AUTO_INCREMENT NOT NULL, type VARCHAR(255) DEFAULT NULL, cylinders INT DEFAULT NULL, announced_power VARCHAR(150) DEFAULT NULL, couple_announced VARCHAR(150) DEFAULT NULL, power_supply VARCHAR(100) DEFAULT NULL, consumption VARCHAR(100) DEFAULT NULL, co2_emissions VARCHAR(100) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE information (id INT AUTO_INCREMENT NOT NULL, brand VARCHAR(50) NOT NULL, model VARCHAR(50) NOT NULL, category VARCHAR(50) NOT NULL, cylinders INT NOT NULL, price DOUBLE PRECISION NOT NULL, warranty_time INT NOT NULL, available_for_trial TINYINT(1) DEFAULT NULL, license JSON NOT NULL COMMENT '(DC2Type:json)', PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+            CREATE TABLE information (id INT AUTO_INCREMENT NOT NULL, brand VARCHAR(50) NOT NULL, model VARCHAR(50) NOT NULL, category VARCHAR(50) NOT NULL, cylinders INT NOT NULL, price DOUBLE PRECISION NOT NULL, warranty_time INT NOT NULL, available_for_trial TINYINT(1) DEFAULT NULL, a2 TINYINT(1) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
             CREATE TABLE message (id INT AUTO_INCREMENT NOT NULL, sender VARCHAR(255) DEFAULT NULL, object VARCHAR(255) DEFAULT NULL, message VARCHAR(255) DEFAULT NULL, phone INT DEFAULT NULL, date DATETIME DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB

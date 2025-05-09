@@ -48,8 +48,8 @@ class Information
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $availableForTrial = false;
 
-    #[ORM\Column(type: 'json')]
-    private ?array $license = null;
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $A2 = false;
 
     #[ORM\OneToMany(
         targetEntity: "App\Entity\NewVehicle",
@@ -152,14 +152,14 @@ class Information
         return $this;
     }
 
-    public function getLicense(): ?array
+    public function getA2(): ?bool
     {
-        return $this->license;
+        return $this->A2;
     }
 
-    public function setLicense(?array $license): self
+    public function setA2(?bool $A2): self
     {
-        $this->license = $license;
+        $this->A2 = $A2;
 
         return $this;
     }
