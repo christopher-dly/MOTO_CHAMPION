@@ -56,7 +56,7 @@ public function newVehicle(Request $request, NewVehicleRepository $repo): Respon
         $vehicles = $qb->getQuery()->getResult();
     }
 
-    return $this->render('pages/new-vehicle.html.twig', [
+    return $this->render('pages/new_vehicle.html.twig', [
         'newVehicleFilterForm' => $form->createView(),
         'vehicles' => $vehicles,
     ]);
