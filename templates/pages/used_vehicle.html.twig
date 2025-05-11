@@ -2,4 +2,11 @@
 
 {% block main %}
     <h1 class='used_vehicle_title_page'>Véhicule d'occasion</h1>
+
+    <div class="used_vehicle_container">
+        {% for usedVehicle in usedVehicles %}
+            <li>
+                {{ usedVehicle.information.brand }} {{ usedVehicle.information.model }}
+            </li>
+        {% endfor %}
 {% endblock %}
