@@ -44,7 +44,9 @@
                 <ul>
                     {% for vehicle in vehicles %}
                         <li>
+                        <a href="{{ path('NewVehicleDetail', {id: vehicle.id}) }}">
                             {{ vehicle.information.brand }} {{ vehicle.information.model }}
+                        </a>
                         </li>
                     {% endfor %}
                 </ul>

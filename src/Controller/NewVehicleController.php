@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\NewVehicle;
 use App\Form\NewVehicleFilterForm;
 use App\Repository\NewVehicleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,53 +14,58 @@ class NewVehicleController extends AbstractController
 {
     #[Route('/new-vehicle', name: 'NewVehicle')]
 public function newVehicle(Request $request, NewVehicleRepository $repo): Response
-{
-    // Création du formulaire
-    $form = $this->createForm(NewVehicleFilterForm::class);
-    $form->handleRequest($request);
+    {
+        $form = $this->createForm(NewVehicleFilterForm::class);
+        $form->handleRequest($request);
 
-    $qb = $repo->createQueryBuilder('v')
-        ->leftJoin('v.information', 'i')
-        ->addSelect('i');
-
-    // Par défaut, on récupère tous les véhicules
-    $vehicles = $qb->getQuery()->getResult();
-
-    // Si le formulaire est soumis et valide, on filtre
-    if ($form->isSubmitted() && $form->isValid()) {
-        $data = array_filter($form->getData() ?? []);
-        
         $qb = $repo->createQueryBuilder('v')
             ->leftJoin('v.information', 'i')
             ->addSelect('i');
 
-            foreach ($data as $field => $value) {
-                if ($value !== null && $value !== '') {
+        $vehicles = $qb->getQuery()->getResult();
 
-                    if (in_array($field, ['brand', 'category', 'model'])) {
-                        $qb->andWhere("i.$field LIKE :$field")
-                           ->setParameter($field, "%$value%");
-                    }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = array_filter($form->getData() ?? []);
+            
+            $qb = $repo->createQueryBuilder('v')
+                ->leftJoin('v.information', 'i')
+                ->addSelect('i');
 
-                    elseif ($field === 'A2') {
-                        $qb->andWhere("i.A2 = :A2")
-                           ->setParameter('A2', $value);
-                    }
+                foreach ($data as $field => $value) {
+                    if ($value !== null && $value !== '') {
 
-                    elseif ($field === 'availableForTrial') {
-                        $qb->andWhere("i.availableForTrial = :availableForTrial")
-                           ->setParameter('availableForTrial', $value);
+                        if (in_array($field, ['brand', 'category', 'model'])) {
+                            $qb->andWhere("i.$field LIKE :$field")
+                            ->setParameter($field, "%$value%");
+                        }
+
+                        elseif ($field === 'A2') {
+                            $qb->andWhere("i.A2 = :A2")
+                            ->setParameter('A2', $value);
+                        }
+
+                        elseif ($field === 'availableForTrial') {
+                            $qb->andWhere("i.availableForTrial = :availableForTrial")
+                            ->setParameter('availableForTrial', $value);
+                        }
                     }
                 }
-            }
 
-        $vehicles = $qb->getQuery()->getResult();
+            $vehicles = $qb->getQuery()->getResult();
+        }
+
+        return $this->render('pages/new_vehicle.html.twig', [
+            'newVehicleFilterForm' => $form->createView(),
+            'vehicles' => $vehicles,
+        ]);
     }
 
-    return $this->render('pages/new_vehicle.html.twig', [
-        'newVehicleFilterForm' => $form->createView(),
-        'vehicles' => $vehicles,
-    ]);
-}
+    #[Route('/new-vehicle/{id}', name: 'NewVehicleDetail')]
+    public function newVehicleDetail(NewVehicle $newVehicle): Response
+    {
+        return $this->render('pages/new_vehicle_detail.html.twig', [
+            'vehicle' => $newVehicle,
+        ]);
+    }
 
 }
