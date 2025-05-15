@@ -1,0 +1,75 @@
+.adminNewVehicleTitlePage {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.adminNewVehicleTitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonAddNewVehicle {
+    border: solid 1px;
+    border-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.adminNewVehicleTitleCategoryContainer {
+    background-color: lightgray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-right: 10%;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.adminNewVehicleTitleCategory {
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.adminNewVehicleCategoryContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.adminNewVehicleCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: solid 1px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.adminNewVehicleCard:hover {
+    background-color: lightgray;
+    transition: 0.2s;
+}
+
+.adminNewVehicleDeleteButtonContainer {
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: red;
+}
