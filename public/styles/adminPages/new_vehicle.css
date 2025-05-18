@@ -71,5 +71,15 @@
     border: solid 1px;
     border-radius: 10px;
     text-decoration: none;
+    background-color: #FC4F4F;
+}
+.adminNewVehicleDeleteButtonContainer:hover {
     background-color: red;
+    transition: 0.2s;
+}
+
+.adminNewVehicleTitle {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -7,7 +7,8 @@
 @import url(adminPages/new_vehicle.css);
 
 :root {
-    --blue: #030ED1
+    --blue: #030ED1;
+    --red: #FC4F4F;
 }
 
 body {
