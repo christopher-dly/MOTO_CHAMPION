@@ -1,0 +1,164 @@
+.used_vehicle_add_form_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.used_vehicle_add_title_page {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.used_vehicle_add_form_section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.used_vehicle_add_input_container {
+    margin-bottom: 15px;
+}
+
+.used_vehicle_add_input_description {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.used_vehicle_add_input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+#add_new_vehicle_image {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#used_new_vehicle_image:hover {
+    background-color: #0056b3;
+}
+
+#vehicle_images {
+    margin-top: 20px;
+}
+
+.image-entry {
+    margin-bottom: 10px;
+}
+
+.used_vehicle_add_form_container button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.used_vehicle_add_form_container button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.dimension-fields {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.used_vehicle_add_input_dimension {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.dimension-separator {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 4px;
+    color: #555;
+}
+
+.dimension-errors {
+    margin-top: 5px;
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Media query pour les tablettes */
+@media (max-width: 768px) {
+    .used_vehicle_add_form_container {
+        padding: 15px;
+    }
+
+    .used_vehicle_add_form_section {
+        padding: 10px;
+    }
+
+    .used_vehicle_add_input,
+    .used_vehicle_add_input_dimension {
+        font-size: 0.9em;
+    }
+
+    .used_vehicle_add_form_section_title {
+        font-size: 1.1em;
+    }
+
+    #add_used_vehicle_image,
+    .used_vehicle_add_form_container button[type="submit"] {
+        font-size: 0.9em;
+    }
+}
+
+/* Media query pour les mobiles */
+@media (max-width: 480px) {
+    .used_vehicle_add_form_container {
+        padding: 10px;
+    }
+
+    .used_vehicle_add_form_section {
+        padding: 8px;
+    }
+
+    .used_vehicle_add_input,
+    .used_vehicle_add_input_dimension {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+
+    .used_vehicle_add_form_section_title {
+        font-size: 1em;
+    }
+
+    #add_used_vehicle_image,
+    .used_vehicle_add_form_container button[type="submit"] {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+}

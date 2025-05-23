@@ -3,8 +3,10 @@
 @import url(userPages/index.css);
 @import url(adminPages/home.css);
 @import url(adminPages/new_vehicle_add_edit.css);
+@import url(adminPages/used_vehicle_add_edit.css);
 @import url(userPages/new_vehicle.css);
 @import url(adminPages/new_vehicle.css);
+@import url(adminPages/used_vehicle.css);
 
 :root {
     --blue: #030ED1;

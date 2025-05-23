@@ -1,12 +1,15 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    <h1>(admin) VÉHICULES OCCASIONS</h1>
-    <a href="{{ path('AdminUsedVehicleAdd') }}">Ajouter un véhicule d'occasion</a>
+    <div class='adminUsedVehicleTitleContainer'>
+        <h1 class='adminUsedVehicleTitlePage'>(admin) VÉHICULES OCCASIONS</h1>
+        <a class='buttonAddUsedVehicle' href="{{ path('AdminUsedVehicleAdd') }}">Ajouter un véhicule d'occasion</a>
+    </div>
 
-    <div>
+    <div class='adminUsedVehicleContainer'>
         {% for usedVehicle in usedVehicles %}
-            <a class='adminUsedVehicleCard' href='{{ path('AdminUsedVehicleEdit', {id: usedVehicle.id}) }}'>
+        <div class='adminUsedVehicleCard'>
+            <a href='{{ path('AdminUsedVehicleEdit', {id: usedVehicle.id}) }}'>
                 <div class='adminUsedVehicleTitleContainer'>
                     <p class='adminUsedVehicleTitle'>{{ usedVehicle.brand }} {{ usedVehicle.model }}</p>
                 </div>
@@ -21,11 +24,11 @@
                             <p>Pas d'image</p>
                         {% endif %}
                 </div>
-                <div class='adminUsedVehiclePriceContainer'>
-                    <p class='adminUsedVehiclePrice'>{{ usedVehicle.price }} €</p>
+                <div class='adminUsedVehicleDeleteButtonContainer'>
+                     <a class='adminUsedVehicleDeleteButton' href='{{path('AdminUsedVehicleDelete', {id: usedVehicle.id})}}'>Supprimer</a>
                 </div>
             </a>
-            <a class='adminUsedVehicleDeleteButton' href='{{path('AdminUsedVehicleDelete', {id: usedVehicle.id})}}'>Supprimer</a>
+        </div>
         {% else %}
             <p>Aucun véhicule d'occasion</p>
         {% endfor %}
