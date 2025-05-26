@@ -1,27 +1,35 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    <h1>(admin) ACTUALITES</h1>
-    {# <a href="{{ path('Admin') }}">Liste des actus</a> #}
-    <a href="{{ path('AdminActualityAdd') }}">Ajouter une nouvelle actu</a> 
-
-    {% for actuality in actualitys %}
-    <div class="actuality">
-        <h2>{{ actuality.title }}</h2>
-        <p>{{ actuality.content|raw }}</p>
-        {% if actuality.image %}
-            <img src="{{ asset('uploads/' ~ actuality.image) }}" alt="{{ actuality.title }}" style="max-width: 300px;">
-        {% endif %}
-        <p><em>Publié le {{ actuality.date|date('d/m/Y H:i') }}</em></p>
+    <div class='adminActualityTitleContainer'>
+        <h1 class='adminActualityTitlePage'>(admin) ACTUALITES</h1>
+        <a class='buttonAddActuality' href="{{ path('AdminActualityAdd') }}">Ajouter une nouvelle actu</a>
     </div>
-    <form method="post" action="{{ path('Actuality_delete', {id: actuality.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
-    <button type="submit">🗑 Supprimer</button>
-        <hr>
-</form>
 
-{% else %}
-    <p>Aucune actualité trouvée.</p>
-{% endfor %}
+    <div class='adminActualityContainer'>
+        {% for actuality in actualitys %}
+            <div class="adminActuality">
+                <div class="adminActualityTitleContentContainer">
+                    <h2 class='adminActualityTitle'>{{ actuality.title }}</h2>
+                </div>
+                <div class='adminActualityContentContainer'>
+                    {% if actuality.image %}
+                        <img src="{{ asset('uploads/' ~ actuality.image) }}" alt="{{ actuality.title }}" style="max-width: 300px;">
+                    {% endif %}
+                    <p class='adminActualityContent'>{{ actuality.content|raw }}</p>
+                </div>
+                <div class="adminActualityBottomContainer">
+                    <div class="adminActualityDateContainer">
+                        <p class='adminActualityDate'><em>Publié le {{ actuality.date|date('d/m/Y H:i') }}</em></p>
+                    </div>
+                    <div class='adminActualityDeleteButtonContainer'>
+                        <a class='adminActualityDeleteButton' href="{{ path('ActualityDelete', { id: actuality.id }) }}">🗑 Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>Aucune actualité trouvée.</p>
+        {% endfor %}
+    </div>
 
 {% endblock %}

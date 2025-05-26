@@ -1,0 +1,77 @@
+.adminActualityTitlePage {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.adminActualityTitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonAddActuality {
+    border: solid 1px;
+    border-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.adminActuality{
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: solid 1px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.adminActuality:hover {
+    background-color: lightgray;
+    transition: 0.2s;
+}
+
+.adminActualityContentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.adminActualityBottomContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.adminActualityDeleteButtonContainer {
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: solid 1px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #FC4F4F;
+    width: 100px;
+}
+.adminActualityDeleteButtonContainer:hover {
+    background-color: red;
+    transition: 0.2s;
+}
+
+.adminActualityTitleContentContainer{
+    text-align: center;
+}

@@ -4,11 +4,7 @@
     <h1 class='new_vehicle_title_page'>Véhicule neuf</h1>
     <div class="new_vehicle">
         <div class='new_vehicle_left_container'>
-            <p>Filtres</p> 
-        </div>
-
-        <div class='new_vehicle_right_container'>
-            <div class="new_vehicle_filter_form_container">
+          <div class="new_vehicle_filter_form_container">
                 {{ form_start(newVehicleFilterForm, { method: 'get' }) }}
 
                     {{ form_widget(newVehicleFilterForm.brand, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
@@ -23,6 +19,7 @@
                     {{ form_widget(newVehicleFilterForm.cylinders, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
                     {{ form_errors(newVehicleFilterForm.cylinders) }}
 
+                    <p>A2 :</p>
                     {{ form_widget(newVehicleFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input' }}) }} 
                     {{ form_errors(newVehicleFilterForm.A2) }} 
 
@@ -34,25 +31,44 @@
 
                 {{ form_end(newVehicleFilterForm) }}
             </div>
+        </div>
 
+        <div class='new_vehicle_right_container'>
             {% if vehicles is defined %}
-                <h2>Résultats de la recherche</h2>
-
                 {% if vehicles is empty %}
                     <p>Aucun véhicule ne correspond aux critères sélectionnés.</p>
                 {% else %}
-                <ul>
-                    {% for vehicle in vehicles %}
-                        <li>
+                <ul class='new_vehicle_card_list'>
+                {% for vehicle in vehicles %}
+                    <li class='new_vehicle_card'>
                         <a href="{{ path('NewVehicleDetail', {id: vehicle.id}) }}">
-                            {{ vehicle.information.brand }} {{ vehicle.information.model }}
+                        {% set logoClass = vehicle.information.brand == 'Suzuki' 
+                            ? 'logo-suz' 
+                            : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '') 
+                        %}
+                            <div class="new_vehicle_card_header {{ logoClass }}">
+                                <p class='new_vehicle_card_header_name'>{{ vehicle.name }}</p>
+                            </div>
+                            <div class='new_vehicle_card_image_container'>
+                                {% set images = vehicle.newVehicleImages %}
+                                {% if images|length > 0 %}
+                                    <img class='new_vehicle_card_image'
+                                        src="{{ asset('uploads/' ~ images[0].image) }}"
+                                        alt="image du véhicule {{ vehicle.name }}"
+                                        width="350" height="225">
+                                {% else %}
+                                    <p>Pas d'image</p>
+                                {% endif %}
+                            </div>
+                            <div class='new_vehicle_card_footer'>
+                                <p class='new_vehicle_card_footer_price'>{{ vehicle.information.price }} €</p>
+                            </div>
                         </a>
-                        </li>
-                    {% endfor %}
+                    </li>
+                {% endfor %}
                 </ul>
                 {% endif %}
             {% endif %}
         </div>
     </div>
-
 {% endblock %}

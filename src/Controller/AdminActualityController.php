@@ -69,17 +69,11 @@ class AdminActualityController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/actuality/{id}/supprimer', name: 'Actuality_delete', methods: ['POST'])]
+    #[Route('/admin/actuality/supprimer/{id}', name: 'ActualityDelete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Actuality $article, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($article);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'L\'actualité a été supprimée avec succès.');
-        } else {
-            $this->addFlash('error', 'Jeton CSRF invalide, suppression non autorisée.');
-        }
+        $entityManager->remove($article);
+        $entityManager->flush();
 
         return $this->redirectToRoute('AdminActuality');
     }
