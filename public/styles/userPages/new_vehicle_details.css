@@ -1,0 +1,73 @@
+.new_vehicle_detail_card_carrousel_container {
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0003;
+}
+
+.new_vehicle_detail_carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.new_vehicle_detail_carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.new_vehicle_detail_carousel-slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.new_vehicle_detail_carousel-slide img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.new_vehicle_detail_carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+}
+
+.new_vehicle_detail_carousel-btn.prev {
+    left: 10px;
+}
+
+.new_vehicle_detail_carousel-btn.next {
+    right: 10px;
+}
+
+
+.new_vehicle_detail_card_image_color {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.new_vehicle_detail_color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: default;
+}
+
+.new_vehicle_detail_color-dot.active {
+    outline: 3px solid #000; 
+    transform: scale(1.2);  
+    transition: transform 0.3s, outline 0.3s;
+}
+

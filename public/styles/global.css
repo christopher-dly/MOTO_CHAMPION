@@ -1,14 +1,17 @@
 @import url(components/header.css);
 @import url(components/footer.css);
-@import url(userPages/index.css);
+
 @import url(adminPages/home.css);
 @import url(adminPages/new_vehicle_add_edit.css);
 @import url(adminPages/used_vehicle_add_edit.css);
-@import url(userPages/new_vehicle.css);
 @import url(adminPages/new_vehicle.css);
 @import url(adminPages/used_vehicle.css);
 @import url(adminPages/actuality.css);
 @import url(adminPages/actuality_add.css);
+
+@import url(userPages/new_vehicle.css);
+@import url(userPages/new_vehicle_details.css);
+@import url(userPages/index.css);
 
 :root {
     --blue: #030ED1;

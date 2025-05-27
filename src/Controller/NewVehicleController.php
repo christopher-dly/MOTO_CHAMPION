@@ -60,12 +60,41 @@ public function newVehicle(Request $request, NewVehicleRepository $repo): Respon
         ]);
     }
 
-    #[Route('/new-vehicle/{id}', name: 'NewVehicleDetail')]
-    public function newVehicleDetail(NewVehicle $newVehicle): Response
-    {
-        return $this->render('pages/new_vehicle_detail.html.twig', [
-            'vehicle' => $newVehicle,
-        ]);
+#[Route('/new-vehicle/{id}', name: 'NewVehicleDetail')]
+public function newVehicleDetail(NewVehicle $newVehicle): Response
+{
+    $images = $newVehicle->getNewVehicleImages();
+
+    $colorMap = [
+        'rouge' => '#FF0000',
+        'bleu' => '#0000FF',
+        'noir' => '#000000',
+        'blanc' => '#FFFFFF',
+        'gris' => '#808080',
+        'vert' => '#008000',
+        'jaune' => '#FFFF00',
+        'orange' => '#FFA500',
+        'rose' => '#FFC0CB',
+        'violet' => '#800080',
+        'marron' => '#8B4513',
+        'beige' => '#F5F5DC',
+    ];
+
+    $colors = [];
+
+    foreach ($images as $image) {
+        $colorName = strtolower(trim($image->getColor()));
+        if ($colorName && !isset($colors[$colorName]) && isset($colorMap[$colorName])) {
+            $colors[$colorName] = $colorMap[$colorName];
+        }
     }
+
+    return $this->render('pages/new_vehicle_detail.html.twig', [
+        'vehicle' => $newVehicle,
+        'images' => $images,
+        'colors' => $colors,
+    ]);
+}
+
 
 }

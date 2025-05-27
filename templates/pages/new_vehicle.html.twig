@@ -18,15 +18,15 @@
 
                     {{ form_widget(newVehicleFilterForm.cylinders, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
                     {{ form_errors(newVehicleFilterForm.cylinders) }}
-
+                <div class='new_vehicle_filter_form_input_checkbox_container'>
                     <p>A2 :</p>
-                    {{ form_widget(newVehicleFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input' }}) }} 
+                    {{ form_widget(newVehicleFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input_checkbox' }}) }} 
                     {{ form_errors(newVehicleFilterForm.A2) }} 
 
                     <p>Dispo à l'éssaie :</p>
-                    {{ form_widget(newVehicleFilterForm.availableForTrial, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
+                    {{ form_widget(newVehicleFilterForm.availableForTrial, { attr: { class: 'new_vehicle_filter_form_input_checkbox' }}) }}
                     {{ form_errors(newVehicleFilterForm.availableForTrial) }}
-
+                </div>
                     {{ form_row(newVehicleFilterForm.submit) }}
 
                 {{ form_end(newVehicleFilterForm) }}
