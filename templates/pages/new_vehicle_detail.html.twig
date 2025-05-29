@@ -28,16 +28,76 @@
                 </div>
             </div>
             <div class='new_vehicle_detail_card_info_container'>
-                <p>Catégorie : {{vehicle.information.category}}</p>
-                <p>Cylindrées : {{vehicle.information.cylinders}}</p>
-                <p>Prix : {{vehicle.information.price}} €</p>
-                <p>Temps de garantie : {{vehicle.information.warrantyTime}} an(s)</p>
-                {% if vehicle.information.availableForTrial %}
-                    <a href="{{ path('Home') }}">Réserver un essai</a>
-                {% else %}
-                    <a class="disabled-link">Réserver un essai</a>
-                {% endif %}
-                <img>
+
+
+                <div class="tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="info">Informations</button>
+                        <button class="tab-btn" data-tab="engine">Moteur</button>
+                        <button class="tab-btn" data-tab="dimensions">Dimensions</button>
+                        <button class="tab-btn" data-tab="cyclePart">Partie cycle</button>
+                        <button class="tab-btn" data-tab="transmission">Transmission</button>
+                    </div>
+
+                    <div class="tab-content active" id="info">
+                        <p>Catégorie : {{vehicle.information.category}}</p>
+                        <p>Cylindrées : {{vehicle.information.cylinders}}</p>
+                        <p>Prix : {{vehicle.information.price}} €</p>
+                        <p>Temps de garantie : {{vehicle.information.warrantyTime}} an(s)</p>
+                        {% if vehicle.information.availableForTrial %}
+                            <a href="{{ path('Home') }}">Réserver un essai</a>
+                        {% else %}
+                            <a class="disabled-link">Réserver un essai</a>
+                        {% endif %}
+                        {# penser a ajouter la vignette si a2 #}
+                    </div>
+
+                    <div class="tab-content" id="engine">
+                        <p>{{ vehicle.engine.type }}</p>
+                        <p>{{ vehicle.engine.cylinders }}</p>
+                        <p>{{ vehicle.engine.announcedPower }}</p>
+                        <p>{{ vehicle.engine.coupleAnnounced }}</p>
+                        <p>{{ vehicle.engine.powerSupply }}</p>
+                        <p>{{ vehicle.engine.consumption }}</p>
+                        <p>{{ vehicle.engine.co2Emissions }}</p>
+                    </div>
+
+                    <div class="tab-content" id="dimensions">
+                        <p>{{ vehicle.dimension.width }}</p>
+                        <p>{{ vehicle.dimension.height }}</p>
+                        <p>{{ vehicle.dimension.length }}</p>
+                        <p>{{ vehicle.dimension.saddleHeight }}</p>
+                        <p>{{ vehicle.dimension.groundClearance }}</p>
+                        <p>{{ vehicle.dimension.gas }}</p>
+                        <p>{{ vehicle.dimension.oil }}</p>
+                        <p>{{ vehicle.dimension.weight }}</p>
+                    </div>
+
+                    <div class="tab-content" id="cyclePart">
+                        <p>{{ vehicle.cyclePart.casterAngle }}</p>
+                        <p>{{ vehicle.cyclePart.caster }}</p>
+                        <p>{{ vehicle.cyclePart.wheelbase }}</p>
+                        <p>{{ vehicle.cyclePart.rim }}</p>
+                        <p>{{ vehicle.cyclePart.frame }}</p>
+                        <p>{{ vehicle.cyclePart.frontSuspension }}</p>
+                        <p>{{ vehicle.cyclePart.rearSuspension }}</p>
+                        <p>{{ vehicle.cyclePart.frontBrake }}</p>
+                        <p>{{ vehicle.cyclePart.rearBrake }}</p>
+                        <p>{{ vehicle.cyclePart.frontWheel }}</p>
+                        <p>{{ vehicle.cyclePart.rearWheel }}</p>
+                    </div>
+
+                    <div class="tab-content" id="transmission">
+                        <p>{{ vehicle.transmission.finalTransmission }}</p>
+                        <p>{{ vehicle.transmission.clutch }}</p>
+                        <p>{{ vehicle.transmission.command }}</p>
+                        <p>{{ vehicle.transmission.gearbox }}</p>
+                    </div>
+
+                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -110,6 +170,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialisation
     updateVisibleSlides();
+
+
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Supprimer les classes actives
+            tabButtons.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Activer le bon onglet et contenu
+            btn.classList.add('active');
+            const target = btn.getAttribute('data-tab');
+            document.getElementById(target).classList.add('active');
+        });
+    });
 });
 </script>
 

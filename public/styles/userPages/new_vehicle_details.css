@@ -71,3 +71,60 @@
     transition: transform 0.3s, outline 0.3s;
 }
 
+.new_vehicle_detail_title_page {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.new_vehicle_detail_card {
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+}
+
+.new_vehicle_detail_card_global_container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+.tabs {
+    padding: 10px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
