@@ -18,4 +18,14 @@ class UsedVehicleController extends AbstractController
             'usedVehicles' => $usedVehicles,
         ]);
     }
+
+    #[Route('/used-vehicle/{id}', name: 'UsedVehicleDetails')]
+    public function usedVehicleDetails(UsedVehicleRepository $repo, int $id): Response
+    {
+        $usedVehicle = $repo->find($id);
+
+        return $this->render('pages/used_vehicle_details.html.twig', [
+            'usedVehicle' => $usedVehicle,
+        ]);
+    }
 }

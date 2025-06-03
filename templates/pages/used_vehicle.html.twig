@@ -5,8 +5,31 @@
 
     <div class="used_vehicle_container">
         {% for usedVehicle in usedVehicles %}
-            <li>
-                {{ usedVehicle.information.brand }} {{ usedVehicle.information.model }}
+            <li class="used_vehicle_card">
+                <a class="used_vehicle_card_link" href="{{path('UsedVehicleDetails' , {id: usedVehicle.id})}}">
+                    <div class="used_vehicle_card_header">
+                        <p class='used_vehicle_card_header_name'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}</p>
+                    </div>
+                    <div class='used_vehicle_card_image_container'>
+                        {% set images = usedVehicle.usedVehicleImages %}
+                        {% if images|length > 0 %}
+                            <img class='used_vehicle_card_image'
+                                src="{{ asset('uploads/' ~ images[0].image) }}"
+                                alt="image du véhicule {{ usedVehicle.brand }}"
+                                width="350" height="225">
+                        {% else %}
+                            <p>Pas d'image</p>
+                        {% endif %}
+                    </div>
+                    <div class='used_vehicle_card_footer_price'>
+                        <p class='used_vehicle_card_footer_price'>{{ usedVehicle.price }} €</p>
+                    </div>
+                    <div class='used_vehicle_card_footer_description'>
+                        <p class='used_vehicle_card_footer_year'>{{ usedVehicle.year }}</p>
+                        <p class='used_vehicle_card_footer_kilometers'>{{ usedVehicle.kilometers }} km</p>
+                    </div>
+                </a>
             </li>
         {% endfor %}
+    </div>
 {% endblock %}

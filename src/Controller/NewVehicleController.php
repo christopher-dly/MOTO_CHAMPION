@@ -34,7 +34,7 @@ public function newVehicle(Request $request, NewVehicleRepository $repo): Respon
                 foreach ($data as $field => $value) {
                     if ($value !== null && $value !== '') {
 
-                        if (in_array($field, ['brand', 'category', 'model'])) {
+                        if (in_array($field, ['brand', 'category', 'model', 'cylinders'])) {
                             $qb->andWhere("i.$field LIKE :$field")
                             ->setParameter($field, "%$value%");
                         }
@@ -67,7 +67,7 @@ public function newVehicleDetail(NewVehicle $newVehicle): Response
 
     $colorMap = [
         'rouge' => '#FF0000',
-        'bleu' => '#0000FF',
+        'bleu' => 'var(--blue)',
         'noir' => '#000000',
         'blanc' => '#FFFFFF',
         'gris' => '#808080',

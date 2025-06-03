@@ -1,10 +1,25 @@
 {% extends 'layout.html.twig' %}
-
+                                {# penser a ajouter la vignette si a2 #}
 {% block main %}
-    <h1 class='new_vehicle_detail_title_page'>{{vehicle.name}}</h1>
+<div class='new_vehicle_detail_top_container'>
+    <div class='new_vehicle_detail_top_container_left'>
+        <div class="new_vehicle_detail_description new_vehicle_detail_info">
+            <div class='new_vehicle_detail_description_title_container'>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_info_title'>Informations</h2>
+            </div>
+            <p class='new_vehicle_detail_info_text'>Catégorie : <span>{{vehicle.information.category}}</span></p>
+            <p class='new_vehicle_detail_info_text'>Cylindrées : <span>{{vehicle.information.cylinders}} cm3</span></p>
+            <p class='new_vehicle_detail_info_text'>Prix : <span>{{vehicle.information.price}} €</span></p>
+            <p class='new_vehicle_detail_info_text'>Temps de garantie : <span>{{vehicle.information.warrantyTime}} an(s)</span></p>
+        </div>
+    </div>
     <div class='new_vehicle_detail_card'>
-        <div class='new_vehicle_detail_card_title_container'>
-            <p class='new_vehicle_detail_card_title'>{{vehicle.name}}</p>
+        {% set logoClass = vehicle.information.brand == 'Suzuki' 
+        ? 'logo-suz' 
+        : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '') 
+        %}
+        <div class='new_vehicle_detail_card_title_container {{ logoClass }}'>
+            <h1 class='new_vehicle_detail_card_title'>{{vehicle.name}}</h1>
         </div>
         <div class='new_vehicle_detail_card_global_container'>
             <div class='new_vehicle_detail_card_image_container'>
@@ -26,126 +41,108 @@
                         <span class="new_vehicle_detail_color-dot" title="{{ name }}" style="background-color: {{ hex }};" data-color="{{ name }}"></span>
                     {% endfor %}
                 </div>
-            </div>
-            <div class='new_vehicle_detail_card_info_container'>
-
-
-                <div class="tabs">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="info">Informations</button>
-                        <button class="tab-btn" data-tab="engine">Moteur</button>
-                        <button class="tab-btn" data-tab="dimensions">Dimensions</button>
-                        <button class="tab-btn" data-tab="cyclePart">Partie cycle</button>
-                        <button class="tab-btn" data-tab="transmission">Transmission</button>
-                    </div>
-
-                    <div class="tab-content active" id="info">
-                        <p>Catégorie : {{vehicle.information.category}}</p>
-                        <p>Cylindrées : {{vehicle.information.cylinders}}</p>
-                        <p>Prix : {{vehicle.information.price}} €</p>
-                        <p>Temps de garantie : {{vehicle.information.warrantyTime}} an(s)</p>
-                        {% if vehicle.information.availableForTrial %}
-                            <a href="{{ path('Home') }}">Réserver un essai</a>
-                        {% else %}
-                            <a class="disabled-link">Réserver un essai</a>
-                        {% endif %}
-                        {# penser a ajouter la vignette si a2 #}
-                    </div>
-
-                    <div class="tab-content" id="engine">
-                        <p>{{ vehicle.engine.type }}</p>
-                        <p>{{ vehicle.engine.cylinders }}</p>
-                        <p>{{ vehicle.engine.announcedPower }}</p>
-                        <p>{{ vehicle.engine.coupleAnnounced }}</p>
-                        <p>{{ vehicle.engine.powerSupply }}</p>
-                        <p>{{ vehicle.engine.consumption }}</p>
-                        <p>{{ vehicle.engine.co2Emissions }}</p>
-                    </div>
-
-                    <div class="tab-content" id="dimensions">
-                        <p>{{ vehicle.dimension.width }}</p>
-                        <p>{{ vehicle.dimension.height }}</p>
-                        <p>{{ vehicle.dimension.length }}</p>
-                        <p>{{ vehicle.dimension.saddleHeight }}</p>
-                        <p>{{ vehicle.dimension.groundClearance }}</p>
-                        <p>{{ vehicle.dimension.gas }}</p>
-                        <p>{{ vehicle.dimension.oil }}</p>
-                        <p>{{ vehicle.dimension.weight }}</p>
-                    </div>
-
-                    <div class="tab-content" id="cyclePart">
-                        <p>{{ vehicle.cyclePart.casterAngle }}</p>
-                        <p>{{ vehicle.cyclePart.caster }}</p>
-                        <p>{{ vehicle.cyclePart.wheelbase }}</p>
-                        <p>{{ vehicle.cyclePart.rim }}</p>
-                        <p>{{ vehicle.cyclePart.frame }}</p>
-                        <p>{{ vehicle.cyclePart.frontSuspension }}</p>
-                        <p>{{ vehicle.cyclePart.rearSuspension }}</p>
-                        <p>{{ vehicle.cyclePart.frontBrake }}</p>
-                        <p>{{ vehicle.cyclePart.rearBrake }}</p>
-                        <p>{{ vehicle.cyclePart.frontWheel }}</p>
-                        <p>{{ vehicle.cyclePart.rearWheel }}</p>
-                    </div>
-
-                    <div class="tab-content" id="transmission">
-                        <p>{{ vehicle.transmission.finalTransmission }}</p>
-                        <p>{{ vehicle.transmission.clutch }}</p>
-                        <p>{{ vehicle.transmission.command }}</p>
-                        <p>{{ vehicle.transmission.gearbox }}</p>
-                    </div>
-
-                </div>
-
-
-
+                {% if vehicle.information.availableForTrial %}
+                    <a class='new_vehicle_detail_card_try_container' href="{{ path('Home') }}">Réserver un essai</a>
+                {% else %}
+                    <a class="disabled-link">Réserver un essai</a>
+                {% endif %}
             </div>
         </div>
     </div>
+    <div class="new_vehicle_detail_description new_vehicle_detail_transmission">
+        <div class='new_vehicle_detail_description_title_container'>
+            <h2 class='new_vehicle_detail_description_title new_vehicle_detail_transmission_title'>Transmission</h2>
+        </div>
+        <p class='new_vehicle_detail_transmission_text'>Trannsmission final: <span>{{ vehicle.transmission.finalTransmission }}</span></p>
+        <p class='new_vehicle_detail_transmission_text'>Embrayage: <span>{{ vehicle.transmission.clutch }}</span></p>
+        <p class='new_vehicle_detail_transmission_text'>Commande: <span>{{ vehicle.transmission.command }}</span></p>
+        <p class='new_vehicle_detail_transmission_text'>Boite de vitesse: <span>{{ vehicle.transmission.gearBox }}</span></p>
+    </div>
+</div>
+<div class='new_vehicle_detail_mid_container'>
+    <div class="new_vehicle_detail_description new_vehicle_detail_dimensions">
+        <div class='new_vehicle_detail_description_title_container'>
+            <h2 class='new_vehicle_detail_description_title new_vehicle_detail_dimensions_title'>Dimensions</h2>
+        </div>
+        <p class='new_vehicle_detail_dimensions_text'>L x H x l: <span>{{ vehicle.dimension.width }} x {{ vehicle.dimension.height }} x {{ vehicle.dimension.length }} mm</span></p>
+        <p class='new_vehicle_detail_dimensions_text'>Hauteur de selle: <span>{{ vehicle.dimension.saddleHeight }} mm</span></p>
+        <p class='new_vehicle_detail_dimensions_text'>Garde au sol: <span>{{ vehicle.dimension.groundClearance }} mm</span></p>
+        <p class='new_vehicle_detail_dimensions_text'>Réservoir d'essence: <span>{{ vehicle.dimension.gas }} L</span></p>
+        <p class='new_vehicle_detail_dimensions_text'>Réservoir d'huile: <span>{{ vehicle.dimension.oil }} L</span></p>
+        <p class='new_vehicle_detail_dimensions_text'>Poids total: <span>{{ vehicle.dimension.weight }} Kg</span></p>
+    </div>
+    <div class='new_vehicle_detail_space'></div>
+    <div class="new_vehicle_detail_description new_vehicle_detail_engine">
+        <div class='new_vehicle_detail_description_title_container'>
+            <h2 class='new_vehicle_detail_description_title new_vehicle_detail_engine_title'>Moteur</h2>
+        </div>
+        <p class='new_vehicle_detail_engine_text'>Type: <span>{{ vehicle.engine.type }}</span></p>
+        <p class='new_vehicle_detail_engine_text'>Cylindrées: <span>{{ vehicle.engine.cylinders }} cm3</span></p>
+        <p class='new_vehicle_detail_engine_text'>Puissance annoncée: <span>{{ vehicle.engine.announcedPower }}</span></p>
+        <p class='new_vehicle_detail_engine_text'>Couple annoncé: <span>{{ vehicle.engine.coupleAnnounced }}</span></p>
+        <p class='new_vehicle_detail_engine_text'>Alimentation: <span>{{ vehicle.engine.powerSupply }}</span></p>
+        <p class='new_vehicle_detail_engine_text'>Consommation: <span>{{ vehicle.engine.consumption }} l/100km</span></p>
+        <p class='new_vehicle_detail_engine_text'>CO2 émissions: <span>{{ vehicle.engine.co2Emissions }} g/km</span></p>
+    </div>
+</div>
+<div class='new_vehicle_detail_bot_container'>
+    <div class="new_vehicle_detail_description new_vehicle_detail_cyclePart">
+    <div class='new_vehicle_detail_description_title_container'>
+        <h2 class='new_vehicle_detail_description_title new_vehicle_detail_cyclePart_title'>Partie cycle</h2>
+    </div>
+        <p class='new_vehicle_detail_cyclePart_text'>Angle de chasse: <span>{{ vehicle.cyclePart.casterAngle }} mm</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Chasse:<span>{{ vehicle.cyclePart.caster }} mm</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Empattement: <span>{{ vehicle.cyclePart.wheelbase }} mm</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Jante: <span>{{ vehicle.cyclePart.rim }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Cadre: <span>{{ vehicle.cyclePart.frame }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Suspension avant:<span>{{ vehicle.cyclePart.frontSuspension }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Suspension arrière: <span>{{ vehicle.cyclePart.rearSuspension }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Frein avanr: <span>{{ vehicle.cyclePart.frontBrake }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Frein arrière: <span>{{ vehicle.cyclePart.rearBrake }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Roue avant: <span>{{ vehicle.cyclePart.frontWheel }}</span></p>
+        <p class='new_vehicle_detail_cyclePart_text'>Roue arrière: <span>{{ vehicle.cyclePart.rearWheel }}</span></p>
+    </div>
+</div>
 
-   
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    // Sélection des éléments du DOM
     const track = document.querySelector('.new_vehicle_detail_carousel-track');
     const allSlides = Array.from(document.querySelectorAll('.new_vehicle_detail_carousel-slide'));
     const prevBtn = document.querySelector('.new_vehicle_detail_carousel-btn.prev');
     const nextBtn = document.querySelector('.new_vehicle_detail_carousel-btn.next');
     const colorDots = document.querySelectorAll('.new_vehicle_detail_color-dot');
 
+    // Variables d'état
     let currentColor = null;
     let visibleSlides = [...allSlides];
     let index = 0;
 
+    // Met à jour les slides visibles en fonction de la couleur sélectionnée
     function updateVisibleSlides() {
         visibleSlides = currentColor
             ? allSlides.filter(slide => slide.dataset.color === currentColor)
             : [...allSlides];
 
-        // Masquer toutes les slides
         allSlides.forEach(slide => slide.style.display = 'none');
-
-        // Afficher uniquement les slides filtrées
         visibleSlides.forEach(slide => slide.style.display = 'block');
 
-        // Reset index et mise à jour du carrousel
         index = 0;
         updateCarousel();
 
-        // Mise à jour de la classe active sur les pastilles
         colorDots.forEach(dot => {
-            if (currentColor && dot.dataset.color.toLowerCase() === currentColor) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
+            dot.classList.toggle('active', currentColor && dot.dataset.color.toLowerCase() === currentColor);
         });
     }
 
+    // Met à jour la position du carrousel
     function updateCarousel() {
         if (visibleSlides.length === 0) return;
         const slideWidth = visibleSlides[0].getBoundingClientRect().width;
         track.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
+    // Écouteurs d'événements pour les boutons
     nextBtn.addEventListener('click', () => {
         if (visibleSlides.length === 0) return;
         index = (index + 1) % visibleSlides.length;
@@ -158,36 +155,22 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     });
 
+    // Écouteurs d'événements pour les points de couleur
     colorDots.forEach(dot => {
         dot.addEventListener('click', () => {
             const selected = dot.dataset.color.toLowerCase();
-            currentColor = (currentColor === selected) ? null : selected; // toggle filtre
+            currentColor = (currentColor === selected) ? null : selected;
             updateVisibleSlides();
         });
     });
 
+    // Écouteur d'événement pour le redimensionnement de la fenêtre
     window.addEventListener('resize', updateCarousel);
 
     // Initialisation
     updateVisibleSlides();
-
-
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Supprimer les classes actives
-            tabButtons.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-
-            // Activer le bon onglet et contenu
-            btn.classList.add('active');
-            const target = btn.getAttribute('data-tab');
-            document.getElementById(target).classList.add('active');
-        });
-    });
 });
+
 </script>
 
 

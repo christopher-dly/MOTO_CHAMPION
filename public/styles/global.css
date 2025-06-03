@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/microsoft-sans-serif');
+
 @import url(components/header.css);
 @import url(components/footer.css);
 
@@ -10,7 +12,9 @@
 @import url(adminPages/actuality_add.css);
 
 @import url(userPages/new_vehicle.css);
+@import url(userPages/used_vehicle.css);
 @import url(userPages/new_vehicle_details.css);
+@import url(userPages/used_vehicle_details.css);
 @import url(userPages/index.css);
 
 :root {
@@ -26,6 +30,7 @@ body {
     flex-direction: column;
     flex: 1;
     box-sizing: border-box;
+    font-family: 'Microsoft Sans Serif';
 }
 
 a {

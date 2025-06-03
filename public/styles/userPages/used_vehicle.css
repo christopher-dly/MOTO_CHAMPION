@@ -1,0 +1,50 @@
+.used_vehicle_title_page {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.used_vehicle_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.used_vehicle_card {
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.used_vehicle_card_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.used_vehicle_card_footer_price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #01073D;
+    color: white;
+    font-weight: bold;
+}
+
+.used_vehicle_card_footer_description {
+    display: flex;
+    background-color: var(--blue);
+    justify-content: space-around;
+    color: white;
+    font-weight: bold;
+}
+
+.used_vehicle_card_image {
+    display: block;
+}

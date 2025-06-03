@@ -1,10 +1,48 @@
+/*Titre de la page*/
+.new_vehicle_detail_title_page {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+/*Carte vehicule*/
+.new_vehicle_detail_card {
+    border: 1px solid black;
+    width: 700px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.new_vehicle_detail_card_title_container {
+    background-position: center;
+    background-size: cover;
+    height: 50px;
+    width: 500px;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    top: -35px;
+    left: -65px;
+}
+
+.new_vehicle_detail_card_title {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 70px;
+    height: 30px;
+    padding-top: 15px;
+}
+
+/*Carrousel (container + slide + boutons)*/
 .new_vehicle_detail_card_carrousel_container {
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     overflow: hidden;
     position: relative;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #0003;
 }
 
 .new_vehicle_detail_carousel {
@@ -49,82 +87,164 @@
     right: 10px;
 }
 
-
-.new_vehicle_detail_card_image_color {
-    margin-top: 1rem;
-    display: flex;
-    gap: 0.5rem;
-}
-
+/*Sélecteurs de couleur*/
 .new_vehicle_detail_color-dot {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     border: 1px solid #ccc;
     display: inline-block;
-    cursor: default;
+    cursor: pointer;
 }
 
 .new_vehicle_detail_color-dot.active {
     outline: 3px solid #000; 
     transform: scale(1.2);  
     transition: transform 0.3s, outline 0.3s;
+} 
+
+.new_vehicle_detail_card_image_color {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
-.new_vehicle_detail_title_page {
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 50px;
-}
-
-.new_vehicle_detail_card {
-    border: 1px solid black;
-    width: 80%;
-    margin: auto;
-}
-
-.new_vehicle_detail_card_global_container {
+/*Conteneurs généraux (top / mid / bottom)*/
+.new_vehicle_detail_top_container {
     display: flex;
     flex-direction: row;
 }
 
-
-
-
-
-
-
-
-
-.tabs {
-    padding: 10px;
-}
-
-.tab-buttons {
+.new_vehicle_detail_mid_container {
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: -270px;
 }
 
-.tab-btn {
-    padding: 8px 16px;
-    border: none;
-    background: #eee;
-    cursor: pointer;
-    border-radius: 5px;
+.new_vehicle_detail_bot_container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.tab-btn.active {
-    background-color: #007bff;
+.new_vehicle_detail_card_try_container{
+    display: flex;
+    justify-content: center;
+    background-color: var(--blue);
     color: white;
+    border: solid 2px black;
+    height: 40px;
+    width: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+} 
+
+.new_vehicle_detail_card_image_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.tab-content {
-    display: none;
+/*Blocs de contenu technique*/
+.new_vehicle_detail_info {
+    width: 300px;
+    height: fit-content;
+    margin-left: 50px;
+    margin-top: 150px;
+    padding-left: 10px;
 }
 
-.tab-content.active {
-    display: block;
+.new_vehicle_detail_transmission {
+    width: 300px;
+    height: fit-content;
+    margin-right: 50px;
+    margin-top: 150px;
+    padding-left: 10px;
 }
 
+.new_vehicle_detail_dimensions {
+    width: 400px;
+    padding-left: 10px;
+}
 
+.new_vehicle_detail_engine {
+    width: 400px;
+    padding-left: 10px;
+}
+
+.new_vehicle_detail_cyclePart {
+    width: 650px;
+    padding-left: 10px;
+}
+
+.new_vehicle_detail_space {
+    width: 600px;
+    z-index: -1000;
+}
+
+/*Texte des sections (disposition + alternance couleurs)*/
+.new_vehicle_detail_info_text,
+.new_vehicle_detail_transmission_text,
+.new_vehicle_detail_dimensions_text,
+.new_vehicle_detail_engine_text,
+.new_vehicle_detail_cyclePart_text {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.new_vehicle_detail_info_text span,
+.new_vehicle_detail_dimensions_text span,
+.new_vehicle_detail_engine_text span,
+.new_vehicle_detail_cyclePart_text span,
+.new_vehicle_detail_transmission_text span{
+    font-weight: 100;
+}
+
+.new_vehicle_detail_info_text:nth-child(even),
+.new_vehicle_detail_transmission_text:nth-child(even),
+.new_vehicle_detail_dimensions_text:nth-child(even),
+.new_vehicle_detail_engine_text:nth-child(even),
+.new_vehicle_detail_cyclePart_text:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+.new_vehicle_detail_info_text:nth-child(odd),
+.new_vehicle_detail_transmission_text:nth-child(odd),
+.new_vehicle_detail_dimensions_text:nth-child(odd),
+.new_vehicle_detail_engine_text:nth-child(odd),
+.new_vehicle_detail_cyclePart_text:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.new_vehicle_detail_description_title_container {
+    background-color: var(--blue);
+    color: white;
+    border: solid 2px black;
+    height: 40px;
+    position: relative;
+    justify-content: space-between;
+    right: -30px;
+    top: -10px;
+} 
+
+.new_vehicle_detail_description_title {
+    position: relative;
+    bottom: 10px;
+    margin-left: 10px;
+}
+
+/*Description*/
+.new_vehicle_detail_description {
+    border: solid 1px black;
+}
