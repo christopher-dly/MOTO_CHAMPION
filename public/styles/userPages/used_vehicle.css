@@ -18,6 +18,10 @@
     margin-bottom: 20px;
 }
 
+.used_vehicle_card:hover {
+    transform: scale(1.05);
+}
+
 .used_vehicle_card_header {
     display: flex;
     justify-content: center;

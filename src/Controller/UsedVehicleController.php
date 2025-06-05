@@ -23,9 +23,11 @@ class UsedVehicleController extends AbstractController
     public function usedVehicleDetails(UsedVehicleRepository $repo, int $id): Response
     {
         $usedVehicle = $repo->find($id);
+        $images = $usedVehicle->getUsedVehicleImages();
 
         return $this->render('pages/used_vehicle_details.html.twig', [
             'usedVehicle' => $usedVehicle,
+            'images' => $images,
         ]);
     }
 }

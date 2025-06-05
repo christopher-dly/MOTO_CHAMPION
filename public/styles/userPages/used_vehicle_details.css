@@ -1,0 +1,144 @@
+/* === Structure générale === */
+.used_vehicle_detail_global_container {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.used_vehicle_detail_left_container {
+    width: 40%;
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
+.used_vehicle_detail_right_container {
+    width: 60%;
+    margin-left: 10px;
+    margin-right: 25px;
+}
+
+/* === Titre de page === */
+.used_vehicle_detail_title_page {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* === Carrousel === */
+.used_vehicle_detail_card_carrousel_container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.used_vehicle_detail_carousel {
+    position: relative;
+    width: 100%;
+}
+
+.used_vehicle_detail_carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.used_vehicle_detail_carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.used_vehicle_detail_carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* === Boutons du carrousel === */
+.used_vehicle_detail_carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.used_vehicle_detail_carousel-btn.prev {
+    left: 10px;
+}
+
+.used_vehicle_detail_carousel-btn.next {
+    right: 10px;
+}
+
+.used_vehicle_detail_carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* === Informations véhicule === */
+.used_vehicle_detail_info {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+.used_vehicle_detail_description_title_container {
+    background-color: var(--blue);
+    padding: 5px;
+}
+
+.used_vehicle_detail_description_title {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    padding-left: 10px;
+}
+
+.used_vehicle_detail_description_title span {
+    padding-right: 10px;
+}
+
+.used_vehicle_detail_description {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.used_vehicle_detail_description span {
+    font-weight: 100;
+    margin-left: 500px;
+}
+
+.used_vehicle_detail_description:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+.used_vehicle_detail_description:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* === Bouton essai === */
+.used_vehicle_detail_try_button_container {
+    display: flex;
+    justify-content: center;
+}
+
+.used_vehicle_detail_try_button {
+    background-color: var(--blue);
+    color: white;
+    border: solid 2px black;
+    height: 40px;
+    width: fit-content;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}

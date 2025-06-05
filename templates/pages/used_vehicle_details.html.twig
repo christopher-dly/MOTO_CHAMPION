@@ -1,6 +1,83 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    <h1 class='used_vehicle_title_page'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}</h1>
+
+    <div class='used_vehicle_detail_global_container'>
+        <div class='used_vehicle_detail_left_container'>
+            <h1 class='used_vehicle_detail_title_page'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}</h1>
+            <div class='used_vehicle_detail_image_container'>
+                <div class='used_vehicle_detail_card_carrousel_container'>
+                    <div class="used_vehicle_detail_carousel">
+                        <div class="used_vehicle_detail_carousel-track">
+                            {% for image in images %}
+                                <div class="used_vehicle_detail_carousel-slide">
+                                    <img src="{{ asset('uploads/' ~ image.image) }}" alt="Image véhicule">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button class="used_vehicle_detail_carousel-btn prev">&#10094;</button>
+                        <button class="used_vehicle_detail_carousel-btn next">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+            <div class='used_vehicle_detail_try_button_container'>
+                {% if usedVehicle.availableForTrial %}
+                    <a class='used_vehicle_detail_try_button' href="{{ path('Home') }}">Réserver un essai</a>
+                {% else %}
+                    <a class="used_vehicle_detail_try_button_disabled-link">Réserver un essai</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class='used_vehicle_detail_right_container'>
+            <div class='used_vehicle_detail_description_title_container'>
+                <h3 class='used_vehicle_detail_description_title'>Informations<span><img src='{{asset('img/logo/info_logo.png')}}' alt='logo information' width='30' height='30'></span></h3>
+            </div>
+            <div class='used_vehicle_detail_info'>
+                <p class='used_vehicle_detail_description'>Marque :<span>{{usedVehicle.brand}}</span></p>
+                <p class='used_vehicle_detail_description'>Modèle :<span>{{usedVehicle.model}}</span></p>
+                <p class='used_vehicle_detail_description'>Catégorie :<span>{{usedVehicle.category}}</span></p>
+                <p class='used_vehicle_detail_description'>Cylindrées :<span>{{usedVehicle.cylinders}}</span></p>
+                <p class='used_vehicle_detail_description'>Prix :<span>{{usedVehicle.price}}</span></p>
+                <p class='used_vehicle_detail_description'>Temps de garantie :<span>{{usedVehicle.warrantyTime}}</span></p>
+                <p class='used_vehicle_detail_description'>Description:<span>{{usedVehicle.description}}</span></p>
+                <p class='used_vehicle_detail_description'>Couleur :<span>{{usedVehicle.color}}</span></p>
+                <p class='used_vehicle_detail_description'>Année d'immatriculation :<span>{{usedVehicle.year}}</span></p>
+                <p class='used_vehicle_detail_description'>kilomètres parcourus :<span>{{usedVehicle.kilometers}}</span></p>
+                <p class='used_vehicle_detail_description'>Crit'air :<span>{{usedVehicle.energyTax}}</span></p>
+                <p class='used_vehicle_detail_description'>Puissance fiscale :<span>{{usedVehicle.taxPower}}</span></p>
+                <p class='used_vehicle_detail_description'>Energie :<span>{{usedVehicle.power}}</span></p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const track = document.querySelector('.used_vehicle_detail_carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.used_vehicle_detail_carousel-btn.next');
+        const prevButton = document.querySelector('.used_vehicle_detail_carousel-btn.prev');
+
+        let currentSlide = 0;
+
+        function updateCarousel() {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = 'translateX(-' + (slideWidth * currentSlide) + 'px)';
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length; // boucle à 0 si fin atteinte
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length; // boucle à la fin si on est au début
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+    });
+</script>
+
 
 {% endblock %}
