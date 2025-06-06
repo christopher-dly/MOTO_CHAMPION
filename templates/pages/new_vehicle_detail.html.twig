@@ -1,8 +1,48 @@
 {% extends 'layout.html.twig' %}
                                 {# penser a ajouter la vignette si a2 #}
 {% block main %}
-<div class='new_vehicle_detail_top_container'>
-    <div class='new_vehicle_detail_top_container_left'>
+<div class='new_vehicle_detail_global_container'>
+    <div class='new_vehicle_detail_left_container'>
+        <div class='new_vehicle_detail_card'>
+            {% set logoClass = vehicle.information.brand == 'Suzuki' 
+            ? 'logo-suz' 
+            : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '') 
+            %}
+            <div class='new_vehicle_detail_card_title_container {{ logoClass }}'>
+                <h1 class='new_vehicle_detail_card_title'>{{vehicle.name}}</h1>
+            </div>
+            <div class='new_vehicle_detail_card_global_container'>
+                <div class='new_vehicle_detail_card_image_container'>
+                    <div class='new_vehicle_detail_card_carrousel_container'>
+                        <div class="new_vehicle_detail_carousel">
+                            <div class="new_vehicle_detail_carousel-track">
+                                {% for image in images %}
+                                    <div class="new_vehicle_detail_carousel-slide" data-color="{{ image.color|lower }}">
+                                        <img src="{{ asset('uploads/' ~ image.image) }}" alt="Image véhicule">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="new_vehicle_detail_carousel-btn prev">&#10094;</button>
+                            <button class="new_vehicle_detail_carousel-btn next">&#10095;</button>
+                        </div>
+                    </div>
+                    <div class='new_vehicle_detail_card_image_color'>
+                        {% for name, hex in colors %}
+                            <span class="new_vehicle_detail_color-dot" title="{{ name }}" style="background-color: {{ hex }};" data-color="{{ name }}"></span>
+                        {% endfor %}
+                    </div>
+                    <div class='new_vehicle_detail_card_try_container'>
+                        {% if vehicle.information.availableForTrial %}
+                            <a class='new_vehicle_detail_card_try_button' href="{{ path('Home') }}">Réserver un essai</a>
+                        {% else %}
+                            <a class="disabled-link">Réserver un essai</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='new_vehicle_detail_right_container'>
         <div class="new_vehicle_detail_description new_vehicle_detail_info">
             <div class='new_vehicle_detail_description_title_container'>
                 <h2 class='new_vehicle_detail_description_title new_vehicle_detail_info_title'>Informations</h2>
@@ -12,97 +52,59 @@
             <p class='new_vehicle_detail_info_text'>Prix : <span>{{vehicle.information.price}} €</span></p>
             <p class='new_vehicle_detail_info_text'>Temps de garantie : <span>{{vehicle.information.warrantyTime}} an(s)</span></p>
         </div>
-    </div>
-    <div class='new_vehicle_detail_card'>
-        {% set logoClass = vehicle.information.brand == 'Suzuki' 
-        ? 'logo-suz' 
-        : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '') 
-        %}
-        <div class='new_vehicle_detail_card_title_container {{ logoClass }}'>
-            <h1 class='new_vehicle_detail_card_title'>{{vehicle.name}}</h1>
+        <div class="new_vehicle_detail_description new_vehicle_detail_transmission">
+            <div class='new_vehicle_detail_description_title_container'>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_transmission_title'>Transmission</h2>
+            </div>
+            <p class='new_vehicle_detail_transmission_text'>Transmission final: <span>{{ vehicle.transmission.finalTransmission }}</span></p>
+            <p class='new_vehicle_detail_transmission_text'>Embrayage: <span>{{ vehicle.transmission.clutch }}</span></p>
+            <p class='new_vehicle_detail_transmission_text'>Commande: <span>{{ vehicle.transmission.command }}</span></p>
+            <p class='new_vehicle_detail_transmission_text'>Boite de vitesse: <span>{{ vehicle.transmission.gearBox }}</span></p>
         </div>
-        <div class='new_vehicle_detail_card_global_container'>
-            <div class='new_vehicle_detail_card_image_container'>
-                <div class='new_vehicle_detail_card_carrousel_container'>
-                    <div class="new_vehicle_detail_carousel">
-                        <div class="new_vehicle_detail_carousel-track">
-                            {% for image in images %}
-                                <div class="new_vehicle_detail_carousel-slide" data-color="{{ image.color|lower }}">
-                                    <img src="{{ asset('uploads/' ~ image.image) }}" alt="Image véhicule">
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <button class="new_vehicle_detail_carousel-btn prev">&#10094;</button>
-                        <button class="new_vehicle_detail_carousel-btn next">&#10095;</button>
-                    </div>
-                </div>
-                <div class='new_vehicle_detail_card_image_color'>
-                    {% for name, hex in colors %}
-                        <span class="new_vehicle_detail_color-dot" title="{{ name }}" style="background-color: {{ hex }};" data-color="{{ name }}"></span>
-                    {% endfor %}
-                </div>
-                {% if vehicle.information.availableForTrial %}
-                    <a class='new_vehicle_detail_card_try_container' href="{{ path('Home') }}">Réserver un essai</a>
-                {% else %}
-                    <a class="disabled-link">Réserver un essai</a>
-                {% endif %}
+        <div class="new_vehicle_detail_description new_vehicle_detail_dimensions">
+            <div class='new_vehicle_detail_description_title_container'>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_dimensions_title'>Dimensions</h2>
+            </div>
+            <p class='new_vehicle_detail_dimensions_text'>L x H x l: <span>{{ vehicle.dimension.width }} x {{ vehicle.dimension.height }} x {{ vehicle.dimension.length }} mm</span></p>
+            <p class='new_vehicle_detail_dimensions_text'>Hauteur de selle: <span>{{ vehicle.dimension.saddleHeight }} mm</span></p>
+            <p class='new_vehicle_detail_dimensions_text'>Garde au sol: <span>{{ vehicle.dimension.groundClearance }} mm</span></p>
+            <p class='new_vehicle_detail_dimensions_text'>Réservoir d'essence: <span>{{ vehicle.dimension.gas }} L</span></p>
+            <p class='new_vehicle_detail_dimensions_text'>Réservoir d'huile: <span>{{ vehicle.dimension.oil }} L</span></p>
+            <p class='new_vehicle_detail_dimensions_text'>Poids total: <span>{{ vehicle.dimension.weight }} Kg</span></p>
+        </div>
+        <div class="new_vehicle_detail_description new_vehicle_detail_engine">
+            <div class='new_vehicle_detail_description_title_container'>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_engine_title'>Moteur</h2>
+            </div>
+            <p class='new_vehicle_detail_engine_text'>Type: <span>{{ vehicle.engine.type }}</span></p>
+            <p class='new_vehicle_detail_engine_text'>Cylindrées: <span>{{ vehicle.engine.cylinders }} cm3</span></p>
+            <p class='new_vehicle_detail_engine_text'>Puissance annoncée: <span>{{ vehicle.engine.announcedPower }}</span></p>
+            <p class='new_vehicle_detail_engine_text'>Couple annoncé: <span>{{ vehicle.engine.coupleAnnounced }}</span></p>
+            <p class='new_vehicle_detail_engine_text'>Alimentation: <span>{{ vehicle.engine.powerSupply }}</span></p>
+            <p class='new_vehicle_detail_engine_text'>Consommation: <span>{{ vehicle.engine.consumption }} l/100km</span></p>
+            <p class='new_vehicle_detail_engine_text'>CO2 émissions: <span>{{ vehicle.engine.co2Emissions }} g/km</span></p>
+        </div>
+        <div class="new_vehicle_detail_description new_vehicle_detail_cyclePart">
+            <div class='new_vehicle_detail_description_title_container'>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_cyclePart_title'>Partie cycle</h2>
+            </div>
+                <p class='new_vehicle_detail_cyclePart_text'>Angle de chasse: <span>{{ vehicle.cyclePart.casterAngle }} mm</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Chasse:<span>{{ vehicle.cyclePart.caster }} mm</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Empattement: <span>{{ vehicle.cyclePart.wheelbase }} mm</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Jante: <span>{{ vehicle.cyclePart.rim }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Cadre: <span>{{ vehicle.cyclePart.frame }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Suspension avant:<span>{{ vehicle.cyclePart.frontSuspension }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Suspension arrière: <span>{{ vehicle.cyclePart.rearSuspension }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Frein avanr: <span>{{ vehicle.cyclePart.frontBrake }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Frein arrière: <span>{{ vehicle.cyclePart.rearBrake }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Roue avant: <span>{{ vehicle.cyclePart.frontWheel }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Roue arrière: <span>{{ vehicle.cyclePart.rearWheel }}</span></p>
             </div>
         </div>
     </div>
-    <div class="new_vehicle_detail_description new_vehicle_detail_transmission">
-        <div class='new_vehicle_detail_description_title_container'>
-            <h2 class='new_vehicle_detail_description_title new_vehicle_detail_transmission_title'>Transmission</h2>
-        </div>
-        <p class='new_vehicle_detail_transmission_text'>Trannsmission final: <span>{{ vehicle.transmission.finalTransmission }}</span></p>
-        <p class='new_vehicle_detail_transmission_text'>Embrayage: <span>{{ vehicle.transmission.clutch }}</span></p>
-        <p class='new_vehicle_detail_transmission_text'>Commande: <span>{{ vehicle.transmission.command }}</span></p>
-        <p class='new_vehicle_detail_transmission_text'>Boite de vitesse: <span>{{ vehicle.transmission.gearBox }}</span></p>
-    </div>
 </div>
-<div class='new_vehicle_detail_mid_container'>
-    <div class="new_vehicle_detail_description new_vehicle_detail_dimensions">
-        <div class='new_vehicle_detail_description_title_container'>
-            <h2 class='new_vehicle_detail_description_title new_vehicle_detail_dimensions_title'>Dimensions</h2>
-        </div>
-        <p class='new_vehicle_detail_dimensions_text'>L x H x l: <span>{{ vehicle.dimension.width }} x {{ vehicle.dimension.height }} x {{ vehicle.dimension.length }} mm</span></p>
-        <p class='new_vehicle_detail_dimensions_text'>Hauteur de selle: <span>{{ vehicle.dimension.saddleHeight }} mm</span></p>
-        <p class='new_vehicle_detail_dimensions_text'>Garde au sol: <span>{{ vehicle.dimension.groundClearance }} mm</span></p>
-        <p class='new_vehicle_detail_dimensions_text'>Réservoir d'essence: <span>{{ vehicle.dimension.gas }} L</span></p>
-        <p class='new_vehicle_detail_dimensions_text'>Réservoir d'huile: <span>{{ vehicle.dimension.oil }} L</span></p>
-        <p class='new_vehicle_detail_dimensions_text'>Poids total: <span>{{ vehicle.dimension.weight }} Kg</span></p>
-    </div>
-    <div class='new_vehicle_detail_space'></div>
-    <div class="new_vehicle_detail_description new_vehicle_detail_engine">
-        <div class='new_vehicle_detail_description_title_container'>
-            <h2 class='new_vehicle_detail_description_title new_vehicle_detail_engine_title'>Moteur</h2>
-        </div>
-        <p class='new_vehicle_detail_engine_text'>Type: <span>{{ vehicle.engine.type }}</span></p>
-        <p class='new_vehicle_detail_engine_text'>Cylindrées: <span>{{ vehicle.engine.cylinders }} cm3</span></p>
-        <p class='new_vehicle_detail_engine_text'>Puissance annoncée: <span>{{ vehicle.engine.announcedPower }}</span></p>
-        <p class='new_vehicle_detail_engine_text'>Couple annoncé: <span>{{ vehicle.engine.coupleAnnounced }}</span></p>
-        <p class='new_vehicle_detail_engine_text'>Alimentation: <span>{{ vehicle.engine.powerSupply }}</span></p>
-        <p class='new_vehicle_detail_engine_text'>Consommation: <span>{{ vehicle.engine.consumption }} l/100km</span></p>
-        <p class='new_vehicle_detail_engine_text'>CO2 émissions: <span>{{ vehicle.engine.co2Emissions }} g/km</span></p>
-    </div>
-</div>
-<div class='new_vehicle_detail_bot_container'>
-    <div class="new_vehicle_detail_description new_vehicle_detail_cyclePart">
-    <div class='new_vehicle_detail_description_title_container'>
-        <h2 class='new_vehicle_detail_description_title new_vehicle_detail_cyclePart_title'>Partie cycle</h2>
-    </div>
-        <p class='new_vehicle_detail_cyclePart_text'>Angle de chasse: <span>{{ vehicle.cyclePart.casterAngle }} mm</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Chasse:<span>{{ vehicle.cyclePart.caster }} mm</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Empattement: <span>{{ vehicle.cyclePart.wheelbase }} mm</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Jante: <span>{{ vehicle.cyclePart.rim }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Cadre: <span>{{ vehicle.cyclePart.frame }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Suspension avant:<span>{{ vehicle.cyclePart.frontSuspension }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Suspension arrière: <span>{{ vehicle.cyclePart.rearSuspension }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Frein avanr: <span>{{ vehicle.cyclePart.frontBrake }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Frein arrière: <span>{{ vehicle.cyclePart.rearBrake }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Roue avant: <span>{{ vehicle.cyclePart.frontWheel }}</span></p>
-        <p class='new_vehicle_detail_cyclePart_text'>Roue arrière: <span>{{ vehicle.cyclePart.rearWheel }}</span></p>
-    </div>
-</div>
+
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

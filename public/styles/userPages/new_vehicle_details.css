@@ -1,43 +1,28 @@
-/*Titre de la page*/
-.new_vehicle_detail_title_page {
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 50px;
+/* === SÉLECTEURS DE COULEUR === */
+.new_vehicle_detail_color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
 }
 
-/*Carte vehicule*/
-.new_vehicle_detail_card {
-    border: 1px solid black;
-    width: 700px;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.new_vehicle_detail_color-dot.active {
+    outline: 3px solid #000;
+    transform: scale(1.2);
+    transition: transform 0.3s, outline 0.3s;
 }
 
-.new_vehicle_detail_card_title_container {
-    background-position: center;
-    background-size: cover;
-    height: 50px;
-    width: 500px;
-    position: relative;
-    text-align: center;
+.new_vehicle_detail_card_image_color {
+    display: flex;
     align-items: center;
     justify-content: center;
-    top: -35px;
-    left: -65px;
+    gap: 0.5rem;
+    margin: 1rem 0 10px;
 }
 
-.new_vehicle_detail_card_title {
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 20px;
-    padding-left: 70px;
-    height: 30px;
-    padding-top: 15px;
-}
-
-/*Carrousel (container + slide + boutons)*/
+/* === CARROUSEL === */
 .new_vehicle_detail_card_carrousel_container {
     max-width: 700px;
     margin: auto;
@@ -87,111 +72,53 @@
     right: 10px;
 }
 
-/*Sélecteurs de couleur*/
-.new_vehicle_detail_color-dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    display: inline-block;
-    cursor: pointer;
+/* === GLOBAL LAYOUT === */
+.new_vehicle_detail_global_container {
+    display: flex;
+    margin: 30px 0;
 }
 
-.new_vehicle_detail_color-dot.active {
-    outline: 3px solid #000; 
-    transform: scale(1.2);  
-    transition: transform 0.3s, outline 0.3s;
-} 
+.new_vehicle_detail_left_container {
+    width: 40%;
+    margin: 0 10px 0 70px;
+}
 
-.new_vehicle_detail_card_image_color {
+.new_vehicle_detail_right_container {
+    width: 60%;
+    height: 650px;
+    margin: 0 25px 0 10px;
+    overflow-y: scroll;
+    border: 1px solid black;
+}
+
+/* === CARTE VÉHICULE === */
+.new_vehicle_detail_card {
+    margin: 30px auto;
+}
+
+.new_vehicle_detail_card_title_container {
+    background-position: center;
+    background-size: cover;
+    height: 50px;
+    width: 500px;
+    position: relative;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-    margin-top: 1rem;
-    display: flex;
-    gap: 0.5rem;
+    top: -35px;
+    left: -65px;
 }
 
-/*Conteneurs généraux (top / mid / bottom)*/
-.new_vehicle_detail_top_container {
-    display: flex;
-    flex-direction: row;
-}
-
-.new_vehicle_detail_mid_container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: -270px;
-}
-
-.new_vehicle_detail_bot_container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.new_vehicle_detail_card_try_container{
-    display: flex;
-    justify-content: center;
-    background-color: var(--blue);
+.new_vehicle_detail_card_title {
     color: white;
-    border: solid 2px black;
-    height: 40px;
-    width: fit-content;
-    padding-left: 40px;
-    padding-right: 40px;
-    align-items: center;
+    text-transform: uppercase;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 20px;
-} 
-
-.new_vehicle_detail_card_image_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    font-size: 20px;
+    height: 30px;
+    padding: 15px 0 0 70px;
 }
 
-/*Blocs de contenu technique*/
-.new_vehicle_detail_info {
-    width: 300px;
-    height: fit-content;
-    margin-left: 50px;
-    margin-top: 150px;
-    padding-left: 10px;
-}
-
-.new_vehicle_detail_transmission {
-    width: 300px;
-    height: fit-content;
-    margin-right: 50px;
-    margin-top: 150px;
-    padding-left: 10px;
-}
-
-.new_vehicle_detail_dimensions {
-    width: 400px;
-    padding-left: 10px;
-}
-
-.new_vehicle_detail_engine {
-    width: 400px;
-    padding-left: 10px;
-}
-
-.new_vehicle_detail_cyclePart {
-    width: 650px;
-    padding-left: 10px;
-}
-
-.new_vehicle_detail_space {
-    width: 600px;
-    z-index: -1000;
-}
-
-/*Texte des sections (disposition + alternance couleurs)*/
+/* === TEXTES INFORMATIONS TECHNIQUES === */
 .new_vehicle_detail_info_text,
 .new_vehicle_detail_transmission_text,
 .new_vehicle_detail_dimensions_text,
@@ -199,18 +126,42 @@
 .new_vehicle_detail_cyclePart_text {
     display: flex;
     justify-content: space-between;
-    padding-right: 10px;
     font-weight: bold;
 }
 
 .new_vehicle_detail_info_text span,
+.new_vehicle_detail_transmission_text span,
 .new_vehicle_detail_dimensions_text span,
 .new_vehicle_detail_engine_text span,
-.new_vehicle_detail_cyclePart_text span,
-.new_vehicle_detail_transmission_text span{
+.new_vehicle_detail_cyclePart_text span {
     font-weight: 100;
 }
 
+.new_vehicle_detail_description_title_container {
+    background-color: var(--blue);
+    padding: 1px;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.new_vehicle_detail_description_title {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    padding-left: 10px;
+}
+.new_vehicle_detail_description_title span {
+    padding-right: 10px;
+}
+
+.new_vehicle_detail_description {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* === ALTERNANCE COULEUR LIGNES === */
 .new_vehicle_detail_info_text:nth-child(even),
 .new_vehicle_detail_transmission_text:nth-child(even),
 .new_vehicle_detail_dimensions_text:nth-child(even),
@@ -227,24 +178,21 @@
     background-color: #ffffff;
 }
 
-.new_vehicle_detail_description_title_container {
+/* === BOUTON ESSAI === */
+.new_vehicle_detail_card_try_container {
+    display: flex;
+    justify-content: center;
+}
+
+.new_vehicle_detail_card_try_button {
     background-color: var(--blue);
     color: white;
     border: solid 2px black;
     height: 40px;
-    position: relative;
-    justify-content: space-between;
-    right: -30px;
-    top: -10px;
-} 
-
-.new_vehicle_detail_description_title {
-    position: relative;
-    bottom: 10px;
-    margin-left: 10px;
-}
-
-/*Description*/
-.new_vehicle_detail_description {
-    border: solid 1px black;
+    width: fit-content;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
 }

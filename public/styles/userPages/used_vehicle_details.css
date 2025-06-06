@@ -1,7 +1,6 @@
 /* === Structure générale === */
 .used_vehicle_detail_global_container {
     display: flex;
-    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -15,6 +14,7 @@
     width: 60%;
     margin-left: 10px;
     margin-right: 25px;
+    margin-top: 65px;
 }
 
 /* === Titre de page === */
@@ -113,7 +113,6 @@
 
 .used_vehicle_detail_description span {
     font-weight: 100;
-    margin-left: 500px;
 }
 
 .used_vehicle_detail_description:nth-child(even) {
