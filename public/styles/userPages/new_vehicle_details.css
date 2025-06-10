@@ -79,12 +79,12 @@
 }
 
 .new_vehicle_detail_left_container {
-    width: 40%;
+    width: 50%;
     margin: 0 10px 0 70px;
 }
 
 .new_vehicle_detail_right_container {
-    width: 60%;
+    width: 50%;
     height: 650px;
     margin: 0 25px 0 10px;
     overflow-y: scroll;
@@ -187,7 +187,6 @@
 .new_vehicle_detail_card_try_button {
     background-color: var(--blue);
     color: white;
-    border: solid 2px black;
     height: 40px;
     width: fit-content;
     margin-top: 10px;

@@ -20,18 +20,10 @@ class AdminActualityController extends AbstractController
     }
 
     #[Route('/admin/actuality', name: 'AdminActuality', methods: ['GET','POST'])]
-    public function adminActuality(EntityManagerInterface $entityManager): Response
+    public function adminActuality(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
-        $actuality = $entityManager->getRepository(Actuality::class)->findBy([], ['date' => 'DESC']);
-    
-        return $this->render('admin/actuality.html.twig', [
-            'actualitys' => $actuality,
-        ]);
-    }
-
-    #[Route('/admin/actuality/add', name: 'AdminActualityAdd', methods: ['GET','POST'])]
-    public function adminActualityAdd(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
-    {
+        $showActuality = $entityManager->getRepository(Actuality::class)->findBy([], ['date' => 'DESC']);
+        
         $actuality = new Actuality();
         $form = $this->createForm(NewActualityForm::class, $actuality);
         $form->handleRequest($request);
@@ -64,7 +56,8 @@ class AdminActualityController extends AbstractController
             return $this->redirectToRoute('AdminActuality');
         }
 
-        return $this->render('admin/actuality_add.html.twig', [
+        return $this->render('admin/actuality.html.twig', [
+            'actualitys' => $showActuality,
             'actualityForm' => $this->createForm(NewActualityForm::class),
         ]);
     }
@@ -77,5 +70,4 @@ class AdminActualityController extends AbstractController
 
         return $this->redirectToRoute('AdminActuality');
     }
-
 }

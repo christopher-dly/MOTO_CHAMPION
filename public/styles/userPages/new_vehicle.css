@@ -4,12 +4,12 @@
     margin-bottom: 50px;
 }
 
-.new_vehicle {
+/* .new_vehicle {
     display: flex;
     flex-direction: row;
-}
+} */
 
-.new_vehicle_left_container {
+/* .new_vehicle_left_container {
     width: 20%;    
     position: fixed;
     height: 100vh;
@@ -20,11 +20,11 @@
     justify-content: center;
     z-index: 10;
     margin-top: 100px;
-}
+} */
 
 .new_vehicle_right_container {
     width: 80%;
-    margin-left: 20%;
+    /* margin-left: 20%; */
 }
 
 .new_vehicle_card {

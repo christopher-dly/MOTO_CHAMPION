@@ -1,22 +1,31 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+
+    {% include 'components/adminNav.html.twig' %}
+    
     <div class='adminActualityTitleContainer'>
-        <h1 class='adminActualityTitlePage'>(admin) ACTUALITES</h1>
-        <a class='buttonAddActuality' href="{{ path('AdminActualityAdd') }}">Ajouter une nouvelle actu</a>
+        <h1 class='adminActualityTitlePage'>(admin) ACTUALITÉS</h1>
+    </div>
+
+    <div class='adminActualityAddFormContainer'>
+        {{ form_start(actualityForm, {'attr': {'enctype': 'multipart/form-data'}}) }}
+            <div class='actualityAddInputContainer'>
+                <p class='actualityAddInputDescription'>Image :</p>
+                {{ form_widget(actualityForm.image, {'attr': {'class': 'newActualityAddInput'}}) }}
+                {{ form_errors(actualityForm.image) }}
+            </div>
+            {{ form_widget(actualityForm.submit) }}
+        {{ form_end(actualityForm) }}
     </div>
 
     <div class='adminActualityContainer'>
         {% for actuality in actualitys %}
             <div class="adminActuality">
-                <div class="adminActualityTitleContentContainer">
-                    <h2 class='adminActualityTitle'>{{ actuality.title }}</h2>
-                </div>
                 <div class='adminActualityContentContainer'>
                     {% if actuality.image %}
-                        <img src="{{ asset('uploads/' ~ actuality.image) }}" alt="{{ actuality.title }}" style="max-width: 300px;">
+                        <img class='adminActualityImage' src="{{ asset('uploads/' ~ actuality.image) }}" alt="Image de l'actualité">
                     {% endif %}
-                    <p class='adminActualityContent'>{{ actuality.content|raw }}</p>
                 </div>
                 <div class="adminActualityBottomContainer">
                     <div class="adminActualityDateContainer">
@@ -31,5 +40,4 @@
             <p>Aucune actualité trouvée.</p>
         {% endfor %}
     </div>
-
 {% endblock %}

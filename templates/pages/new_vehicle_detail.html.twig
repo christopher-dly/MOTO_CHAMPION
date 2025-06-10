@@ -1,5 +1,5 @@
 {% extends 'layout.html.twig' %}
-                                {# penser a ajouter la vignette si a2 #}
+                                {# penser a ajouter la vignette si a2 / ajouter les logo des catégorie#}
 {% block main %}
 <div class='new_vehicle_detail_global_container'>
     <div class='new_vehicle_detail_left_container'>
@@ -33,7 +33,7 @@
                     </div>
                     <div class='new_vehicle_detail_card_try_container'>
                         {% if vehicle.information.availableForTrial %}
-                            <a class='new_vehicle_detail_card_try_button' href="{{ path('Home') }}">Réserver un essai</a>
+                            <a class='new_vehicle_detail_card_try_button' href="{{ path('Contact') }}">Réserver un essai</a>
                         {% else %}
                             <a class="disabled-link">Réserver un essai</a>
                         {% endif %}
@@ -95,7 +95,7 @@
                 <p class='new_vehicle_detail_cyclePart_text'>Cadre: <span>{{ vehicle.cyclePart.frame }}</span></p>
                 <p class='new_vehicle_detail_cyclePart_text'>Suspension avant:<span>{{ vehicle.cyclePart.frontSuspension }}</span></p>
                 <p class='new_vehicle_detail_cyclePart_text'>Suspension arrière: <span>{{ vehicle.cyclePart.rearSuspension }}</span></p>
-                <p class='new_vehicle_detail_cyclePart_text'>Frein avanr: <span>{{ vehicle.cyclePart.frontBrake }}</span></p>
+                <p class='new_vehicle_detail_cyclePart_text'>Frein avant: <span>{{ vehicle.cyclePart.frontBrake }}</span></p>
                 <p class='new_vehicle_detail_cyclePart_text'>Frein arrière: <span>{{ vehicle.cyclePart.rearBrake }}</span></p>
                 <p class='new_vehicle_detail_cyclePart_text'>Roue avant: <span>{{ vehicle.cyclePart.frontWheel }}</span></p>
                 <p class='new_vehicle_detail_cyclePart_text'>Roue arrière: <span>{{ vehicle.cyclePart.rearWheel }}</span></p>

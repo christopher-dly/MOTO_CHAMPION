@@ -5,13 +5,13 @@
 }
 
 .used_vehicle_detail_left_container {
-    width: 40%;
+    width: 50%;
     margin-left: 25px;
     margin-right: 10px;
 }
 
 .used_vehicle_detail_right_container {
-    width: 60%;
+    width: 50%;
     margin-left: 10px;
     margin-right: 25px;
     margin-top: 65px;
@@ -132,7 +132,6 @@
 .used_vehicle_detail_try_button {
     background-color: var(--blue);
     color: white;
-    border: solid 2px black;
     height: 40px;
     width: fit-content;
     margin-top: 10px;

@@ -2,6 +2,11 @@
 
 {% block main %}
     <div class='admin-home-menu'>
+       <p>Avant de publier une image dans un formulaire, n'hésite pas à réduire son poids sur 
+            <a class='iLoveImg' href="https://www.iloveimg.com/fr/compresser-image" target="_blank" rel="noopener noreferrer">
+                iloveimg.com
+            </a>.
+        </p>
         <a class='admin-home-menu-card'>
             <h2 class='admin-home_little_title'>ADMINISTRATEUR</h2>
             <p class='admin-home-card-description'>Gérer les administrateurs</p>
@@ -19,10 +24,6 @@
             <h2 class='admin-home_little_title'>VEHICULES D'OCCASIONS</h2>
             <p class='admin-home-card-description'>Créer / Modifier / Supprimer <br>
             des véhicules d'occasions</p>
-        </a>
-        <a class='admin-home-menu-card' href="{{ path('AdminContact') }}">
-            <h2 class='admin-home_little_title'>CONTACT</h2>
-            <p class='admin-home-card-description'>Gérer les messages des utilisateurs</p>
         </a>
     </div>
 {% endblock %}

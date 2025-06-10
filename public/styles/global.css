@@ -2,6 +2,7 @@
 
 @import url(components/header.css);
 @import url(components/footer.css);
+@import url(components/adminNav.css);
 
 @import url(adminPages/home.css);
 @import url(adminPages/new_vehicle_add_edit.css);
@@ -9,7 +10,6 @@
 @import url(adminPages/new_vehicle.css);
 @import url(adminPages/used_vehicle.css);
 @import url(adminPages/actuality.css);
-@import url(adminPages/actuality_add.css);
 
 @import url(userPages/new_vehicle.css);
 @import url(userPages/used_vehicle.css);

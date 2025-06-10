@@ -1,0 +1,44 @@
+.adminNavBar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.adminNavLink {
+    text-decoration: none;
+    color: #222;
+    border: 1px solid #222;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    transition: all 0.3s ease-in-out;
+}
+
+.adminNavLink:hover {
+    background-color: var(--blue);
+    color: #fff;
+    border-color: var(--blue);
+}
+
+@media screen and (max-width: 768px) {
+    .adminNavBar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .adminNavLink {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        margin: 5px 0;
+        font-size: 1em;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}

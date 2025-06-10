@@ -11,12 +11,36 @@
         <img src="{{ asset('img/logo/header.svg') }}" alt="bannière de l'application">
     </a>
 </div>
-    <ul class='navbar-list'>
-        <li><a class="navbar-link">Actus</a></li>
-        <li><a class="navbar-link" href='{{ path('NewVehicle') }}'>Neuf</a></li>
-        <li><a class="navbar-link" href='{{ path('UsedVehicle')}}'>Occasion</a></li>
-        <li><a class="navbar-link">Tarif atelier</a></li>
-        <li><a class="navbar-link">Qui sommes nous ?</a></li>
-        <li><a class="navbar-link" href='{{ path('Contact') }}'>Contact</a></li>
-        <li class="navbar-link"><input type="text" placeholder="Rechercher"></li>
-    </ul>
+<div class='navbar'>
+    <div class='navbar-logo-container'>
+        <div class='navbar-logo'>
+            <a href="{{ path('Home') }}">
+                <img src="{{ asset('img/logo/logo_mc.png') }}" alt="logo de l'application" width="80" height="80">
+            </a>
+        </div>
+        <div class="burger-menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class='navbar-search'>
+        <ul class='navbar-list' id="navbar-list">
+            <li class='mb10'>
+                <a class="navbar-link {% if app.request.get('_route') == 'NewVehicle' %}active{% endif %}" href="{{ path('NewVehicle') }}">Neuf</a>
+            </li>
+            <li class='mb10'>
+                <a class="navbar-link {% if app.request.get('_route') == 'UsedVehicle' %}active{% endif %}" href="{{ path('UsedVehicle') }}">Occasion</a>
+            </li>
+            <li class='mb10'>
+                <a class="navbar-link {% if app.request.get('_route') == 'Workshop' %}active{% endif %}">Tarif atelier</a>
+            </li>
+            <li class='mb10'>
+                <a class="navbar-link {% if app.request.get('_route') == 'AboutUs' %}active{% endif %}">Qui sommes nous ?</a>
+            </li>
+            <li class='mb10'>
+                <a class="navbar-link {% if app.request.get('_route') == 'Contact' %}active{% endif %}" href="{{ path('Contact') }}">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>

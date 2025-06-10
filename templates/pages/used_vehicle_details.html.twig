@@ -22,7 +22,7 @@
             </div>
             <div class='used_vehicle_detail_try_button_container'>
                 {% if usedVehicle.availableForTrial %}
-                    <a class='used_vehicle_detail_try_button' href="{{ path('Home') }}">Réserver un essai</a>
+                    <a class='used_vehicle_detail_try_button' href="{{ path('Contact') }}">Réserver un essai</a>
                 {% else %}
                     <a class="used_vehicle_detail_try_button_disabled-link">Réserver un essai</a>
                 {% endif %}
@@ -37,15 +37,15 @@
                 <p class='used_vehicle_detail_description'>Modèle :<span>{{usedVehicle.model}}</span></p>
                 <p class='used_vehicle_detail_description'>Catégorie :<span>{{usedVehicle.category}}</span></p>
                 <p class='used_vehicle_detail_description'>Cylindrées :<span>{{usedVehicle.cylinders}}</span></p>
-                <p class='used_vehicle_detail_description'>Prix :<span>{{usedVehicle.price}}</span></p>
                 <p class='used_vehicle_detail_description'>Temps de garantie :<span>{{usedVehicle.warrantyTime}}</span></p>
                 <p class='used_vehicle_detail_description'>Description:<span>{{usedVehicle.description}}</span></p>
                 <p class='used_vehicle_detail_description'>Couleur :<span>{{usedVehicle.color}}</span></p>
-                <p class='used_vehicle_detail_description'>Année d'immatriculation :<span>{{usedVehicle.year}}</span></p>
-                <p class='used_vehicle_detail_description'>kilomètres parcourus :<span>{{usedVehicle.kilometers}}</span></p>
                 <p class='used_vehicle_detail_description'>Crit'air :<span>{{usedVehicle.energyTax}}</span></p>
                 <p class='used_vehicle_detail_description'>Puissance fiscale :<span>{{usedVehicle.taxPower}}</span></p>
                 <p class='used_vehicle_detail_description'>Energie :<span>{{usedVehicle.power}}</span></p>
+                <p class='used_vehicle_detail_description'>Année d'immatriculation :<span>{{usedVehicle.year}}</span></p>
+                <p class='used_vehicle_detail_description'>kilomètres parcourus :<span>{{usedVehicle.kilometers}}</span></p>
+                <p class='used_vehicle_detail_description'>Prix :<span class='used_vehicle_detail_price'>{{usedVehicle.price}} €</span></p>
             </div>
         </div>
     </div>

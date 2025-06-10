@@ -1,19 +1,25 @@
 footer {
     background-color: #272727;
     color: white;
-    bottom: 0;
     width: 100%;
+    bottom: 0;
 }
+
+/* ========== Informations générales ========== */
 .footer-informations {
     display: flex;
     justify-content: space-evenly;
     margin-left: 15px;
 }
 
-.footer-hours, .footer-contact, .footer-accessibility {
+/* ========== Blocs horaires, contact, accessibilité ========== */
+.footer-hours,
+.footer-contact,
+.footer-accessibility {
     margin-top: 20px;
 }
 
+/* ========== Titres et textes ========== */
 .footer-title {
     font-size: 15px;
     font-weight: bold;
@@ -25,15 +31,31 @@ footer {
     margin-bottom: -5px;
 }
 
+/* ========== Lien texte légal ========== */
 .footer-legalText {
     color: white;
     text-decoration: none;
 }
 
+/* ========== Mentions légales ========== */
 .footer-legal {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     font-size: 10px;
+}
+
+/* ========== Responsive ========== */
+@media screen and (max-width: 767px) {
+    .footer-informations {
+        flex-direction: column;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+
 }
