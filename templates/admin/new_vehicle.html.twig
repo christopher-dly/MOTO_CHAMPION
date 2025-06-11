@@ -1,171 +1,57 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+    {% include 'components/adminNav.html.twig' %}
+
     <div class='adminNewVehicleTitleContainer'>
-        <h1 class='adminNewVehicleTitlePage'>(admin) VÉHICULES NEUFS</h1>
+        <h1 class='adminNewVehicleTitlePage'>(Admin) Véhicules Neufs</h1>
         <a class='buttonAddNewVehicle' href="{{ path('AdminNewVehicleAdd') }}">Ajouter un véhicule neuf</a>
     </div>
 
     <div>
-        <div class='adminNewVehicleCategory'>
-            <div class='adminNewVehicleTitleCategoryContainer'>
-                <h3 class='adminNewVehicleTitleCategory'>Trail<h3>
-            </div>
-            <div class='adminNewVehicleCategoryContainer'>
-            {% for newVehicleTrail in newVehicleTrails %}
-                {% for newVehicle in newVehicleTrail.newVehicles %}
-                <div class='adminNewVehicleCard'>
-                    <a href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
-                        <div class='adminNewVehicleTitleContainer'>
-                            <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
-                        </div>
-                        <div class='adminNewVehicleImageContainer'>
-                            {% set images = newVehicle.newVehicleImages %}
-                                {% if images|length > 0 %}
-                                    <img class='adminNewVehicleImage'
-                                        src="{{ asset('uploads/' ~ images[0].image) }}"
-                                        alt="image du véhicule {{ newVehicle.name }}"
-                                        width="300" height="200">
-                                {% else %}
-                                    <p>Pas d'image</p>
-                                {% endif %}
-                        </div>
-                        <div class='adminNewVehicleDeleteButtonContainer'>
-                            <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer 🗑</a>
-                        </div>
-                    </a>
+
+        {% set categories = {
+            'Trail': newVehicleTrails,
+            'Sport / GT': newVehicleSports,
+            'Roadster': newVehicleRoadsters,
+            'Scooter': newVehicleScooters,
+            'Moto 125cc': newVehicleMoto125s
+        } %}
+
+        {% for category, vehicles in categories %}
+            <div class='adminNewVehicleCategory'>
+                <div class='adminNewVehicleTitleCategoryContainer'>
+                    <h3 class='adminNewVehicleTitleCategory'>{{ category }}</h3>
                 </div>
-                {% endfor %}
-            {% endfor %}
-            </div>
-        </div>
-        <div class='adminNewVehicleCategory'>
-            <div class='adminNewVehicleTitleCategoryContainer'>
-                <h3 class='adminNewVehicleTitleCategory'>Sport / GT<h3>
-            </div>
-            <div class='adminNewVehicleCategoryContainer'>
-            {% for newVehicleSport in newVehicleSports %}
-                {% for newVehicle in newVehicleSport.newVehicles %}
-                <div class='adminNewVehicleCard'>
-                    <a href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
-                        <div class='adminNewVehicleTitleContainer'>
-                            <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
-                        </div>
-                        <div class='adminNewVehicleImageContainer'>
-                            {% set images = newVehicle.newVehicleImages %}
-                                {% if images|length > 0 %}
-                                    <img class='adminNewVehicleImage'
-                                        src="{{ asset('uploads/' ~ images[0].image) }}"
-                                        alt="image du véhicule"
-                                        width="300" height="200">
-                                {% else %}
-                                    <p>Pas d'image</p>
-                                {% endif %}
-                        </div>
-                        <div class='adminNewVehicleDeleteButtonContainer'>
-                            <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
-                        </div>
-                    </a>
+                <div class='adminNewVehicleCategoryContainer'>
+                    {% for vehicleGroup in vehicles %}
+                        {% for newVehicle in vehicleGroup.newVehicles %}
+                            <div class='adminNewVehicleCard'>
+                                <a href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
+                                    <div class='adminNewVehicleTitleContainer'>
+                                        <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
+                                    </div>
+                                    <div class='adminNewVehicleImageContainer'>
+                                        {% set images = newVehicle.newVehicleImages %}
+                                        {% if images|length > 0 %}
+                                            <img class='adminNewVehicleImage'
+                                                 src="{{ asset('uploads/' ~ images[0].image) }}"
+                                                 alt="Image du véhicule {{ newVehicle.name }}"
+                                                 width="300" height="200">
+                                        {% else %}
+                                            <p>Pas d'image</p>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                                <div class='adminNewVehicleDeleteButtonContainer'>
+                                    <a class='adminNewVehicleDeleteButton'
+                                       href='{{ path('AdminNewVehicleDelete', {id: newVehicle.id}) }}'>Supprimer 🗑</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            {% endfor %}
             </div>
-        </div>
-        <div class='adminNewVehicleCategory'>
-            <div class='adminNewVehicleTitleCategoryContainer'>
-                <h3 class='adminNewVehicleTitleCategory'>Roadster<h3>
-            </div>
-            <div class='adminNewVehicleCategoryContainer'>
-            {% for newVehicleRoadster in newVehicleRoadsters %}
-                {% for newVehicle in newVehicleRoadster.newVehicles %}
-                <div class='adminNewVehicleCard'>
-                    <a href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
-                        <div class='adminNewVehicleTitleContainer'>
-                            <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
-                        </div>
-                        <div class='adminNewVehicleImageContainer'>
-                            {% set images = newVehicle.newVehicleImages %}
-                                {% if images|length > 0 %}
-                                    <img class='adminNewVehicleImage'
-                                        src="{{ asset('uploads/' ~ images[0].image) }}"
-                                        alt="image du véhicule"
-                                        width="300" height="200">
-                                {% else %}
-                                    <p>Pas d'image</p>
-                                {% endif %}
-                        </div>
-                        <div class='adminNewVehicleDeleteButtonContainer'>
-                            <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
-                        </div>
-                    </a>
-                </div>
-                {% endfor %}
-            {% endfor %}
-            </div>
-        </div>
-        <div class='adminNewVehicleCategory'>
-            <div class='adminNewVehicleTitleCategoryContainer'>
-                <h3 class='adminNewVehicleTitleCategory'>Scooter<h3>
-            </div>
-            <div class='adminNewVehicleCategoryContainer'>
-            {% for newVehicleScooter in newVehicleScooters %}
-                {% for newVehicle in newVehicleScooter.newVehicles %}
-                <div class='adminNewVehicleCard'>
-                    <a href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
-                        <div class='adminNewVehicleTitleContainer'>
-                            <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
-                        </div>
-                        <div class='adminNewVehicleImageContainer'>
-                            {% set images = newVehicle.newVehicleImages %}
-                                {% if images|length > 0 %}
-                                    <img class='adminNewVehicleImage'
-                                        src="{{ asset('uploads/' ~ images[0].image) }}"
-                                        alt="image du véhicule"
-                                        width="300" height="200">
-                                {% else %}
-                                    <p>Pas d'image</p>
-                                {% endif %}
-                        </div>
-                        <div class='adminNewVehicleDeleteButtonContainer'>
-                            <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
-                        </div>
-                    </a>
-                </div>
-                {% endfor %}
-            {% endfor %}
-            </div>
-        </div>
-        <div class='adminNewVehicleCategory'>
-            <div class='adminNewVehicleTitleCategoryContainer'>
-                <h3 class='adminNewVehicleTitleCategory'>Moto 125cc<h3>
-            </div>
-            <div class='adminNewVehicleCategoryContainer'>
-            {% for newVehicleMoto125 in newVehicleMoto125s %}
-                {% for newVehicle in newVehicleMoto125.newVehicles %}
-                <div class='adminNewVehicleCard'>
-                    <a href='{{ path('AdminNewVehicleEdit', {id: newVehicle.id}) }}'>
-                        <div class='adminNewVehicleTitleContainer'>
-                            <p class='adminNewVehicleTitle'>{{ newVehicle.name }}</p>
-                        </div>
-                        <div class='adminNewVehicleImageContainer'>
-                            {% set images = newVehicle.newVehicleImages %}
-                                {% if images|length > 0 %}
-                                    <img class='adminNewVehicleImage'
-                                        src="{{ asset('uploads/' ~ images[0].image) }}"
-                                        alt="image du véhicule"
-                                        width="300" height="200">
-                                {% else %}
-                                    <p>Pas d'image</p>
-                                {% endif %}
-                        </div>
-                        <div class='adminNewVehicleDeleteButtonContainer'>
-                            <a class='adminNewVehicleDeleteButton' href='{{path('AdminNewVehicleDelete', {id: newVehicle.id})}}'>Supprimer</a>
-                        </div>
-                    </a>
-                </div>
-                {% endfor %}
-            {% endfor %}
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -1,18 +1,22 @@
+/* === CONTENEUR PRINCIPAL === */
 .new_vehicle_add_form_container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* === TITRE DE LA PAGE === */
 .new_vehicle_add_title_page {
     text-align: center;
+    text-transform: uppercase;
     color: #333;
     margin-bottom: 20px;
 }
 
+/* === SECTIONS DU FORMULAIRE === */
 .new_vehicle_add_form_section {
     margin-bottom: 20px;
     padding: 15px;
@@ -27,6 +31,7 @@
     margin-bottom: 10px;
 }
 
+/* === CHAMPS DU FORMULAIRE === */
 .new_vehicle_add_input_container {
     margin-bottom: 15px;
 }
@@ -39,75 +44,34 @@
 .new_vehicle_add_input {
     width: 100%;
     padding: 10px;
+    font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 1em;
 }
 
-#add_new_vehicle_image {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#add_new_vehicle_image:hover {
-    background-color: #0056b3;
-}
-
-#vehicle_images {
-    margin-top: 20px;
-}
-
-.image-entry {
-    margin-bottom: 10px;
-}
-
-.new_vehicle_add_form_container button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.new_vehicle_add_form_container button[type="submit"]:hover {
-    background-color: #218838;
-}
-
+/* === DIMENSIONS === */
 .dimension-fields {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .new_vehicle_add_input_dimension {
     flex: 1;
     min-width: 80px;
     padding: 10px;
+    font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 1em;
     box-sizing: border-box;
 }
 
 .dimension-separator {
-    font-weight: bold;
-    font-size: 1.2em;
     margin: 0 4px;
+    font-size: 1.2em;
+    font-weight: bold;
     color: #555;
 }
 
@@ -117,8 +81,51 @@
     font-size: 0.9em;
 }
 
+/* === AJOUT D'IMAGES === */
+#add_new_vehicle_image {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-/* Media query pour les tablettes */
+#add_new_vehicle_image:hover {
+    background-color: #0056b3;
+}
+
+#new_vehicle_images {
+    margin-top: 20px;
+}
+
+.new_vehicle_image-entry {
+    margin-bottom: 10px;
+}
+
+/* === BOUTON DE SUBMISSION === */
+.new_vehicle_add_form_container button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new_vehicle_add_form_container button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* === RESPONSIVE TABLETTE (≤ 768px) === */
 @media (max-width: 768px) {
     .new_vehicle_add_form_container {
         padding: 15px;
@@ -143,8 +150,8 @@
     }
 }
 
-/* Media query pour les mobiles */
-@media (max-width: 480px) {
+/* === RESPONSIVE MOBILE (≤ 767px) === */
+@media (max-width: 767px) {
     .new_vehicle_add_form_container {
         padding: 10px;
     }

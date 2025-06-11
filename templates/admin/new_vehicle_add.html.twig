@@ -1,8 +1,15 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+
+    {% include 'components/adminNav.html.twig' %}
     <h1 class='new_vehicle_add_title_page'>(admin)AJOUTEZ UN VÉHICULE NEUF</h1>
     <div class="new_vehicle_add_form_container">
+        <p>Avant de publier une image dans un formulaire, n'hésite pas à réduire son poids sur 
+            <a class='iLoveImg' href="https://www.iloveimg.com/fr/compresser-image" target="_blank" rel="noopener noreferrer">
+                iloveimg.com
+            </a>.
+        </p>
     {{ form_start(add_new_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
         <div class='new_vehicle_add_form_section_namevhl'>
             <h3 class='new_vehicle_add_form_section_title'>Nom du véhicule :</h3>
@@ -215,7 +222,7 @@
             </div>
         </div>
 
-        <div id="vehicle_images" data-prototype="{{ form_widget(add_new_vehicle_form.newVehicleImages.vars.prototype)|e('html_attr') }}">
+        <div id="new_vehicle_images" data-prototype="{{ form_widget(add_new_vehicle_form.newVehicleImages.vars.prototype)|e('html_attr') }}">
             {% for add_new_vehicle_imageForm in add_new_vehicle_form.newVehicleImages %}
                 <div class="image-entry">
                     {{ form_widget(add_new_vehicle_imageForm.image, {'label': false}) }}
@@ -233,9 +240,10 @@
     {{ form_end(add_new_vehicle_form) }}
 
     </div>
+    
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const container = document.querySelector('#vehicle_images');
+        const container = document.querySelector('#new_vehicle_images');
         const addButton = document.querySelector('#add_new_vehicle_image');
         let index = container.querySelectorAll('.image-entry').length;
 
@@ -243,7 +251,7 @@
             const prototype = container.dataset.prototype;
             const newForm = prototype.replace(/__name__/g, index);
             const div = document.createElement('div');
-            div.classList.add('image-entry');
+            div.classList.add('new_vehicle_image-entry');
             div.innerHTML = newForm;
 
             container.appendChild(div);

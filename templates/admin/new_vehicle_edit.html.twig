@@ -1,6 +1,8 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+
+    {% include 'components/adminNav.html.twig' %}
     <h1 class='new_vehicle_add_title_page'>(admin)EDITION DE VÉHICULE</h1>
     <div class="new_vehicle_add_form_container">
     {{ form_start(edit_new_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
@@ -117,16 +119,16 @@
         <div class='new_vehicle_add_form_section'>
             <div class='new_vehicle_add_input_container'>
                 <p class='new_vehicle_add_input_description'>Longueur X Largeur X Hauteur :</p>
-                <div>
+                <div class="dimension-fields">
                     {{ form_widget(edit_new_vehicle_form.Dimension.length, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
-                    {{ form_errors(edit_new_vehicle_form.Dimension.length) }}
-                </div>
-                <div>
+                    <span class="dimension-separator">x</span>
                     {{ form_widget(edit_new_vehicle_form.Dimension.width, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
-                    {{ form_errors(edit_new_vehicle_form.Dimension.width) }}
-                </div>
-                <div>
+                    <span class="dimension-separator">x</span>
                     {{ form_widget(edit_new_vehicle_form.Dimension.height, {'attr': {'class': 'new_vehicle_add_input_dimension'}}) }}
+                </div>
+                <div class="dimension-errors">
+                    {{ form_errors(edit_new_vehicle_form.Dimension.length) }}
+                    {{ form_errors(edit_new_vehicle_form.Dimension.width) }}
                     {{ form_errors(edit_new_vehicle_form.Dimension.height) }}
                 </div>
             </div>
@@ -219,12 +221,4 @@
     {{ form_end(edit_new_vehicle_form) }}
 
     </div>
-
-
-
 {% endblock %}
-
-
-
-
-

@@ -1,9 +1,14 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
+    {% include 'components/adminNav.html.twig' %}
     <h1 class='used_vehicle_add_title_page'>(admin) AJOUTER UN VÉHICULE D'OCCASION</h1>
     <div class="used_vehicle_add_form_container">
-
+        <p>Avant de publier une image dans un formulaire, n'hésite pas à réduire son poids sur 
+            <a class='iLoveImg' href="https://www.iloveimg.com/fr/compresser-image" target="_blank" rel="noopener noreferrer">
+                iloveimg.com
+            </a>.
+        </p>
     {{ form_start(add_used_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
         <div class='used_vehicle_add_form_section'>
             <div class='used_vehicle_add_input_container'>
