@@ -11,6 +11,9 @@
             <div class='new_vehicle_detail_card_title_container {{ logoClass }}'>
                 <h1 class='new_vehicle_detail_card_title'>{{vehicle.name}}</h1>
             </div>
+            <div class='new_vehicle_detail_card_title_mobile_container'>
+                <h1 class='new_vehicle_detail_card_title'>{{vehicle.name}}</h1>
+            </div>
             <div class='new_vehicle_detail_card_global_container'>
                 <div class='new_vehicle_detail_card_image_container'>
                     <div class='new_vehicle_detail_card_carrousel_container'>
@@ -107,72 +110,71 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Sélection des éléments du DOM
-    const track = document.querySelector('.new_vehicle_detail_carousel-track');
-    const allSlides = Array.from(document.querySelectorAll('.new_vehicle_detail_carousel-slide'));
-    const prevBtn = document.querySelector('.new_vehicle_detail_carousel-btn.prev');
-    const nextBtn = document.querySelector('.new_vehicle_detail_carousel-btn.next');
-    const colorDots = document.querySelectorAll('.new_vehicle_detail_color-dot');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sélection des éléments du DOM
+        const track = document.querySelector('.new_vehicle_detail_carousel-track');
+        const allSlides = Array.from(document.querySelectorAll('.new_vehicle_detail_carousel-slide'));
+        const prevBtn = document.querySelector('.new_vehicle_detail_carousel-btn.prev');
+        const nextBtn = document.querySelector('.new_vehicle_detail_carousel-btn.next');
+        const colorDots = document.querySelectorAll('.new_vehicle_detail_color-dot');
 
-    // Variables d'état
-    let currentColor = null;
-    let visibleSlides = [...allSlides];
-    let index = 0;
+        // Variables d'état
+        let currentColor = null;
+        let visibleSlides = [...allSlides];
+        let index = 0;
 
-    // Met à jour les slides visibles en fonction de la couleur sélectionnée
-    function updateVisibleSlides() {
-        visibleSlides = currentColor
-            ? allSlides.filter(slide => slide.dataset.color === currentColor)
-            : [...allSlides];
+        // Met à jour les slides visibles en fonction de la couleur sélectionnée
+        function updateVisibleSlides() {
+            visibleSlides = currentColor
+                ? allSlides.filter(slide => slide.dataset.color === currentColor)
+                : [...allSlides];
 
-        allSlides.forEach(slide => slide.style.display = 'none');
-        visibleSlides.forEach(slide => slide.style.display = 'block');
+            allSlides.forEach(slide => slide.style.display = 'none');
+            visibleSlides.forEach(slide => slide.style.display = 'block');
 
-        index = 0;
-        updateCarousel();
+            index = 0;
+            updateCarousel();
 
+            colorDots.forEach(dot => {
+                dot.classList.toggle('active', currentColor && dot.dataset.color.toLowerCase() === currentColor);
+            });
+        }
+
+        // Met à jour la position du carrousel
+        function updateCarousel() {
+            if (visibleSlides.length === 0) return;
+            const slideWidth = visibleSlides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${index * slideWidth}px)`;
+        }
+
+        // Écouteurs d'événements pour les boutons
+        nextBtn.addEventListener('click', () => {
+            if (visibleSlides.length === 0) return;
+            index = (index + 1) % visibleSlides.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (visibleSlides.length === 0) return;
+            index = (index - 1 + visibleSlides.length) % visibleSlides.length;
+            updateCarousel();
+        });
+
+        // Écouteurs d'événements pour les points de couleur
         colorDots.forEach(dot => {
-            dot.classList.toggle('active', currentColor && dot.dataset.color.toLowerCase() === currentColor);
+            dot.addEventListener('click', () => {
+                const selected = dot.dataset.color.toLowerCase();
+                currentColor = (currentColor === selected) ? null : selected;
+                updateVisibleSlides();
+            });
         });
-    }
 
-    // Met à jour la position du carrousel
-    function updateCarousel() {
-        if (visibleSlides.length === 0) return;
-        const slideWidth = visibleSlides[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${index * slideWidth}px)`;
-    }
+        // Écouteur d'événement pour le redimensionnement de la fenêtre
+        window.addEventListener('resize', updateCarousel);
 
-    // Écouteurs d'événements pour les boutons
-    nextBtn.addEventListener('click', () => {
-        if (visibleSlides.length === 0) return;
-        index = (index + 1) % visibleSlides.length;
-        updateCarousel();
+        // Initialisation
+        updateVisibleSlides();
     });
-
-    prevBtn.addEventListener('click', () => {
-        if (visibleSlides.length === 0) return;
-        index = (index - 1 + visibleSlides.length) % visibleSlides.length;
-        updateCarousel();
-    });
-
-    // Écouteurs d'événements pour les points de couleur
-    colorDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            const selected = dot.dataset.color.toLowerCase();
-            currentColor = (currentColor === selected) ? null : selected;
-            updateVisibleSlides();
-        });
-    });
-
-    // Écouteur d'événement pour le redimensionnement de la fenêtre
-    window.addEventListener('resize', updateCarousel);
-
-    // Initialisation
-    updateVisibleSlides();
-});
-
 </script>
 
 

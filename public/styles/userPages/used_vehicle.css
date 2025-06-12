@@ -1,27 +1,30 @@
+/* === TITRE DE PAGE === */
 .used_vehicle_title_page {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 50px;
 }
 
+/* === CONTENEUR GLOBAL === */
 .used_vehicle_container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/* === CARTE VÉHICULE === */
 .used_vehicle_card {
     border: 1px solid black;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .used_vehicle_card:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* === EN-TÊTE DE CARTE === */
 .used_vehicle_card_header {
     display: flex;
     justify-content: center;
@@ -30,8 +33,24 @@
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+    padding: 10px;
 }
 
+/* === IMAGE === */
+.used_vehicle_card_image_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.used_vehicle_card_image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* === PRIX === */
 .used_vehicle_card_footer_price {
     display: flex;
     justify-content: center;
@@ -41,14 +60,28 @@
     font-weight: bold;
 }
 
+/* === INFOS SUPPLÉMENTAIRES === */
 .used_vehicle_card_footer_description {
     display: flex;
-    background-color: var(--blue);
     justify-content: space-around;
+    background-color: var(--blue);
     color: white;
     font-weight: bold;
 }
 
-.used_vehicle_card_image {
-    display: block;
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .used_vehicle_container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .used_vehicle_card {
+        width: 90%;
+    }
+
+    .used_vehicle_card_image {
+        width: 100%;
+        height: auto;
+    }
 }

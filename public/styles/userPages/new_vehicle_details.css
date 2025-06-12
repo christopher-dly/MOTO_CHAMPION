@@ -195,3 +195,95 @@
     padding-left: 40px;
     padding-right: 40px;
 }
+
+.new_vehicle_detail_card_title_mobile_container {
+    display: none;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media screen and (max-width: 1024px) {
+    .new_vehicle_detail_global_container {
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .new_vehicle_detail_left_container,
+    .new_vehicle_detail_right_container {
+        width: 100%;
+        margin: 0 auto 20px;
+    }
+
+    .new_vehicle_detail_right_container {
+        height: auto;
+        overflow-y: hidden;
+    }
+
+    .new_vehicle_detail_card_title_container {
+        width: 100%;
+        left: 0;
+        top: 0;
+        padding: 10px;
+    }
+
+    .new_vehicle_detail_card_title {
+        padding: 0;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .new_vehicle_detail_global_container {
+        margin: 10px;
+    }
+
+    .new_vehicle_detail_card_carrousel_container {
+        max-width: 100%;
+    }
+
+    .new_vehicle_detail_carousel-btn {
+        padding: 0.5rem;
+    }
+    
+    .new_vehicle_detail_card_title_container {
+        display: none;
+    }
+
+    .new_vehicle_detail_card_title_mobile_container {
+        display: block;
+        background-color: var(--blue);
+        align-items: center;
+        text-align: center;
+        padding-top: 4px;
+        margin-top: -50px;
+    }
+
+    .new_vehicle_detail_card_title {
+        font-size: 16px;
+        padding-left: 0;
+    }
+
+    .new_vehicle_detail_description_title {
+        font-size: 16px;
+    }
+
+    .new_vehicle_detail_info_text,
+    .new_vehicle_detail_transmission_text,
+    .new_vehicle_detail_dimensions_text,
+    .new_vehicle_detail_engine_text,
+    .new_vehicle_detail_cyclePart_text {
+        font-size: 14px;
+        gap: 4px;
+    }
+
+    .new_vehicle_detail_color-dot {
+        width: 20px;
+        height: 20px;
+    }
+
+    .new_vehicle_detail_card_try_button {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 14px;
+        height: 36px;
+    }
+}

@@ -31,6 +31,7 @@ body {
     flex: 1;
     box-sizing: border-box;
     font-family: 'Microsoft Sans Serif';
+    overflow-x: hidden;
 }
 
 a {

@@ -70,7 +70,7 @@ class NewVehicleFilterForm extends AbstractType
             ])
             ->add('cylinders', ChoiceType::class, [
                 'choices' => array_unique($cylindersChoices),
-                'placeholder' => 'Choisissez le nombre de cylindres',
+                'placeholder' => 'Choisissez le cylindrés',
                 'required' => false,
             ])
             ->add('A2', CheckboxType::class, [

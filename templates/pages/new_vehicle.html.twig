@@ -3,10 +3,10 @@
 {% block main %}
     <h1 class='new_vehicle_title_page'>Véhicule neuf</h1>
     <div class="new_vehicle">
-        <div class='new_vehicle_left_container'>
-          <div class="new_vehicle_filter_form_container">
-                {{ form_start(newVehicleFilterForm, { method: 'get' }) }}
+        <div class="new_vehicle_filter_form_container">
+            {{ form_start(newVehicleFilterForm, { method: 'get' }) }}
 
+                <div class='new_vehicle_filter_form_input_container'>
                     {{ form_widget(newVehicleFilterForm.brand, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
                     {{ form_errors(newVehicleFilterForm.brand) }}
 
@@ -18,19 +18,23 @@
 
                     {{ form_widget(newVehicleFilterForm.cylinders, { attr: { class: 'new_vehicle_filter_form_input' }}) }}
                     {{ form_errors(newVehicleFilterForm.cylinders) }}
+                </div>
+
                 <div class='new_vehicle_filter_form_input_checkbox_container'>
                     <p>A2 :</p>
                     {{ form_widget(newVehicleFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input_checkbox' }}) }} 
                     {{ form_errors(newVehicleFilterForm.A2) }} 
 
-                    <p>Dispo à l'éssai :</p>
+                    <p>Dispo à l'essai :</p>
                     {{ form_widget(newVehicleFilterForm.availableForTrial, { attr: { class: 'new_vehicle_filter_form_input_checkbox' }}) }}
                     {{ form_errors(newVehicleFilterForm.availableForTrial) }}
                 </div>
-                    {{ form_row(newVehicleFilterForm.submit) }}
 
-                {{ form_end(newVehicleFilterForm) }}
-            </div>
+                <div class="new_vehicle_filter_form_button_container">
+                    {{ form_row(newVehicleFilterForm.submit) }}
+                </div>
+
+            {{ form_end(newVehicleFilterForm) }}
         </div>
 
         <div class='new_vehicle_right_container'>
@@ -55,7 +59,7 @@
                                     <img class='new_vehicle_card_image'
                                         src="{{ asset('uploads/' ~ images[0].image) }}"
                                         alt="image du véhicule {{ vehicle.name }}"
-                                        width="350" height="225">
+                                        >
                                 {% else %}
                                     <p>Pas d'image</p>
                                 {% endif %}
