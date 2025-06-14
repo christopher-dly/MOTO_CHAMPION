@@ -16,6 +16,7 @@
 @import url(userPages/new_vehicle_details.css);
 @import url(userPages/used_vehicle_details.css);
 @import url(userPages/index.css);
+@import url(userPages/contact.css);
 
 :root {
     --blue: #030ED1;
@@ -42,4 +43,19 @@ a {
 li {
     list-style: none;
     text-decoration: none;
+}
+
+.disabled-link {
+    /* pointer-events: none;
+    cursor: default;
+    background-color: grey;
+    color: white;
+    height: 40px;
+    width: fit-content;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px; */
+    display: none;
 }

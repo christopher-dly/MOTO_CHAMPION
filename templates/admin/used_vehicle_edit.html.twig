@@ -82,6 +82,11 @@
                 {{ form_widget(edit_used_vehicle_form.statue, {'attr': {'class': 'used_vehicle_add_input'}}) }}
                 {{ form_errors(edit_used_vehicle_form.statue) }}
             </div>
+            <div class='used_vehicle_add_input_container'>
+                <p class='used_vehicle_add_input_description'>A2 :</p>
+                {{ form_widget(edit_used_vehicle_form.a2, {'attr': {'class': 'used_vehicle_add_input'}}) }}
+                {{ form_errors(edit_used_vehicle_form.a2) }}
+            </div>
         </div>
         {{ form_row(edit_used_vehicle_form.submit) }}
     {{ form_end(edit_used_vehicle_form) }}

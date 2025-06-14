@@ -1,0 +1,17 @@
+.contact_title_page {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.contact_global_container {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-around;
+}
+
+.contact_left_container {
+    width: fit-content;
+    border: solid 1px black;
+}

@@ -94,6 +94,16 @@
 /* === CARTE VÉHICULE === */
 .new_vehicle_detail_card {
     margin: 30px auto;
+    position: relative;
+}
+
+.new_vehicle_detail_card_logo_license {
+margin-top: 5px;
+}
+
+.new_vehicle_detail_card_logo {
+    width: 40px;
+    height: 40px;
 }
 
 .new_vehicle_detail_card_title_container {
@@ -159,6 +169,12 @@
 .new_vehicle_detail_description {
     padding-right: 10px;
     padding-left: 10px;
+}
+
+.new_vehicle_detail_price {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--blue);
 }
 
 /* === ALTERNANCE COULEUR LIGNES === */
@@ -228,6 +244,10 @@
     .new_vehicle_detail_card_title {
         padding: 0;
         font-size: 18px;
+    }
+
+    .new_vehicle_detail_card_logo_license {
+        display: none;
     }
 }
 

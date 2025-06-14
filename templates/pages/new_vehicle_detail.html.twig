@@ -29,6 +29,12 @@
                             <button class="new_vehicle_detail_carousel-btn next">&#10095;</button>
                         </div>
                     </div>
+                    {% if vehicle.information.a2 %}
+                    <div class='new_vehicle_detail_card_logo_license'>
+                        <img class='new_vehicle_detail_card_logo' src='{{asset('img/logo/logo_a.png')}}' alt='logo permis A'>
+                        <img class='new_vehicle_detail_card_logo' src='{{asset('img/logo/logo_a2.png')}}' alt='logo permis A2'>
+                    </div>
+                    {% endif %}
                     <div class='new_vehicle_detail_card_image_color'>
                         {% for name, hex in colors %}
                             <span class="new_vehicle_detail_color-dot" title="{{ name }}" style="background-color: {{ hex }};" data-color="{{ name }}"></span>
@@ -48,16 +54,16 @@
     <div class='new_vehicle_detail_right_container'>
         <div class="new_vehicle_detail_description new_vehicle_detail_info">
             <div class='new_vehicle_detail_description_title_container'>
-                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_info_title'>Informations</h2>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_info_title'>Informations<span><img src='{{asset('img/logo/info_logo.png')}}' alt='logo information' width='30' height='30'></span></h2>
             </div>
             <p class='new_vehicle_detail_info_text'>Catégorie : <span>{{vehicle.information.category}}</span></p>
             <p class='new_vehicle_detail_info_text'>Cylindrées : <span>{{vehicle.information.cylinders}} cm3</span></p>
-            <p class='new_vehicle_detail_info_text'>Prix : <span>{{vehicle.information.price}} €</span></p>
             <p class='new_vehicle_detail_info_text'>Temps de garantie : <span>{{vehicle.information.warrantyTime}} an(s)</span></p>
+            <p class='new_vehicle_detail_info_text'>Prix : <span class='new_vehicle_detail_price'>{{vehicle.information.price}} €</span></p>
         </div>
         <div class="new_vehicle_detail_description new_vehicle_detail_transmission">
             <div class='new_vehicle_detail_description_title_container'>
-                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_transmission_title'>Transmission</h2>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_transmission_title'>Transmission<span><img src='{{asset('img/logo/transmission_logo.png')}}' alt='logo transmission' width='30' height='30'></span></h2>
             </div>
             <p class='new_vehicle_detail_transmission_text'>Transmission final: <span>{{ vehicle.transmission.finalTransmission }}</span></p>
             <p class='new_vehicle_detail_transmission_text'>Embrayage: <span>{{ vehicle.transmission.clutch }}</span></p>
@@ -66,7 +72,7 @@
         </div>
         <div class="new_vehicle_detail_description new_vehicle_detail_dimensions">
             <div class='new_vehicle_detail_description_title_container'>
-                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_dimensions_title'>Dimensions</h2>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_dimensions_title'>Dimensions<span><img src='{{asset('img/logo/dimension_logo.png')}}' alt='logo dimensions' width='30' height='30'></span></h2>
             </div>
             <p class='new_vehicle_detail_dimensions_text'>L x H x l: <span>{{ vehicle.dimension.width }} x {{ vehicle.dimension.height }} x {{ vehicle.dimension.length }} mm</span></p>
             <p class='new_vehicle_detail_dimensions_text'>Hauteur de selle: <span>{{ vehicle.dimension.saddleHeight }} mm</span></p>
@@ -77,7 +83,7 @@
         </div>
         <div class="new_vehicle_detail_description new_vehicle_detail_engine">
             <div class='new_vehicle_detail_description_title_container'>
-                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_engine_title'>Moteur</h2>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_engine_title'>Moteur<span><img src='{{asset('img/logo/engine_logo.png')}}' alt='logo engine' width='30' height='30'></span></h2>
             </div>
             <p class='new_vehicle_detail_engine_text'>Type: <span>{{ vehicle.engine.type }}</span></p>
             <p class='new_vehicle_detail_engine_text'>Cylindrées: <span>{{ vehicle.engine.cylinders }} cm3</span></p>
@@ -89,7 +95,7 @@
         </div>
         <div class="new_vehicle_detail_description new_vehicle_detail_cyclePart">
             <div class='new_vehicle_detail_description_title_container'>
-                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_cyclePart_title'>Partie cycle</h2>
+                <h2 class='new_vehicle_detail_description_title new_vehicle_detail_cyclePart_title'>Partie cycle<span><img src='{{asset('img/logo/cycle_part_logo.png')}}' alt='logo cyclePart' width='30' height='30'></span></h2>
             </div>
                 <p class='new_vehicle_detail_cyclePart_text'>Angle de chasse: <span>{{ vehicle.cyclePart.casterAngle }} mm</span></p>
                 <p class='new_vehicle_detail_cyclePart_text'>Chasse:<span>{{ vehicle.cyclePart.caster }} mm</span></p>

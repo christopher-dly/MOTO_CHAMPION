@@ -37,14 +37,21 @@ class UsedVehicleForm extends AbstractType
             ->add('price', TextType::class)
             ->add('warrantyTime', NumberType::class)
             ->add('description', TextType::class)
-            ->add('availableForTrial', CheckboxType::class)
+            ->add('availableForTrial', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('color', TextType::class)
             ->add('year', NumberType::class)
             ->add('kilometers', NumberType::class)
             ->add('energyTax', NumberType::class)
             ->add('taxPower', NumberType::class)
             ->add('power', TextType::class)
-            ->add('statue', CheckboxType::class)
+            ->add('statue', CheckboxType::class, [
+                'required' => false,
+            ])
+            ->add('a2', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('usedVehicleImages', CollectionType::class, [
                 'entry_type' => UsedVehicleImageForm::class, // Le formulaire pour gérer chaque image
                 'allow_add' => true, // Permet d'ajouter des images

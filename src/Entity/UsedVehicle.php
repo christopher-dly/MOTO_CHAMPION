@@ -83,8 +83,11 @@ class UsedVehicle
     #[Assert\Length(max: 100, maxMessage: "La puissance ne doit pas dépasser 100 caractères.")]
     private ?string $power = null;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $statue = true;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $a2 = false;
 
     #[ORM\OneToMany(
         targetEntity: UsedVehicleImage::class,
@@ -279,6 +282,18 @@ class UsedVehicle
     public function setStatue(bool $statue): self
     {
         $this->statue = $statue;
+
+        return $this;
+    }
+
+    public function isA2(): ?bool
+    {
+        return $this->a2;
+    }
+
+    public function setA2(bool $a2): self
+    {
+        $this->a2 = $a2;
 
         return $this;
     }

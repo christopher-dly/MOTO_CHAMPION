@@ -1,6 +1,7 @@
 /* === Structure générale === */
 .used_vehicle_detail_global_container {
     display: flex;
+    align-items: flex-start;
     margin-bottom: 30px;
 }
 
@@ -14,7 +15,16 @@
     width: 50%;
     margin-left: 10px;
     margin-right: 25px;
-    margin-top: 65px;
+    margin-top: 80px;
+}
+
+.used_vehicle_detail_a2 {
+    margin-left: 10px;
+}
+
+.used_vehicle_detail_a2_logo {
+    width: 35px;
+    height: 35px;
 }
 
 /* === Titre de page === */
@@ -109,6 +119,12 @@
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+}
+
+.used_vehicle_detail_price {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--blue);
 }
 
 .used_vehicle_detail_description span {

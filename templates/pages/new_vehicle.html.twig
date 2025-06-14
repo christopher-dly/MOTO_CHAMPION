@@ -64,6 +64,12 @@
                                     <p>Pas d'image</p>
                                 {% endif %}
                             </div>
+                            {% if vehicle.information.a2 %}
+                            <div class='new_vehicle_card_footer_logo_license'>
+                                <img class='new_vehicle_card_footer_logo' src='{{asset('img/logo/logo_a.png')}}' alt='logo permis A'>
+                                <img class='new_vehicle_card_footer_logo' src='{{asset('img/logo/logo_a2.png')}}' alt='logo permis A2'>
+                            </div>
+                            {% endif %}
                             <div class='new_vehicle_card_footer'>
                                 <p class='new_vehicle_card_footer_price'>{{ vehicle.information.price }} €</p>
                             </div>

@@ -6,6 +6,7 @@
         <li><a class="logo-link logo-tiktok" href='https://www.tiktok.com/@motochampionparis?lang=fr'><img src="{{ asset('img/logo/tiktok.png') }}" alt="Logo TikTok"></a></li>
     </ul>
 </div>
+<div id="navbar-placeholder"></div>
 <div class='main-banner'>
     <a href="{{ path('Home') }}">
         <img src="{{ asset('img/logo/header.svg') }}" alt="bannière de l'application">
@@ -46,13 +47,31 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const navbarPlaceholder = document.getElementById('navbar-placeholder');
+    const stickyOffset = navbar.offsetTop;
+    const navbarHeight = navbar.offsetHeight;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= stickyOffset) {
+            navbar.classList.add('sticky');
+            navbarPlaceholder.style.height = navbarHeight + 'px';
+        } else {
+            navbar.classList.remove('sticky');
+            navbarPlaceholder.style.height = '0px';
+        }
+    });
+
+    // Menu burger
     const burger = document.getElementById('burger-menu');
     const navList = document.getElementById('navbar-list');
 
     burger.addEventListener('click', () => {
         navList.classList.toggle('show');
-        burger.classList.toggle('open'); 
-        });
+        burger.classList.toggle('open');
     });
+});
+
+
 </script>

@@ -5,65 +5,87 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px 10px;
 }
 
 .info-banner-text {
-    margin-left: 10px;
+    margin: 0;
 }
 
 .info-banner-social {
     display: flex;
     list-style: none;
-    margin-right: 10px;
-}
-
-/* ========== NAVBAR ========== */
-.navbar-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    background-color: #272727;
-    color: white;
-    padding: 15px;
-    margin-top: -4px;
-    opacity: 1;
-    visibility: visible;
-    max-height: none;
-    transition: none;
-}
-
-.navbar-link {
-    margin-right: 20px;
-    color: white;
-}
-
-.navbar-link:hover, .navbar-link.active {
-    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
 .logo-link {
+    margin-left: 10px;
+}
+
+/* ========== MAIN BANNER ========== */
+.main-banner {
+    width: 100%;
+    display: block;
+}
+
+.main-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    background-color: #272727;
+    color: white;
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar-logo-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    margin-right: 20px;
+    padding: 10px;
 }
 
 .navbar-logo {
     display: none;
 }
 
-/* ========== BURGER MENU (Mobile / Tablet) ========== */
+.navbar-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.navbar-link {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+    font-weight: bold;
+}
+
+/* ========== BURGER MENU ========== */
 .burger-menu {
     display: none;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 30px;
-    height: 25px;
+    height: 22px;
     cursor: pointer;
-    margin: 15px;
-    transition: transform 0.3s ease;
 }
 
 .burger-menu span {
@@ -71,11 +93,10 @@
     height: 3px;
     width: 100%;
     border-radius: 5px;
-    transition: all 0.3s ease;
+        transition: all 0.3s ease;
     transform-origin: center;
 }
 
-/* Animation croix du menu burger */
 .burger-menu.open span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -88,21 +109,11 @@
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ========== RESPONSIVE : TABLETTE + MOBILE ========== */
+/* ========== RESPONSIVE ========== */
 @media screen and (max-width: 1024px) {
-
-    /* Masquer les bannières */
     .info-banner,
     .main-banner {
         display: none;
-    }
-
-    .navbar-logo-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #272727;
     }
 
     .burger-menu {
@@ -113,21 +124,15 @@
         display: block;
     }
 
-    /* Menu replié */
     .navbar-list {
         flex-direction: column;
-        background-color: #272727;
-        list-style: none;
-        width: 100%;
-        padding-left: 20px;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
         visibility: hidden;
-        transition: max-height 0.4s ease, opacity 0.4s ease;
+        transition: all 0.4s ease;
     }
 
-    /* Menu déplié */
     .navbar-list.show {
         max-height: 500px;
         opacity: 1;
@@ -137,9 +142,18 @@
     .navbar-link {
         padding: 10px 0;
         width: 100%;
+        text-align: center;
     }
 
     .mb10 {
         margin-bottom: 10px;
+    }
+
+    .navbar-logo-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #272727;
     }
 }

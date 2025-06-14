@@ -20,6 +20,12 @@
                         {% else %}
                             <p>Pas d'image</p>
                         {% endif %}
+                        {% if usedVehicle.a2 %}
+                        <div class='used_vehicle_card_footer_logo_license'>
+                            <img class='used_vehicle_card_footer_logo' src='{{asset('img/logo/logo_a.png')}}' alt='logo permis A'>
+                            <img class='used_vehicle_card_footer_logo' src='{{asset('img/logo/logo_a2.png')}}' alt='logo permis A2'>
+                        </div>
+                        {% endif %}
                     </div>
                     <div class='used_vehicle_card_footer_price'>
                         <p class='used_vehicle_card_footer_price'>{{ usedVehicle.price }} €</p>

@@ -110,6 +110,8 @@
 
 /* === CARTE INDIVIDUELLE === */
 .new_vehicle_card {
+    position: relative;
+
     border: 1px solid black;
     width: 350px;
     margin-top: 20px;
@@ -122,6 +124,22 @@
 .new_vehicle_card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* === LOGOS PERMIS A/A2 EN ABSOLU === */
+.new_vehicle_card_footer_logo_license {
+    position: absolute;
+    top: 290px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    z-index: 1;
+}
+
+.new_vehicle_card_footer_logo {
+    width: 30px;
+    height: 30px;
 }
 
 /* === IMAGE DE LA CARTE === */
@@ -223,5 +241,9 @@
 
     .new_vehicle_card_footer {
         right: -230px;
+    }
+
+    .new_vehicle_card_footer_logo_license {
+        top: 260px;
     }
 }
