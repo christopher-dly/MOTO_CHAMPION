@@ -10,7 +10,8 @@
 
     <div class='adminUsedVehicleContainer'>
         {% for usedVehicle in usedVehicles %}
-        <div class='adminUsedVehicleCard'>
+        {% if usedVehicle.selled == 0 %}
+        <div class='adminUsedVehicleCard {{ usedVehicle.statue == 0 ? "inactive" : "" }}'>
             <a href='{{ path('AdminUsedVehicleEdit', {id: usedVehicle.id}) }}'>
                 <div class='adminUsedVehicleTitleContainer'>
                     <p class='adminUsedVehicleTitle'>{{ usedVehicle.brand }} {{ usedVehicle.model }}</p>
@@ -27,12 +28,26 @@
                         {% endif %}
                 </div>
                 <div class='adminUsedVehicleDeleteButtonContainer'>
-                     <a class='adminUsedVehicleDeleteButton' href='{{path('AdminUsedVehicleDelete', {id: usedVehicle.id})}}'>Supprimer 🗑</a>
+                     <a class='adminUsedVehicleDeleteButton' href='{{path('AdminUsedVehicleDelete', {id: usedVehicle.id})}}'>🗑</a>
+                     <a class='adminUsedVehicleSellButton' href='{{path('used_vehicle_sell', {id: usedVehicle.id})}}'>$</a>
+                     {% if usedVehicle.statue == 1 %}
+                     <a class='adminUsedVehicleVisibiltyOffButton' href='{{path('used_vehicle_hide', {id: usedVehicle.id})}}'>
+                         <img class='adminUsedVehicleEditButtonImage' src="{{ asset('img/logo/eye_close.png') }}" alt="logo pour masquer la visibilité du véhicule">
+                     </a>
+                     {% else %}
+                     <a class='adminUsedVehicleVisibilityOnButton' href='{{path('used_vehicle_show', {id: usedVehicle.id})}}'>
+                         <img class='adminUsedVehicleEditButtonImage' src="{{ asset('img/logo/eye_open.png') }}" alt="logo pour afficher la visibilité du véhicule">
+                     </a>
+                     {% endif %}
                 </div>
             </a>
         </div>
+        {% endif %}
         {% else %}
             <p>Aucun véhicule d'occasion</p>
         {% endfor %}
+    </div>
+    <div class='adminUsedVehicleFooterContainer'>
+        <a class='buttonAddUsedVehicle' href="{{ path('used_vehicle_sold_list') }}">Voir les véhicules vendus</a>
     </div>
 {% endblock %}

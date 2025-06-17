@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class AdminUsedVehicleController extends AbstractController
 {
@@ -98,5 +100,48 @@ class AdminUsedVehicleController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('AdminUsedVehicle');
+    }
+    
+    #[Route('/admin/used-vehicle/{id}/hide', name: 'used_vehicle_hide')]
+    public function hide(UsedVehicle $usedVehicle, EntityManagerInterface $em, Request $request): RedirectResponse
+    {
+        $usedVehicle->setStatue(false);
+        $em->flush();
+
+        $this->addFlash('success', 'Le véhicule a été masqué.');
+        return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('admin_used_vehicle_list'));
+    }
+
+    #[Route('/admin/used-vehicle/{id}/show', name: 'used_vehicle_show')]
+    public function show(UsedVehicle $usedVehicle, EntityManagerInterface $em, Request $request): RedirectResponse
+    {
+        $usedVehicle->setStatue(true);
+        $em->flush();
+
+        $this->addFlash('success', 'Le véhicule est maintenant visible.');
+        return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('admin_used_vehicle_list'));
+    }
+
+    #[Route('/admin/used-vehicle/{id}/sell', name: 'used_vehicle_sell')]
+    public function usedVehicleSell(UsedVehicle $usedVehicle, EntityManagerInterface $em, Request $request): RedirectResponse
+    {
+        $usedVehicle->setSelled(true);
+        $usedVehicle->setSoldAt(new \DateTime());
+
+        $em->flush();
+
+        $this->addFlash('success', 'Le véhicule a été marqué comme vendu.');
+
+        return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('admin_used_vehicle_list'));
+    }
+
+    #[Route('/admin/used-vehicle/sold/list', name: 'used_vehicle_sold_list')]
+    public function usedVehicleSoldList(UsedVehicleRepository $repository): Response
+    {
+        $soldVehicles = $repository->findSoldVehicles();
+
+        return $this->render('admin/used_vehicle_sold_list.html.twig', [
+            'vehicles' => $soldVehicles,
+        ]);
     }
 }

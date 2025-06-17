@@ -10,7 +10,11 @@
                 iloveimg.com
             </a>.
         </p>
+        
     {{ form_start(add_new_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+    <div class="mb-3">
+
+</div>
         <div class='new_vehicle_add_form_section_namevhl'>
             <h3 class='new_vehicle_add_form_section_title'>Nom du véhicule :</h3>
             {{ form_widget(add_new_vehicle_form.name, {'attr': {'class': 'new_vehicle_add_input'}}) }}
@@ -240,8 +244,79 @@
     {{ form_end(add_new_vehicle_form) }}
 
     </div>
-    
+
+
 <script>
+{# document.addEventListener('DOMContentLoaded', function () {
+    const selector = document.getElementById('existing_vehicle_selector');
+    if (!selector) return;
+
+    selector.addEventListener('change', function () {
+        const id = this.value;
+        if (!id) return;
+
+        fetch(`/admin/new-vehicle/model-data/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                // Information
+                document.getElementById('add_new_vehicle_form_name').value = data.name ?? '';
+                document.getElementById('new_vehicle_form_information_brand').value = data.information.brand ?? '';
+                document.getElementById('new_vehicle_form_information_model').value = data.information.model ?? '';
+                document.getElementById('new_vehicle_form_information_cylinders').value = data.information.cylinders ?? '';
+                document.getElementById('new_vehicle_form_information_price').value = data.information.price ?? '';
+                document.getElementById('new_vehicle_form_information_warrantyTime').value = data.information.warrantyTime ?? '';
+
+                // Category radios
+                const radios = document.querySelectorAll('input[name="new_vehicle_form[information][category]"]');
+                radios.forEach(radio => {
+                    radio.checked = (radio.value === data.information.category);
+                });
+
+                document.getElementById('new_vehicle_form_information_availableForTrial').checked = data.information.availableForTrial ?? false;
+                document.getElementById('new_vehicle_form_information_a2').checked = data.information.a2 ?? false;
+
+                // Engine
+                document.getElementById('new_vehicle_form_engine_type').value = data.engine.type ?? '';
+                document.getElementById('new_vehicle_form_engine_cylinders').value = data.engine.cylinders ?? '';
+                document.getElementById('new_vehicle_form_engine_announcedPower').value = data.engine.announcedPower ?? '';
+                document.getElementById('new_vehicle_form_engine_coupleAnnounced').value = data.engine.coupleAnnounced ?? '';
+                document.getElementById('new_vehicle_form_engine_powerSupply').value = data.engine.powerSupply ?? '';
+                document.getElementById('new_vehicle_form_engine_consumption').value = data.engine.consumption ?? '';
+                document.getElementById('new_vehicle_form_engine_co2Emissions').value = data.engine.co2Emissions ?? '';
+
+                // Transmission
+                document.getElementById('new_vehicle_form_transmission_finalTransmission').value = data.transmission.finalTransmission ?? '';
+                document.getElementById('new_vehicle_form_transmission_clutch').value = data.transmission.clutch ?? '';
+                document.getElementById('new_vehicle_form_transmission_command').value = data.transmission.command ?? '';
+                document.getElementById('new_vehicle_form_transmission_gearbox').value = data.transmission.gearbox ?? '';
+
+                // Dimension
+                document.getElementById('new_vehicle_form_dimension_length').value = data.dimension.length ?? '';
+                document.getElementById('new_vehicle_form_dimension_width').value = data.dimension.width ?? '';
+                document.getElementById('new_vehicle_form_dimension_height').value = data.dimension.height ?? '';
+                document.getElementById('new_vehicle_form_dimension_saddleHeight').value = data.dimension.saddleHeight ?? '';
+                document.getElementById('new_vehicle_form_dimension_groundClearance').value = data.dimension.groundClearance ?? '';
+                document.getElementById('new_vehicle_form_dimension_gas').value = data.dimension.gas ?? '';
+                document.getElementById('new_vehicle_form_dimension_oil').value = data.dimension.oil ?? '';
+                document.getElementById('new_vehicle_form_dimension_weight').value = data.dimension.weight ?? '';
+
+                // CyclePart
+                document.getElementById('new_vehicle_form_cyclePart_casterAngle').value = data.cyclePart.casterAngle ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_caster').value = data.cyclePart.caster ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_wheelbase').value = data.cyclePart.wheelbase ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_rim').value = data.cyclePart.rim ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_frame').value = data.cyclePart.frame ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_frontSuspension').value = data.cyclePart.frontSuspension ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_rearSuspension').value = data.cyclePart.rearSuspension ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_frontBrake').value = data.cyclePart.frontBrake ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_rearBrake').value = data.cyclePart.rearBrake ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_frontWheel').value = data.cyclePart.frontWheel ?? '';
+                document.getElementById('new_vehicle_form_cyclePart_rearWheel').value = data.cyclePart.rearWheel ?? '';
+            })
+            .catch(err => console.error('Erreur récupération véhicule :', err));
+        });
+    }); #}
+
     document.addEventListener('DOMContentLoaded', function () {
         const container = document.querySelector('#new_vehicle_images');
         const addButton = document.querySelector('#add_new_vehicle_image');
@@ -259,5 +334,7 @@
         });
     });
 </script>
+
+
 
 {% endblock %}

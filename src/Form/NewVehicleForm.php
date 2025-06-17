@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\NewVehicle;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,6 +16,13 @@ class NewVehicleForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            // ->add('existingVehicle', EntityType::class, [
+            //     'class' => NewVehicle::class,
+            //     'choice_label' => 'name', // ou 'model' selon ton besoin
+            //     'placeholder' => '--- Choisir un modèle existant ---',
+            //     'mapped' => false,
+            //     'required' => false,
+            // ])
             ->add('name', TextType::class)
             ->add('Information', InformationForm::class)
             ->add('Engine', EngineForm::class)

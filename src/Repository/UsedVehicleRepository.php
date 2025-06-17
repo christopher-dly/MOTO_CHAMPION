@@ -12,4 +12,14 @@ class UsedVehicleRepository extends ServiceEntityRepository
     {
         parent::__construct($doctrine, UsedVehicle::class);
     }
+
+    public function findSoldVehicles(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.selled = :selled')
+            ->setParameter('selled', true)
+            ->orderBy('u.soldAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

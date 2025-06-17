@@ -1,0 +1,38 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+
+    {% include 'components/adminNav.html.twig' %}
+    <div class='adminUsedVehicleTitleContainer'>
+        <h1 class='adminUsedVehicleTitlePage'>(admin) VÉHICULES D'OCCASIONS VENDU</h1>
+    </div>
+    <div class="adminUsedVehicleSellContainer">
+        <table class="adminUsedVehicleSellTable">
+            <thead class="adminUsedVehicleSellHeader">
+                <tr class="adminUsedVehicleSellHeaderRow">
+                    <th class="adminUsedVehicleSellHeaderCell">Marque</th>
+                    <th class="adminUsedVehicleSellHeaderCell">Modèle</th>
+                    <th class="adminUsedVehicleSellHeaderCell">Kilométrage</th>
+                    <th class="adminUsedVehicleSellHeaderCell">Date de vente</th>
+                </tr>
+            </thead>
+            <tbody class="adminUsedVehicleSellBody">
+                {% for vehicle in vehicles %}
+                    <tr class="adminUsedVehicleSellRow">
+                        <td class="adminUsedVehicleSellCell">{{ vehicle.brand }}</td>
+                        <td class="adminUsedVehicleSellCell">{{ vehicle.model }}</td>
+                        <td class="adminUsedVehicleSellCell">{{ vehicle.kilometers }} km</td>
+                        <td class="adminUsedVehicleSellCell">
+                            {{ vehicle.soldAt ? vehicle.soldAt|date('d/m/Y H:i') : 'Non précisée' }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr class="adminUsedVehicleSellRow">
+                        <td class="adminUsedVehicleSellCell" colspan="4">Aucun véhicule vendu.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

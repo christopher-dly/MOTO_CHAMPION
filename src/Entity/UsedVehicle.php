@@ -87,7 +87,13 @@ class UsedVehicle
     private ?bool $statue = true;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $selled = false;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $a2 = false;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $soldAt = null;
 
     #[ORM\OneToMany(
         targetEntity: UsedVehicleImage::class,
@@ -298,9 +304,32 @@ class UsedVehicle
         return $this;
     }
 
+    public function isSelled(): ?bool
+    {
+        return $this->selled;
+    }
+
+    public function setSelled(bool $selled): self
+    {
+        $this->selled = $selled;
+
+        return $this;
+    }
+
     public function getUsedVehicleImages(): Collection
     {
         return $this->usedVehicleImages;
+    }
+
+    public function getSoldAt(): ?\DateTimeInterface
+    {
+        return $this->soldAt;
+    }
+
+    public function setSoldAt(?\DateTimeInterface $soldAt): self
+    {
+        $this->soldAt = $soldAt;
+        return $this;
     }
 
     public function addUsedVehicleImage(UsedVehicleImage $usedVehicleImage): self

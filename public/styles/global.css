@@ -9,7 +9,9 @@
 @import url(adminPages/used_vehicle_add_edit.css);
 @import url(adminPages/new_vehicle.css);
 @import url(adminPages/used_vehicle.css);
+@import url(adminPages/used_vehicle_selled.css);
 @import url(adminPages/actuality.css);
+
 
 @import url(userPages/new_vehicle.css);
 @import url(userPages/used_vehicle.css);

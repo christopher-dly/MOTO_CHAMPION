@@ -5,6 +5,7 @@
 
     <div class="used_vehicle_container">
         {% for usedVehicle in usedVehicles %}
+        {% if usedVehicle.statue == 1 %}
             <li class="used_vehicle_card">
                 <a class="used_vehicle_card_link" href="{{path('UsedVehicleDetails' , {id: usedVehicle.id})}}">
                     <div class="used_vehicle_card_header">
@@ -36,6 +37,7 @@
                     </div>
                 </a>
             </li>
+        {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

@@ -1,24 +1,35 @@
+/* ===== Conteneur principal ===== */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Carousel ===== */
 .carousel-container {
     width: 1200px;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .carousel-slide {
     display: flex;
-    transition: transform 0.5s ease-in-out;
     width: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
     flex: 0 0 100%;
+    width: 1200px;
+    height: 300px;
     box-sizing: border-box;
     background: #f9f9f9;
     display: flex;
-    height: 300px;
-    width: 1200px;
 }
 
 .carousel-item img {
@@ -28,6 +39,7 @@
     border-radius: 5px;
 }
 
+/* ===== Pagination (points du carrousel) ===== */
 .pagination {
     position: absolute;
     bottom: 10px;
@@ -49,3 +61,67 @@
 .pagination .active {
     background: #333;
 }
+
+/* ===== Liste des cartes véhicule ===== */
+.vehicle_card_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+}
+
+/* ===== Responsive Carousel ===== */
+@media screen and (max-width: 1280px) {
+    .carousel-container,
+    .carousel-item,
+    .carousel-item img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .carousel-item {
+        height: 200px;
+    }
+
+    .carousel-item img {
+        height: 200px;
+    }
+
+    .pagination span {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-container {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .carousel-item {
+        height: 160px;
+    }
+
+    .carousel-item img {
+        height: 160px;
+    }
+
+    .pagination {
+        gap: 6px;
+        bottom: 6px;
+    }
+
+    .pagination span {
+        width: 8px;
+        height: 8px;
+    }
+}
+

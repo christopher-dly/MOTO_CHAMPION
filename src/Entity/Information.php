@@ -49,7 +49,7 @@ class Information
     private ?bool $availableForTrial = false;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $A2 = false;
+    private ?bool $a2 = false;
 
     #[ORM\OneToMany(
         targetEntity: "App\Entity\NewVehicle",
@@ -154,12 +154,12 @@ class Information
 
     public function getA2(): ?bool
     {
-        return $this->A2;
+        return $this->a2;
     }
 
-    public function setA2(?bool $A2): self
+    public function setA2(?bool $a2): self
     {
-        $this->A2 = $A2;
+        $this->a2 = $a2;
 
         return $this;
     }
