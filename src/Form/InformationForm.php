@@ -6,10 +6,10 @@ use App\Entity\Information;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class InformationForm extends AbstractType
 {
@@ -24,7 +24,9 @@ class InformationForm extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
             ])
-            ->add('model', TextType::class)
+            ->add('model', TextType::class , [
+                'required' => false,
+            ])
             ->add('category', ChoiceType::class, [
                 'choices' => [
                     'Trail' => 'Trail',
@@ -36,9 +38,15 @@ class InformationForm extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
             ])
-            ->add('cylinders', TextType::class)
-            ->add('price', TextType::class)
-            ->add('warrantyTime', TextType::class)
+            ->add('cylinders', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('price', TextType::class, [
+                'required' => false,
+            ])
+            ->add('warrantyTime', NumberType::class, [
+                'required' => false,
+            ])
             ->add('availableForTrial', CheckboxType::class, [
                 'required' => false,
             ])

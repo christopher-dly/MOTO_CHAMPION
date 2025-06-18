@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UsedVehicleController extends AbstractController
 {
-    #[Route('/used-vehicle', name: 'UsedVehicle')]
+    #[Route('/véhicules-doccasion', name: 'UsedVehicle')]
     public function usedVehicle(UsedVehicleRepository $repo): Response
     {
         $usedVehicles = $repo->findAll();
@@ -19,7 +19,7 @@ class UsedVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/used-vehicle/{id}', name: 'UsedVehicleDetails')]
+    #[Route('/véhicules-doccasion/{id}', name: 'UsedVehicleDetails')]
     public function usedVehicleDetails(UsedVehicleRepository $repo, int $id): Response
     {
         $usedVehicle = $repo->find($id);

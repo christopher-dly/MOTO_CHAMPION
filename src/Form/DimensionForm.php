@@ -4,24 +4,40 @@ namespace App\Form;
 
 use App\Entity\Dimension;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class DimensionForm extends AbstractType
 {
     public function buildForm (FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('length', TextType::class)
-            ->add('width', TextType::class)
-            ->add('height', TextType::class)
-            ->add('saddleHeight', TextType::class)
-            ->add('groundClearance', TextType::class)
-            ->add('gas', TextType::class)
-            ->add('oil', TextType::class)
-            ->add('weight', TextType::class);
+            ->add('length', NumberType::class , [
+                'required' => false,
+            ])
+            ->add('width', NumberType::class , [
+                'required' => false,
+            ])
+            ->add('height', NumberType::class , [
+                'required' => false,
+            ])
+            ->add('saddleHeight', NumberType::class , [
+                'required' => false,
+            ])
+            ->add('groundClearance', NumberType::class , [
+                'required' => false,
+            ])
+            ->add('gas', TextType::class , [
+                'required' => false,
+            ])
+            ->add('oil', TextType::class , [
+                'required' => false,
+            ])
+            ->add('weight', NumberType::class , [
+                'required' => false,
+            ]);
     }
     
     public function configureOptions(OptionsResolver $resolver)

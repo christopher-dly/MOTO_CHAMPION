@@ -1,5 +1,7 @@
 <div class='info-banner'>
-    <p class='info-banner-text'>Tel: 01.42.59.67.55  Ouverture: Mardi => Vendredi: 9h00-12h45 // 14h00-18h30 ET Samedi: 9h00-12h45 // 14h00-17h15</p>
+    <p class='info-banner-text'>
+        Tél. : 01.42.59.67.55 — Ouverture : mardi à vendredi, 9h00-12h45 // 14h00-18h30 et samedi, 9h00-12h45 // 14h00-17h15
+    </p>
     <ul class='info-banner-social'>
         <li><a class="logo-link logo-instagram" href="https://www.instagram.com/motochampionparis/"><img src="{{ asset('img/logo/insta.png') }}" alt="Logo Instagram"></a></li>
         <li><a class="logo-link logo-facebook" href='https://www.facebook.com/concessionnaire.moto.champion/'><img src="{{ asset('img/logo/facebook.png') }}" alt="Logo Facebook"></a></li>
@@ -9,14 +11,14 @@
 <div id="navbar-placeholder"></div>
 <div class='main-banner'>
     <a href="{{ path('Home') }}">
-        <img src="{{ asset('img/logo/header.svg') }}" alt="bannière de l'application">
+        <img src="{{ asset('img/logo/header.svg') }}" alt="Bannière de l'application">
     </a>
 </div>
 <div class='navbar'>
     <div class='navbar-logo-container'>
         <div class='navbar-logo'>
             <a href="{{ path('Home') }}">
-                <img src="{{ asset('img/logo/logo_mc.png') }}" alt="logo de l'application" width="80" height="80">
+                <img src="{{ asset('img/logo/logo_mc.png') }}" alt="Logo de l'application" width="80" height="80">
             </a>
         </div>
         <div class="burger-menu" id="burger-menu">
@@ -37,7 +39,7 @@
                 <a class="navbar-link {% if app.request.get('_route') == 'Workshop' %}active{% endif %}">Tarif atelier</a>
             </li>
             <li class='mb10'>
-                <a class="navbar-link {% if app.request.get('_route') == 'AboutUs' %}active{% endif %}">Qui sommes nous ?</a>
+                <a class="navbar-link {% if app.request.get('_route') == 'AboutUs' %}active{% endif %}">Qui sommes-nous ?</a>
             </li>
             <li class='mb10'>
                 <a class="navbar-link {% if app.request.get('_route') == 'Contact' %}active{% endif %}" href="{{ path('Contact') }}">Contact</a>
@@ -72,6 +74,4 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('open');
     });
 });
-
-
 </script>

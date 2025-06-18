@@ -67,7 +67,7 @@
 /* === ACTION BUTTON BASE STYLE === */
 .adminUsedVehicleDeleteButton,
 .adminUsedVehicleSellButton,
-.adminUsedVehicleVisibiltyOffButton,
+.adminUsedVehicleVisibilityOffButton,
 .adminUsedVehicleVisibilityOnButton {
     display: flex;
     align-items: center;
@@ -81,7 +81,7 @@
 
 .adminUsedVehicleDeleteButton:hover,
 .adminUsedVehicleSellButton:hover,
-.adminUsedVehicleVisibiltyOffButton:hover,
+.adminUsedVehicleVisibilityOffButton:hover,
 .adminUsedVehicleVisibilityOnButton:hover {
     transform: scale(1.1);
 }
@@ -97,7 +97,7 @@
     color: white;
 }
 
-.adminUsedVehicleVisibiltyOffButton {
+.adminUsedVehicleVisibilityOffButton {
     background-color: #3498db; /* bleu */
     color: white;
 }

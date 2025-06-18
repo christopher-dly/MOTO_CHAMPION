@@ -12,7 +12,6 @@
 @import url(adminPages/used_vehicle_selled.css);
 @import url(adminPages/actuality.css);
 
-
 @import url(userPages/new_vehicle.css);
 @import url(userPages/used_vehicle.css);
 @import url(userPages/new_vehicle_details.css);
@@ -60,4 +59,12 @@ li {
     padding-left: 40px;
     padding-right: 40px; */
     display: none;
+}
+
+.err404_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }

@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewVehicleController extends AbstractController
 {
-    #[Route('/new-vehicle', name: 'NewVehicle')]
+    #[Route('/véhicules-neufs', name: 'NewVehicle')]
 public function newVehicle(Request $request, NewVehicleRepository $repo): Response
     {
         $form = $this->createForm(NewVehicleFilterForm::class);
@@ -60,7 +60,7 @@ public function newVehicle(Request $request, NewVehicleRepository $repo): Respon
         ]);
     }
 
-#[Route('/new-vehicle/{id}', name: 'NewVehicleDetail')]
+#[Route('/véhicules-neufs/{name}', name: 'NewVehicleDetail')]
 public function newVehicleDetail(NewVehicle $newVehicle): Response
 {
     $images = $newVehicle->getNewVehicleImages();

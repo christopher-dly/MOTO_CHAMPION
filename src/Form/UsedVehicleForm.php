@@ -33,19 +33,37 @@ class UsedVehicleForm extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
             ])
-            ->add('cylinders', NumberType::class)
+            ->add('cylinders', NumberType::class , [
+                'required' => false,
+            ])
             ->add('price', TextType::class)
-            ->add('warrantyTime', NumberType::class)
-            ->add('description', TextType::class)
+            ->add('warrantyTime', NumberType::class ,[
+                'required' => false,
+            ])
+            ->add('description', TextType::class, [
+                'required' => false,
+            ])
             ->add('availableForTrial', CheckboxType::class, [
                 'required' => false,
             ])
-            ->add('color', TextType::class)
-            ->add('year', NumberType::class)
-            ->add('kilometers', NumberType::class)
-            ->add('energyTax', NumberType::class)
-            ->add('taxPower', NumberType::class)
-            ->add('power', TextType::class)
+            ->add('color', TextType::class , [
+                'required' => false,
+            ])
+            ->add('year', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('kilometers', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('energyTax', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('taxPower', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('power', TextType::class, [
+                'required' => false,
+            ])
             ->add('statue', CheckboxType::class, [
                 'required' => false,
             ])

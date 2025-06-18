@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\NewVehicle;
-use App\Entity\NewVehicleImage;
 use App\Form\EditNewVehicleForm;
 use App\Form\NewVehicleForm;
 use App\Repository\InformationRepository;
@@ -16,7 +15,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminNewVehicleController extends AbstractController
 {
-    #[Route('/admin/new-vehicle', name: 'AdminNewVehicle', methods: ['GET', 'POST'])]
+    #[Route('/admin/véhicules-neufs', name: 'AdminNewVehicle', methods: ['GET', 'POST'])]
     public function adminNewVehicle(InformationRepository $informationRepository)
     {
         $newVehicleTrails = $informationRepository->findBy(['category' => 'Trail']);
@@ -34,7 +33,7 @@ class AdminNewVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/new-vehicle/add', name: 'AdminNewVehicleAdd', methods: ['GET', 'POST'])]
+    #[Route('/admin/véhicules-neufs/ajouter', name: 'AdminNewVehicleAdd', methods: ['GET', 'POST'])]
     public function adminNewVehicleAdd(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger)
     {
         $newVehicle = new NewVehicle();
@@ -82,7 +81,7 @@ class AdminNewVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/new-vehicle/edit/{id}', name: 'AdminNewVehicleEdit', methods: ['GET', 'POST'])]
+    #[Route('/admin/véhicules-neufs/editer/{id}', name: 'AdminNewVehicleEdit', methods: ['GET', 'POST'])]
     public function adminNewVehicleEdit(Request $request, EntityManagerInterface $entityManager, NewVehicle $newVehicle, SluggerInterface $slugger)
     {
         $form = $this->createForm(EditNewVehicleForm::class, $newVehicle);
@@ -99,7 +98,7 @@ class AdminNewVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/new-vehicle/delete/{id}', name: 'AdminNewVehicleDelete', methods: ['GET', 'POST'])]
+    #[Route('/admin/véhicules-neufs/supprimer/{id}', name: 'AdminNewVehicleDelete', methods: ['GET', 'POST'])]
     public function adminUsedVehicleDelete(Request $request, EntityManagerInterface $entityManager, NewVehicle $newVehicle)
     {
         $entityManager->remove($newVehicle);

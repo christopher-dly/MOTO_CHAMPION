@@ -3,7 +3,7 @@
 {% block main %}
 
     {% include 'components/adminNav.html.twig' %}
-    <h1 class='new_vehicle_add_title_page'>(admin)EDITION DE VÉHICULE</h1>
+    <h1 class='new_vehicle_add_title_page'>(admin) ÉDITION DE VÉHICULE</h1>
     <div class="new_vehicle_add_form_container">
     {{ form_start(edit_new_vehicle_form, {'attr': {'enctype': 'multipart/form-data'}}) }}
         <div class='new_vehicle_add_form_section_namevhl'>
@@ -24,7 +24,7 @@
                 {{ form_errors(edit_new_vehicle_form.Information.model) }}
             </div>
             <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Cylindrée (commercial):</p>
+                <p class='new_vehicle_add_input_description'>Cylindrée (commerciale) :</p>
                 {{ form_widget(edit_new_vehicle_form.Information.cylinders, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(edit_new_vehicle_form.Information.cylinders) }}
             </div>
@@ -49,7 +49,7 @@
                 {{ form_errors(edit_new_vehicle_form.Information.category) }}
             </div>
             <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Disponible à l'éssaie :</p>
+                <p class='new_vehicle_add_input_description'>Disponible à l'essai :</p>
                 {{ form_widget(edit_new_vehicle_form.Information.availableForTrial, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(edit_new_vehicle_form.Information.availableForTrial) }}
             </div>
@@ -62,7 +62,7 @@
                 {{ form_errors(edit_new_vehicle_form.Engine.type) }}
             </div>
             <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Cylindrée (réelle):</p>
+                <p class='new_vehicle_add_input_description'>Cylindrée (réelle) :</p>
                 {{ form_widget(edit_new_vehicle_form.Engine.cylinders, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(edit_new_vehicle_form.Engine.cylinders) }}
             </div>
@@ -82,12 +82,12 @@
                 {{ form_errors(edit_new_vehicle_form.Engine.powerSupply) }}
             </div>
             <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Consomation :</p>
+                <p class='new_vehicle_add_input_description'>Consommation :</p>
                 {{ form_widget(edit_new_vehicle_form.Engine.consumption, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(edit_new_vehicle_form.Engine.consumption) }}
             </div>
             <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Emmission de Co2 :</p>
+                <p class='new_vehicle_add_input_description'>Émission de CO₂ :</p>
                 {{ form_widget(edit_new_vehicle_form.Engine.co2Emissions, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(edit_new_vehicle_form.Engine.co2Emissions) }}
             </div>
@@ -110,7 +110,7 @@
                 {{ form_errors(edit_new_vehicle_form.Transmission.command) }}
             </div>
             <div class='new_vehicle_add_input_container'>
-                <p class='new_vehicle_add_input_description'>Boite de vitesse :</p>
+                <p class='new_vehicle_add_input_description'>Boîte de vitesses :</p>
                 {{ form_widget(edit_new_vehicle_form.Transmission.gearbox, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(edit_new_vehicle_form.Transmission.gearbox) }}
             </div>
@@ -158,7 +158,7 @@
                 {{ form_errors(edit_new_vehicle_form.Dimension.weight) }}
             </div>
         </div>
-        <h3 class='new_vehicle_add_form_section_title'>Partie cycle</h3>
+        <h3 class='new_vehicle_add_form_section_title'>Partie-cycle</h3>
         <div class='new_vehicle_add_form_section'>
             <div class='new_vehicle_add_input_container'>
                 <p class='new_vehicle_add_input_description'>Angle de chasse :</p>

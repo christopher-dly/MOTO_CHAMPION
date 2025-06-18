@@ -13,13 +13,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminActualityController extends AbstractController
 {
-    #[Route('/actuality', name: 'Actuality')]
+    #[Route('/actualités', name: 'Actuality')]
     public function actuality()
     {
         return $this->render('pages/actuality.html.twig');
     }
 
-    #[Route('/admin/actuality', name: 'AdminActuality', methods: ['GET','POST'])]
+    #[Route('/admin/actualités', name: 'AdminActuality', methods: ['GET','POST'])]
     public function adminActuality(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $showActuality = $entityManager->getRepository(Actuality::class)->findBy([], ['date' => 'DESC']);
@@ -62,7 +62,7 @@ class AdminActualityController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/actuality/supprimer/{id}', name: 'ActualityDelete', methods: ['GET', 'POST'])]
+    #[Route('/admin/actualités/supprimer/{id}', name: 'ActualityDelete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Actuality $article, EntityManagerInterface $entityManager): Response
     {
         $entityManager->remove($article);

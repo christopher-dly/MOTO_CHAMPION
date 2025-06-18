@@ -36,7 +36,7 @@
 
             <div class='new_vehicle_filter_form_input_checkbox_container'>
                 <p>A2 :</p>
-                {{ form_widget(indexFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input_checkbox' }}) }} 
+                {{ form_widget(indexFilterForm.A2, { attr: { class: 'new_vehicle_filter_form_input_checkbox' }}) }}
                 {{ form_errors(indexFilterForm.A2) }}
             </div>
 
@@ -62,9 +62,9 @@
                             {% if vehicle.information is defined and vehicle.information is not null %}
                                 <li class='new_vehicle_card'>
                                     <a href="{{ path('NewVehicleDetail', {id: vehicle.id}) }}">
-                                        {% set logoClass = vehicle.information.brand == 'Suzuki' 
-                                            ? 'logo-suz' 
-                                            : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '') 
+                                        {% set logoClass = vehicle.information.brand == 'Suzuki'
+                                            ? 'logo-suz'
+                                            : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '')
                                         %}
                                         <div class="new_vehicle_card_header {{ logoClass }}">
                                             <p class='new_vehicle_card_header_name'>{{ vehicle.name }}</p>

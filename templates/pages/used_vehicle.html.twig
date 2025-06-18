@@ -1,13 +1,14 @@
 {% extends "layout.html.twig" %}
 
 {% block main %}
-    <h1 class='used_vehicle_title_page'>Véhicule d'occasion</h1>
+    <h1 class='used_vehicle_title_page'>Véhicules d'occasion</h1>
 
     <div class="used_vehicle_container">
         {% for usedVehicle in usedVehicles %}
         {% if usedVehicle.statue == 1 %}
+        {% if usedVehicle.selled == 0 %}
             <li class="used_vehicle_card">
-                <a class="used_vehicle_card_link" href="{{path('UsedVehicleDetails' , {id: usedVehicle.id})}}">
+                <a class="used_vehicle_card_link" href="{{ path('UsedVehicleDetails', { id: usedVehicle.id }) }}">
                     <div class="used_vehicle_card_header">
                         <p class='used_vehicle_card_header_name'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}</p>
                     </div>
@@ -16,15 +17,15 @@
                         {% if images|length > 0 %}
                             <img class='used_vehicle_card_image'
                                 src="{{ asset('uploads/' ~ images[0].image) }}"
-                                alt="image du véhicule {{ usedVehicle.brand }}"
+                                alt="Image du véhicule {{ usedVehicle.brand }}"
                                 width="350" height="225">
                         {% else %}
                             <p>Pas d'image</p>
                         {% endif %}
                         {% if usedVehicle.a2 %}
                         <div class='used_vehicle_card_footer_logo_license'>
-                            <img class='used_vehicle_card_footer_logo' src='{{asset('img/logo/logo_a.png')}}' alt='logo permis A'>
-                            <img class='used_vehicle_card_footer_logo' src='{{asset('img/logo/logo_a2.png')}}' alt='logo permis A2'>
+                            <img class='used_vehicle_card_footer_logo' src='{{ asset('img/logo/logo_a.png') }}' alt='logo permis A'>
+                            <img class='used_vehicle_card_footer_logo' src='{{ asset('img/logo/logo_a2.png') }}' alt='logo permis A2'>
                         </div>
                         {% endif %}
                     </div>
@@ -37,6 +38,7 @@
                     </div>
                 </a>
             </li>
+        {% endif %}
         {% endif %}
         {% endfor %}
     </div>

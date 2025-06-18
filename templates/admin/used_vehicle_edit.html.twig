@@ -38,12 +38,12 @@
                 {{ form_errors(edit_used_vehicle_form.warrantyTime) }}
             </div>
             <div class='used_vehicle_add_input_container'>
-                <p class='used_vehicle_add_input_description'>description :</p>
+                <p class='used_vehicle_add_input_description'>Description :</p>
                 {{ form_widget(edit_used_vehicle_form.description, {'attr': {'class': 'used_vehicle_add_input'}}) }}
                 {{ form_errors(edit_used_vehicle_form.description) }}
             </div>
             <div class='used_vehicle_add_input_container'>
-                <p class='used_vehicle_add_input_description'>disponible à l'éssaie :</p>
+                <p class='used_vehicle_add_input_description'>Disponible à l'essai :</p>
                 {{ form_widget(edit_used_vehicle_form.availableForTrial, {'attr': {'class': 'used_vehicle_add_input'}}) }}
                 {{ form_errors(edit_used_vehicle_form.availableForTrial) }}
             </div>
@@ -58,7 +58,7 @@
                 {{ form_errors(edit_used_vehicle_form.year) }}
             </div>
             <div class='used_vehicle_add_input_container'>
-                <p class='used_vehicle_add_input_description'>Kilométrages :</p>
+                <p class='used_vehicle_add_input_description'>Kilométrage :</p>
                 {{ form_widget(edit_used_vehicle_form.kilometers, {'attr': {'class': 'used_vehicle_add_input'}}) }}
                 {{ form_errors(edit_used_vehicle_form.kilometers) }}
             </div>
@@ -73,12 +73,12 @@
                 {{ form_errors(edit_used_vehicle_form.taxPower) }}
             </div>
             <div class='used_vehicle_add_input_container'>
-                <p class='used_vehicle_add_input_description'>Energie :</p>
+                <p class='used_vehicle_add_input_description'>Énergie :</p>
                 {{ form_widget(edit_used_vehicle_form.power, {'attr': {'class': 'used_vehicle_add_input'}}) }}
                 {{ form_errors(edit_used_vehicle_form.power) }}
             </div>
             <div class='used_vehicle_add_input_container'>
-                <p class='used_vehicle_add_input_description'>Statue :</p>
+                <p class='used_vehicle_add_input_description'>Statut :</p>
                 {{ form_widget(edit_used_vehicle_form.statue, {'attr': {'class': 'used_vehicle_add_input'}}) }}
                 {{ form_errors(edit_used_vehicle_form.statue) }}
             </div>
@@ -91,6 +91,5 @@
         {{ form_row(edit_used_vehicle_form.submit) }}
     {{ form_end(edit_used_vehicle_form) }}
     </div>
-
 
 {% endblock %}

@@ -27,59 +27,48 @@ class UsedVehicle
     private ?string $model = null;
 
     #[ORM\Column(type: 'string', length: 50)]
-    #[Assert\NotBlank(message: "La catégorie est obligatoire.")]
     #[Assert\Length(max: 50, maxMessage: "La catégorie ne doit pas dépasser 50 caractères.")]
     private ?string $category = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: "Le nombre de cylindres est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "Le nombre de cylindres doit être un entier positif.")]
     private ?int $cylinders = null;
 
     #[ORM\Column(type: 'float')]
-    #[Assert\NotBlank(message: "Le prix est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "Le prix ne peut pas être négatif.")]
     private ?float $price = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: "Le temps de garantie est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "Le temps de garantie ne peut pas être négatif.")]
     private ?int $warrantyTime = null;
 
     #[ORM\Column(type: 'text')]
-    #[Assert\NotBlank(message: "La description est obligatoire.")]
     private ?string $description = null;
 
     #[ORM\Column(type: 'boolean')]
     private ?bool $availableForTrial = false;
 
     #[ORM\Column(type: 'string', length: 50)]
-    #[Assert\NotBlank(message: "La couleur est obligatoire.")]
     #[Assert\Length(max: 50, maxMessage: "La couleur ne doit pas dépasser 50 caractères.")]
     private ?string $color = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: "L'année est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "L'année ne peut pas être négative.")]
     private ?int $year = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: "Le nombre de kilomètres est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "Le nombre de kilomètres ne peut pas être négatif.")]
     private ?int $kilometers = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: "Le taux d'énergie est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "Le taux d'énergie ne peut pas être négatif.")]
     private ?int $energyTax = null;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(message: "Le taux de puissance est obligatoire.")]
     #[Assert\GreaterThanOrEqual(0, message: "Le taux de puissance ne peut pas être négatif.")]
     private ?int $taxPower = null;
 
     #[ORM\Column(type: 'string', length: 100)]
-    #[Assert\NotBlank(message: "La puissance est obligatoire.")]
     #[Assert\Length(max: 100, maxMessage: "La puissance ne doit pas dépasser 100 caractères.")]
     private ?string $power = null;
 

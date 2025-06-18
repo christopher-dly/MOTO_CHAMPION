@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminUsedVehicleController extends AbstractController
 {
-    #[Route('/admin/used-vehicle', name: 'AdminUsedVehicle', methods: ['GET','POST'])]
+    #[Route('/admin/véhicules-doccasion', name: 'AdminUsedVehicle', methods: ['GET','POST'])]
     public function adminUsedVehicle(UsedVehicleRepository $usedVehiclesRepository)
     {   
         $usedVehicles = $usedVehiclesRepository->findAll();
@@ -27,7 +27,7 @@ class AdminUsedVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/used-vehicle/add', name: 'AdminUsedVehicleAdd', methods: ['GET','POST'])]
+    #[Route('/admin/véhicules-doccasion/ajouter', name: 'AdminUsedVehicleAdd', methods: ['GET','POST'])]
     public function adminUsedVehicleAdd(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger)
     {
         $usedVehicle = new UsedVehicle();
@@ -76,7 +76,7 @@ class AdminUsedVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/used-vehicle/edit/{id}', name: 'AdminUsedVehicleEdit', methods: ['GET','POST'])]
+    #[Route('/admin/véhicules-doccasion/editer/{id}', name: 'AdminUsedVehicleEdit', methods: ['GET','POST'])]
     function adminUsedVehicleEdit(Request $request, EntityManagerInterface $entityManager, UsedVehicle $usedVehicle)
     {
         $form = $this->createForm(EditUsedVehicleForm::class, $usedVehicle);
@@ -93,7 +93,7 @@ class AdminUsedVehicleController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/used-vehicle/delete/{id}', name: 'AdminUsedVehicleDelete', methods: ['GET','POST'])]
+    #[Route('/admin/véhicules-doccasion/supprimer/{id}', name: 'AdminUsedVehicleDelete', methods: ['GET','POST'])]
     public function adminUsedVehicleDelete(Request $request, EntityManagerInterface $entityManager, UsedVehicle $usedVehicle)
     {
         $entityManager->remove($usedVehicle);
@@ -102,7 +102,7 @@ class AdminUsedVehicleController extends AbstractController
         return $this->redirectToRoute('AdminUsedVehicle');
     }
     
-    #[Route('/admin/used-vehicle/{id}/hide', name: 'used_vehicle_hide')]
+    #[Route('/admin/véhicules-doccasion/{id}/masquer', name: 'used_vehicle_hide')]
     public function hide(UsedVehicle $usedVehicle, EntityManagerInterface $em, Request $request): RedirectResponse
     {
         $usedVehicle->setStatue(false);
@@ -112,7 +112,7 @@ class AdminUsedVehicleController extends AbstractController
         return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('admin_used_vehicle_list'));
     }
 
-    #[Route('/admin/used-vehicle/{id}/show', name: 'used_vehicle_show')]
+    #[Route('/admin/véhicules-doccasion/{id}/afficher', name: 'used_vehicle_show')]
     public function show(UsedVehicle $usedVehicle, EntityManagerInterface $em, Request $request): RedirectResponse
     {
         $usedVehicle->setStatue(true);
@@ -122,7 +122,7 @@ class AdminUsedVehicleController extends AbstractController
         return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('admin_used_vehicle_list'));
     }
 
-    #[Route('/admin/used-vehicle/{id}/sell', name: 'used_vehicle_sell')]
+    #[Route('/admin/véhicules-doccasion/{id}/vendre', name: 'used_vehicle_sell')]
     public function usedVehicleSell(UsedVehicle $usedVehicle, EntityManagerInterface $em, Request $request): RedirectResponse
     {
         $usedVehicle->setSelled(true);
@@ -135,7 +135,7 @@ class AdminUsedVehicleController extends AbstractController
         return $this->redirect($request->headers->get('referer') ?? $this->generateUrl('admin_used_vehicle_list'));
     }
 
-    #[Route('/admin/used-vehicle/sold/list', name: 'used_vehicle_sold_list')]
+    #[Route('/admin/véhicules-doccasion/vendus', name: 'used_vehicle_sold_list')]
     public function usedVehicleSoldList(UsedVehicleRepository $repository): Response
     {
         $soldVehicles = $repository->findSoldVehicles();

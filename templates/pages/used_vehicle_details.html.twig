@@ -7,8 +7,8 @@
             <h1 class='used_vehicle_detail_title_page'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}
                 {% if usedVehicle.a2 %}
                 <span class='used_vehicle_detail_a2'>
-                    <img class='used_vehicle_detail_a2_logo' src='{{asset('img/logo/logo_a.png')}}' alt='logo permis A'>
-                    <img class='used_vehicle_detail_a2_logo' src='{{asset('img/logo/logo_a2.png')}}' alt='logo permis A2'>
+                    <img class='used_vehicle_detail_a2_logo' src='{{ asset('img/logo/logo_a.png') }}' alt='logo permis A'>
+                    <img class='used_vehicle_detail_a2_logo' src='{{ asset('img/logo/logo_a2.png') }}' alt='logo permis A2'>
                 </span>
                 {% endif %}
             </h1>
@@ -18,7 +18,7 @@
                         <div class="used_vehicle_detail_carousel-track">
                             {% for image in images %}
                                 <div class="used_vehicle_detail_carousel-slide">
-                                    <img src="{{ asset('uploads/' ~ image.image) }}" alt="Image véhicule">
+                                    <img src="{{ asset('uploads/' ~ image.image) }}" alt="Image du véhicule">
                                 </div>
                             {% endfor %}
                         </div>
@@ -37,22 +37,22 @@
         </div>
         <div class='used_vehicle_detail_right_container'>
             <div class='used_vehicle_detail_description_title_container'>
-                <h3 class='used_vehicle_detail_description_title'>Informations<span><img src='{{asset('img/logo/info_logo.png')}}' alt='logo information' width='30' height='30'></span></h3>
+                <h3 class='used_vehicle_detail_description_title'>Informations<span><img src='{{ asset('img/logo/info_logo.png') }}' alt='logo information' width='30' height='30'></span></h3>
             </div>
             <div class='used_vehicle_detail_info'>
-                <p class='used_vehicle_detail_description'>Marque :<span>{{usedVehicle.brand}}</span></p>
-                <p class='used_vehicle_detail_description'>Modèle :<span>{{usedVehicle.model}}</span></p>
-                <p class='used_vehicle_detail_description'>Catégorie :<span>{{usedVehicle.category}}</span></p>
-                <p class='used_vehicle_detail_description'>Cylindrées :<span>{{usedVehicle.cylinders}}</span></p>
-                <p class='used_vehicle_detail_description'>Temps de garantie :<span>{{usedVehicle.warrantyTime}}</span></p>
-                <p class='used_vehicle_detail_description'>Description:<span>{{usedVehicle.description}}</span></p>
-                <p class='used_vehicle_detail_description'>Couleur :<span>{{usedVehicle.color}}</span></p>
-                <p class='used_vehicle_detail_description'>Crit'air :<span>{{usedVehicle.energyTax}}</span></p>
-                <p class='used_vehicle_detail_description'>Puissance fiscale :<span>{{usedVehicle.taxPower}}</span></p>
-                <p class='used_vehicle_detail_description'>Energie :<span>{{usedVehicle.power}}</span></p>
-                <p class='used_vehicle_detail_description'>Année d'immatriculation :<span>{{usedVehicle.year}}</span></p>
-                <p class='used_vehicle_detail_description'>kilomètres parcourus :<span>{{usedVehicle.kilometers}}</span></p>
-                <p class='used_vehicle_detail_description'>Prix :<span class='used_vehicle_detail_price'>{{usedVehicle.price}} €</span></p>
+                <p class='used_vehicle_detail_description'>Marque : <span>{{ usedVehicle.brand }}</span></p>
+                <p class='used_vehicle_detail_description'>Modèle : <span>{{ usedVehicle.model }}</span></p>
+                <p class='used_vehicle_detail_description'>Catégorie : <span>{{ usedVehicle.category }}</span></p>
+                <p class='used_vehicle_detail_description'>Cylindrée : <span>{{ usedVehicle.cylinders }}</span></p>
+                <p class='used_vehicle_detail_description'>Temps de garantie : <span>{{ usedVehicle.warrantyTime }}</span></p>
+                <p class='used_vehicle_detail_description'>Description : <span>{{ usedVehicle.description }}</span></p>
+                <p class='used_vehicle_detail_description'>Couleur : <span>{{ usedVehicle.color }}</span></p>
+                <p class='used_vehicle_detail_description'>Crit'air : <span>{{ usedVehicle.energyTax }}</span></p>
+                <p class='used_vehicle_detail_description'>Puissance fiscale : <span>{{ usedVehicle.taxPower }}</span></p>
+                <p class='used_vehicle_detail_description'>Énergie : <span>{{ usedVehicle.power }}</span></p>
+                <p class='used_vehicle_detail_description'>Année d'immatriculation : <span>{{ usedVehicle.year }}</span></p>
+                <p class='used_vehicle_detail_description'>Kilomètres parcourus : <span>{{ usedVehicle.kilometers }}</span></p>
+                <p class='used_vehicle_detail_description'>Prix : <span class='used_vehicle_detail_price'>{{ usedVehicle.price }} €</span></p>
             </div>
         </div>
     </div>
@@ -85,6 +85,5 @@
         updateCarousel();
     });
 </script>
-
 
 {% endblock %}

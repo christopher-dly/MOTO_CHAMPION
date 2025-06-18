@@ -4,7 +4,7 @@
 
     {% include 'components/adminNav.html.twig' %}
     <div class='adminUsedVehicleTitleContainer'>
-        <h1 class='adminUsedVehicleTitlePage'>(admin) VÉHICULES OCCASIONS</h1>
+        <h1 class='adminUsedVehicleTitlePage'>(admin) VÉHICULES D'OCCASION</h1>
         <a class='buttonAddUsedVehicle' href="{{ path('AdminUsedVehicleAdd') }}">Ajouter un véhicule d'occasion</a>
     </div>
 
@@ -21,7 +21,7 @@
                         {% if images|length > 0 %}
                             <img class='adminUsedVehicleImage'
                                 src="{{ asset('uploads/' ~ images[0].image) }}"
-                                alt="image du véhicule {{ usedVehicle.brand }} {{ usedVehicle.model }}"
+                                alt="Image du véhicule {{ usedVehicle.brand }} {{ usedVehicle.model }}"
                                 width="300" height="200">
                         {% else %}
                             <p>Pas d'image</p>
@@ -31,7 +31,7 @@
                      <a class='adminUsedVehicleDeleteButton' href='{{path('AdminUsedVehicleDelete', {id: usedVehicle.id})}}'>🗑</a>
                      <a class='adminUsedVehicleSellButton' href='{{path('used_vehicle_sell', {id: usedVehicle.id})}}'>$</a>
                      {% if usedVehicle.statue == 1 %}
-                     <a class='adminUsedVehicleVisibiltyOffButton' href='{{path('used_vehicle_hide', {id: usedVehicle.id})}}'>
+                     <a class='adminUsedVehicleVisibilityOffButton' href='{{path('used_vehicle_hide', {id: usedVehicle.id})}}'>
                          <img class='adminUsedVehicleEditButtonImage' src="{{ asset('img/logo/eye_close.png') }}" alt="logo pour masquer la visibilité du véhicule">
                      </a>
                      {% else %}
