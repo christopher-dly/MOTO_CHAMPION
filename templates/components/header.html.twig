@@ -1,7 +1,12 @@
 <div class='info-banner'>
-    <p class='info-banner-text'>
-        Tél. : 01.42.59.67.55 — Ouverture : mardi à vendredi, 9h00-12h45 // 14h00-18h30 et samedi, 9h00-12h45 // 14h00-17h15
-    </p>
+    <div class='info-banner-text'>
+        <p>Tél. : 01.42.59.67.55 — Ouverture : mardi à vendredi, 9h00-12h45 // 14h00-18h30 et samedi, 9h00-12h45 // 14h00-17h15</p>
+    </div>
+    {% if temporary_message is not empty %}
+    <div class='temporary-message'>
+        <p>{{ temporary_message }}</p>
+    </div>
+    {% endif %}
     <ul class='info-banner-social'>
         <li><a class="logo-link logo-instagram" href="https://www.instagram.com/motochampionparis/"><img src="{{ asset('img/logo/insta.png') }}" alt="Logo Instagram"></a></li>
         <li><a class="logo-link logo-facebook" href='https://www.facebook.com/concessionnaire.moto.champion/'><img src="{{ asset('img/logo/facebook.png') }}" alt="Logo Facebook"></a></li>

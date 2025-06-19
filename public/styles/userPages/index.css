@@ -123,5 +123,10 @@
         width: 8px;
         height: 8px;
     }
+
+    .new_vehicle_filter_form_input_checkbox_container {
+        flex-direction: row;
+        width: 238px;
+    }
 }
 

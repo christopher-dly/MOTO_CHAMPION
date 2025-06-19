@@ -2,6 +2,21 @@
 
 {% block main %}
     <div class='admin-home-menu'>
+        <div class="temporary-message-container">
+            {{ form_start(temporaryMessageForm) }}
+            <h2 class="admin-home_little_title temporary-message-title">MESSAGE TEMPORAIRE</h2>
+            <div class="temporary-message-card">
+                <p class="admin-home-card-description temporary-message-description">
+                    {{ form_widget(temporaryMessageForm.message, { attr: { class: 'temporary-message-textarea' } }) }}
+                    {{ form_errors(temporaryMessageForm.message) }}
+                </p>
+                <div class="temporary-message-submit-wrapper">
+                    {{ form_widget(temporaryMessageForm.submit, { attr: { class: 'temporary-message-submit' } }) }}
+                </div>
+            </div>
+            {{ form_end(temporaryMessageForm) }}
+            <a class="temporary-message-delete" href="{{ path('TemporaryMessageDelete') }}">🗑</a>
+        </div>
         <p>Avant de publier une image dans un formulaire, n'hésite pas à réduire son poids sur 
             <a class='iLoveImg' href="https://www.iloveimg.com/fr/compresser-image" target="_blank" rel="noopener noreferrer">
                 iloveimg.com

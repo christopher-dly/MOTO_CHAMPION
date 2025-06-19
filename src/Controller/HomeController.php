@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Actuality;
 use App\Entity\NewVehicle;
+use App\Entity\TemporaryMessage;
 use App\Entity\UsedVehicle;
+use App\Form\TemporaryMessageForm;
 use App\Form\VehicleSearchFormType;
 use App\Repository\NewVehicleRepository;
 use App\Repository\UsedVehicleRepository;
@@ -20,7 +22,7 @@ class HomeController extends AbstractController
     public function index(Request $request, EntityManagerInterface $em, NewVehicleRepository $newRepo, UsedVehicleRepository $usedRepo): Response {
         $form = $this->createForm(VehicleSearchFormType::class);
         $form->handleRequest($request);
-
+        
         $actuality = $em->getRepository(Actuality::class)->findBy([], ['date' => 'DESC'], 5);
         $vehicles = [];
 
@@ -116,8 +118,39 @@ class HomeController extends AbstractController
     }
 
     #[Route('/admin', name: 'Admin')]
-    public function admin(): Response
+    public function admin(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->render('admin/home.html.twig');
+        $temporaryMessage = $em->getRepository(TemporaryMessage::class)->findOneBy([]) ?? new TemporaryMessage();
+
+        // Création du formulaire avec l'entité
+        $form = $this->createForm(TemporaryMessageForm::class, $temporaryMessage);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($temporaryMessage); // inutile si déjà managé, mais ne pose pas de problème
+            $em->flush();
+
+            $this->addFlash('success', 'Message mis à jour avec succès.');
+        }
+
+        return $this->render('admin/home.html.twig', [
+            'temporaryMessageForm' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/TemporaryMessageDelete', name: 'TemporaryMessageDelete')]
+    public function temporaryMessageDelete(Request $request, EntityManagerInterface $em): Response
+    {
+        $temporaryMessage = $em->getRepository(TemporaryMessage::class)->findOneBy([]);
+
+        if ($temporaryMessage) {
+            $em->remove($temporaryMessage);
+            $em->flush();
+
+            $this->addFlash('success', 'Message supprimé avec succès.');
+        }
+
+        return $this->redirectToRoute('Admin');
     }
 }

@@ -12,6 +12,10 @@
     margin: 0;
 }
 
+.temporary-message {
+    color: red;
+}
+
 .info-banner-social {
     display: flex;
     list-style: none;
@@ -150,10 +154,24 @@
     }
 
     .navbar-logo-container {
+        
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         background-color: #272727;
+    }
+
+    .navbar-search .navbar-list {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .navbar-search .navbar-list.show {
+        max-height: 500px; 
     }
 }

@@ -92,6 +92,7 @@
                                 </li>
                             {% else %}
                                 {# ---------- CARTE VÉHICULE D'OCCASION ---------- #}
+                                {% if vehicle.isSelled == false %}
                                 <li class="used_vehicle_card">
                                     <a class="used_vehicle_card_link" href="{{ path('UsedVehicleDetails', {id: vehicle.id}) }}">
                                         <div class="used_vehicle_card_header">
@@ -123,6 +124,7 @@
                                         </div>
                                     </a>
                                 </li>
+                                {% endif %}
                             {% endif %}
                         {% endfor %}
                     </ul>
