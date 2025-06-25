@@ -73,9 +73,21 @@
 }
 
 /* === GLOBAL LAYOUT === */
+.new_vehicle_detail_top_container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin-top: 100px;
+    word-wrap: break-word;
+}
+
 .new_vehicle_detail_global_container {
     display: flex;
-    margin: 30px 0;
+    margin-top: 200px;
 }
 
 .new_vehicle_detail_left_container {
@@ -204,7 +216,6 @@ margin-top: 5px;
     background-color: var(--blue);
     color: white;
     height: 40px;
-    width: fit-content;
     margin-top: 10px;
     display: flex;
     align-items: center;
@@ -253,7 +264,7 @@ margin-top: 5px;
 
 @media screen and (max-width: 768px) {
     .new_vehicle_detail_global_container {
-        margin: 10px;
+        margin-top: 230px;
     }
 
     .new_vehicle_detail_card_carrousel_container {
@@ -305,5 +316,12 @@ margin-top: 5px;
         padding-right: 20px;
         font-size: 14px;
         height: 36px;
+    }
+
+    .new_vehicle_detail_top_container {
+        max-width: 300px;
+    }
+    .new_vehicle_detail_top_container p {
+        font-size: 14px;
     }
 }

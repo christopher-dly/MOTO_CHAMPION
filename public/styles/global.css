@@ -11,6 +11,8 @@
 @import url(adminPages/used_vehicle.css);
 @import url(adminPages/used_vehicle_selled.css);
 @import url(adminPages/actuality.css);
+@import url(adminPages/vehicleMaintenance.css);
+@import url(adminPages/vehicleMaintenanceAdd_Edit.css);
 
 @import url(userPages/new_vehicle.css);
 @import url(userPages/used_vehicle.css);

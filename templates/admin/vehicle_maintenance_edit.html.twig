@@ -1,0 +1,224 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    {% include 'components/adminNav.html.twig' %}
+    <div class='adminVehicleMaintenanceAddTitleContainer'>
+        <h1 class='adminVehicleMaintenanceAddTitlePage'>(Admin) Atelier - Modifier un véhicule à l'atelier</h1>
+    </div>
+
+    <div class='adminVehicleMaintenanceAddFormContainer'>
+        {{ form_start(addVehicleMaintenanceForm) }}
+        <div class='adminVehicleMaintenanceAddFormSection'>
+            <h2> Informations du véhicle :</h2>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Marque :</h3>{{ form_widget(addVehicleMaintenanceForm.brand, {'attr': {'class': 'vehicleMaintenance_add_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.brand) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Modèle :</h3>{{ form_widget(addVehicleMaintenanceForm.model, {'attr': {'class': 'vehicleMaintenance_add_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.model) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Année :</h3>{{ form_widget(addVehicleMaintenanceForm.year, {'attr': {'class': 'vehicleMaintenance_add_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.year) }}
+            </div>
+        </div>
+
+        <div class='adminVehicleMaintenanceAddFormSection'>
+            <h2> Petite révision :</h2>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à huile :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.oilFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.oilFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Nettoyage crépine :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.strainerCleaning, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.strainerCleaning) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à air :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.airFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.airFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Bougie :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.sparkPlug, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.sparkPlug) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de variateur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.variatorBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.variatorBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.transmissionBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.transmissionBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Galets :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.pebble, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.pebble) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile moteur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.engineOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.engineOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.transmissionOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.transmissionOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile embrayage :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.clutchOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.clutchOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Prix :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLittle.price, {'attr': {'class': 'vehicleMaintenance_add_checkbox  vehicleMaintenance_add_price_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLittle.price) }}
+            </div>
+        </div>
+
+        <div class='adminVehicleMaintenanceAddFormSection'>
+            <h2> Moyenne révision :</h2>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à huile :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.oilFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.oilFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Nettoyage crépine :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.strainerCleaning, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.strainerCleaning) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à air :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.airFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.airFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Bougie :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.sparkPlug, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.sparkPlug) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de variateur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.variatorBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.variatorBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.transmissionBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.transmissionBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Galets :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.pebble, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.pebble) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile moteur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.engineOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.engineOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.transmissionOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.transmissionOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile embrayage :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.clutchOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.clutchOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Prix :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceMedium.price, {'attr': {'class': 'vehicleMaintenance_add_checkbox vehicleMaintenance_add_price_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceMedium.price) }}
+            </div>
+        </div>
+
+        <div class='adminVehicleMaintenanceAddFormSection'>
+            <h2> Grosse révision :</h2>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à huile :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.oilFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.oilFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Nettoyage crépine :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.strainerCleaning, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.strainerCleaning) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à air :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.airFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.airFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Bougie :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.sparkPlug, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.sparkPlug) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de variateur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.variatorBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.variatorBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.transmissionBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.transmissionBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Galets :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.pebble, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.pebble) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile moteur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.engineOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.engineOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.transmissionOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.transmissionOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile embrayage :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.clutchOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.clutchOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Prix :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceLarge.price, {'attr': {'class': 'vehicleMaintenance_add_checkbox vehicleMaintenance_add_price_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceLarge.price) }}
+            </div>
+        </div>
+
+        <div class='adminVehicleMaintenanceAddFormSection'>
+            <h2> Très grosse révision :</h2>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à huile :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.oilFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.oilFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Nettoyage crépine :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.strainerCleaning, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.strainerCleaning) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Filtre à air :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.airFilter, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.airFilter) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Bougie :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.sparkPlug, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.sparkPlug) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de variateur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.variatorBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.variatorBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Courroie de transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.transmissionBelt, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.transmissionBelt) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Galets :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.pebble, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.pebble) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile moteur :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.engineOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.engineOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile transmission :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.transmissionOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.transmissionOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Vidange huile embrayage :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.clutchOilChange, {'attr': {'class': 'vehicleMaintenance_add_checkbox'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.clutchOilChange) }}
+            </div>
+            <div class="addVehicleMaintenanceForm_inputContainer">
+                <h3>Prix :</h3>{{ form_widget(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.price, {'attr': {'class': 'vehicleMaintenance_add_checkbox vehicleMaintenance_add_price_input'}}) }}
+                {{ form_errors(addVehicleMaintenanceForm.vehicleMaintenanceXLarge.price) }}
+            </div>
+        </div>
+        <div class='adminVehicleMaintenanceAddFormSection'>
+            {{ form_row(addVehicleMaintenanceForm.submit, {'attr': {'class': 'vehicleMaintenance_add_button'}}) }}
+        </div>
+        {{ form_end(addVehicleMaintenanceForm) }}
+    </div>
+
+{% endblock %}

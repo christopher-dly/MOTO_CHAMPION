@@ -14,7 +14,15 @@ class TemporaryMessageForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('message', TypeTextType::class)
+            ->add('message', TypeTextType::class, [
+                'constraints' => [
+                    new \Symfony\Component\Validator\Constraints\Length([
+                        'min' => 1,
+                        'max' => 100,
+                        'maxMessage' => 'Votre message doit faire au maximum {{ limit }} caractères',
+                    ]),
+                ],
+            ])
             ->add('submit', SubmitType::class)
         ;
     }

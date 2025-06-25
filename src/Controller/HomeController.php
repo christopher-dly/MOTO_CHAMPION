@@ -91,29 +91,34 @@ class HomeController extends AbstractController
 
     private function applyCylindersFilter($qb, string $alias, string $range): void
     {
-        if ($range === '0-125') {
-            $qb->andWhere("$alias.cylinders < 125");
-        } elseif ($range === '1300+') {
+        if ($range === '50') {
+            // Tous les véhicules avec cylindrée <= 50
+            $qb->andWhere("$alias.cylinders <= 50");
+        } elseif ($range === '125') {
+            // Entre 51 et 125 cm³ (on exclut les <= 50 ici)
+            $qb->andWhere("$alias.cylinders > 50 AND $alias.cylinders <= 125");
+        } elseif ($range === '+1300') {
+            // Plus de 1300 cm³
             $qb->andWhere("$alias.cylinders > 1300");
         } else {
             [$min, $max] = explode('-', $range);
             $qb->andWhere("$alias.cylinders BETWEEN :minCyl AND :maxCyl")
-                ->setParameter('minCyl', (int)$min)
-                ->setParameter('maxCyl', (int)$max);
+                ->setParameter('minCyl', (int) $min)
+                ->setParameter('maxCyl', (int) $max);
         }
     }
 
     private function applyPriceFilter($qb, string $alias, string $range): void
     {
-        if ($range === '-5000') {
-            $qb->andWhere("$alias.price <= 5000");
-        } elseif ($range === '+20000') {
-            $qb->andWhere("$alias.price > 20000");
+        if ($range === '-3000') {
+            $qb->andWhere("$alias.price <= 3000");
+        } elseif ($range === '+15000') {
+            $qb->andWhere("$alias.price > 15000");
         } else {
             [$min, $max] = explode('-', $range);
             $qb->andWhere("$alias.price BETWEEN :minPrice AND :maxPrice")
-                ->setParameter('minPrice', (int)$min)
-                ->setParameter('maxPrice', (int)$max);
+                ->setParameter('minPrice', (int) $min)
+                ->setParameter('maxPrice', (int) $max);
         }
     }
 

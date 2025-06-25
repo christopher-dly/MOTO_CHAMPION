@@ -18,6 +18,11 @@
             {{ form_widget(add_new_vehicle_form.name, {'attr': {'class': 'new_vehicle_add_input'}}) }}
             {{ form_errors(add_new_vehicle_form.name) }}
         </div>
+        <div class='new_vehicle_add_form_section_namevhl'>
+            <h3 class='new_vehicle_add_form_section_title'>Opération commerciale :</h3>
+            {{ form_widget(add_new_vehicle_form.commercialOperation, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+            {{ form_errors(add_new_vehicle_form.commercialOperation) }}
+        </div>
         <h3 class='new_vehicle_add_form_section_title'>Informations</h3>
         <div class='new_vehicle_add_form_section'>
             <div class='new_vehicle_add_input_container'>
@@ -54,6 +59,11 @@
                 <p class='new_vehicle_add_input_description'>Catégorie :</p>
                 {{ form_widget(add_new_vehicle_form.Information.category, {'attr': {'class': 'new_vehicle_add_input'}}) }}
                 {{ form_errors(add_new_vehicle_form.Information.category) }}
+            </div>
+            <div class='new_vehicle_add_input_container'>
+                <p class='new_vehicle_add_input_description'>Equipement éléctronique :</p>
+                {{ form_widget(add_new_vehicle_form.Information.electricEquipment, {'attr': {'class': 'new_vehicle_add_input'}}) }}
+                {{ form_errors(add_new_vehicle_form.Information.electricEquipment) }}
             </div>
             <div class='new_vehicle_add_input_container'>
                 <p class='new_vehicle_add_input_description'>Disponible à l'essai :</p>
@@ -237,7 +247,9 @@
             {% endfor %}
         </div>
         <button type="button" id="add_new_vehicle_image">Ajouter une image</button>
+        {{ form_row(add_new_vehicle_form.submit, {'attr': {'class': 'new_vehicle_add_form_container button'}}) }}
     </div>
+    {{ form_end(add_new_vehicle_form) }}
 
 <script>
 {# document.addEventListener('DOMContentLoaded', function () {

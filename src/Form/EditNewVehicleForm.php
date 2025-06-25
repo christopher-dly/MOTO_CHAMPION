@@ -16,6 +16,9 @@ class EditNewVehicleForm extends AbstractType
     {
         $builder
             ->add('name', TypeTextType::class)
+            ->add('commercialOperation', TypeTextType::class, [
+                'required' => false,
+            ])
             ->add('Information', InformationForm::class)
             ->add('Engine', EngineForm::class)
             ->add('Transmission', TransmissionForm::class)

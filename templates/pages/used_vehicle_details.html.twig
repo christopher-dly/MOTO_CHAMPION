@@ -4,14 +4,7 @@
 
     <div class='used_vehicle_detail_global_container'>
         <div class='used_vehicle_detail_left_container'>
-            <h1 class='used_vehicle_detail_title_page'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}
-                {% if usedVehicle.a2 %}
-                <span class='used_vehicle_detail_a2'>
-                    <img class='used_vehicle_detail_a2_logo' src='{{ asset('img/logo/logo_a.png') }}' alt='logo permis A'>
-                    <img class='used_vehicle_detail_a2_logo' src='{{ asset('img/logo/logo_a2.png') }}' alt='logo permis A2'>
-                </span>
-                {% endif %}
-            </h1>
+            <h1 class='used_vehicle_detail_title_page'>{{ usedVehicle.brand }} - {{ usedVehicle.model }}</h1>
             <div class='used_vehicle_detail_image_container'>
                 <div class='used_vehicle_detail_card_carrousel_container'>
                     <div class="used_vehicle_detail_carousel">

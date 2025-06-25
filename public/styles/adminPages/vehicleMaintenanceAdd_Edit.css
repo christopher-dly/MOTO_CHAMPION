@@ -1,0 +1,151 @@
+/* --- TITRES ET CONTENEURS GÉNÉRAUX --- */
+.adminVehicleMaintenanceAddTitlePage {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.adminVehicleMaintenanceAddTitleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminVehicleMaintenanceAddFormContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+/* Section titre */
+.adminVehicleMaintenanceAddFormSection {
+    margin-bottom: 2rem;
+}
+
+.adminVehicleMaintenanceAddFormSection h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Grille 2 colonnes pour les champs */
+.adminVehicleMaintenanceAddFormSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Champ individuel */
+.addVehicleMaintenanceForm_inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.addVehicleMaintenanceForm_inputContainer h3 {
+    margin-bottom: 0.3rem;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+/* Inputs & checkboxes */
+.vehicleMaintenance_add_input,
+.vehicleMaintenance_add_checkbox {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicleMaintenance_add_input:focus,
+.vehicleMaintenance_add_checkbox:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Checkboxes */
+.vehicleMaintenance_add_checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* Erreurs */
+.form-error-message,
+.form-errors {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.vehicleMaintenance_add_price_input {
+    width: 100%;
+    max-width: 300px; /* ou plus selon ce que tu veux */
+}
+
+.vehicleMaintenance_add_button {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    width: fit-content;
+    align-self: center;
+    margin: 2rem auto 0 auto;
+    display: block;
+}
+
+/* Hover effect */
+.vehicleMaintenance_add_button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+}
+
+/* Focus (accessibilité) */
+.vehicleMaintenance_add_button:focus {
+    outline: 3px solid rgba(0, 123, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* Responsive ajusté pour le mobile */
+@media screen and (max-width: 768px) {
+    form {
+        padding: 1rem;
+    }
+
+    .adminVehicleMaintenanceAddFormSection {
+        grid-template-columns: 1fr;
+    }
+
+    .adminVehicleMaintenanceAddFormSection h2 {
+        font-size: 1.5rem;
+    }
+
+    .addVehicleMaintenanceForm_inputContainer h3 {
+        font-size: 1rem;
+    }
+
+    .vehicleMaintenance_add_input {
+        font-size: 0.95rem;
+    }
+
+    .vehicleMaintenance_add_checkbox {
+        width: 18px;
+        height: 18px;
+    }
+}

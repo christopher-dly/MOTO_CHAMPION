@@ -1,0 +1,117 @@
+/* --- TITRES ET CONTENEURS --- */
+.adminVehicleMaintenanceTitlePage {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.adminVehicleMaintenanceTitleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- BOUTON AJOUTER --- */
+.buttonAddVehicleMaintenance {
+    display: inline-block;
+    padding: 0.9rem 1.6rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--blue);
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- TABLEAU CONTAINER --- */
+.adminVehicleMaintenanceTableContainer {
+    overflow-x: auto;
+    padding: 1rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+/* --- TABLEAU --- */
+.adminVehicleMaintenanceTable {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.adminVehicleMaintenanceTable th,
+.adminVehicleMaintenanceTable td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.adminVehicleMaintenanceTable th {
+    background-color: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.adminVehicleMaintenanceTable td {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.adminVehicleMaintenanceTable tr:hover {
+    background-color: #f2f8ff;
+}
+
+/* --- BOUTON SUPPRIMER --- */
+.adminVehicleMaintenanceDeleteButton {
+    display: inline-block;
+    background-color: #dc3545;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.adminVehicleMaintenanceDeleteButton:hover {
+    background-color: #b02a37;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .adminVehicleMaintenanceTitlePage {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .buttonAddVehicleMaintenance {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .adminVehicleMaintenanceTableContainer {
+        padding: 0.5rem;
+    }
+
+    .adminVehicleMaintenanceTable th,
+    .adminVehicleMaintenanceTable td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+        word-break: break-word;
+    }
+
+    .adminVehicleMaintenanceDeleteButton {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}

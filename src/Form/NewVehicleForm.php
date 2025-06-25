@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\NewVehicle;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,6 +23,9 @@ class NewVehicleForm extends AbstractType
             //     'required' => false,
             // ])
             ->add('name', TextType::class)
+            ->add('commercialOperation', TextType::class, [
+                'required' => false,
+            ])
             ->add('Information', InformationForm::class)
             ->add('Engine', EngineForm::class)
             ->add('Transmission', TransmissionForm::class)

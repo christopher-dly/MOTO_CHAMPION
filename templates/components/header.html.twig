@@ -41,7 +41,7 @@
                 <a class="navbar-link {% if app.request.get('_route') == 'UsedVehicle' %}active{% endif %}" href="{{ path('UsedVehicle') }}">Occasion</a>
             </li>
             <li class='mb10'>
-                <a class="navbar-link {% if app.request.get('_route') == 'Workshop' %}active{% endif %}">Tarif atelier</a>
+                <a class="navbar-link {% if app.request.get('_route') == 'Workshop' %}active{% endif %}" href="{{path('AdminVehicleMaintenance')}}">Tarif atelier</a>
             </li>
             <li class='mb10'>
                 <a class="navbar-link {% if app.request.get('_route') == 'AboutUs' %}active{% endif %}">Qui sommes-nous ?</a>

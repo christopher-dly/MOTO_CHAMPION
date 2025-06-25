@@ -60,7 +60,7 @@ public function newVehicle(Request $request, NewVehicleRepository $repo): Respon
         ]);
     }
 
-    #[Route('/véhicules-neufs/{name}', name: 'NewVehicleDetail')]
+    #[Route('/véhicules-neufs/{id}', name: 'NewVehicleDetail')]
     public function newVehicleDetail(NewVehicle $newVehicle): Response
     {
         $images = $newVehicle->getNewVehicleImages();

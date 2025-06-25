@@ -1,17 +1,102 @@
 .contact_title_page {
     text-align: center;
-    color: #333;
-    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .contact_global_container {
     display: flex;
-    margin-bottom: 30px;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
 }
 
-.contact_left_container {
-    width: fit-content;
-    border: solid 1px black;
+.contact_left_container,
+.contact_right_container {
+    flex: 1 1 400px;
+    max-width: 600px;
+}
+
+.contact_left_container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact_right_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact_right_container p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.contact_form .form_group {
+    margin-bottom: 1rem;
+}
+
+.contact_form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.contact_form input,
+.contact_form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact_form input:focus,
+.contact_form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.contact_form button,
+.contact_form input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact_form button:hover,
+.contact_form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact_global_container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact_left_container,
+    .contact_right_container {
+        max-width: 100%;
+    }
+
+    .contact_title_page {
+        font-size: 2rem;
+    }
 }

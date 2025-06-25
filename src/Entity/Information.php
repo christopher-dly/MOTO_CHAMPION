@@ -51,6 +51,9 @@ class Information
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $a2 = false;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $electricEquipment = null;
+
     #[ORM\OneToMany(
         targetEntity: "App\Entity\NewVehicle",
         mappedBy: "information",
@@ -160,6 +163,18 @@ class Information
     public function setA2(?bool $a2): self
     {
         $this->a2 = $a2;
+
+        return $this;
+    }
+
+    public function getElectricEquipment(): ?string
+    {
+        return $this->electricEquipment;
+    }
+
+    public function setElectricEquipment(?string $electricEquipment): self
+    {
+        $this->electricEquipment = $electricEquipment;
 
         return $this;
     }

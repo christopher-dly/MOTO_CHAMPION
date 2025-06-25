@@ -1,0 +1,39 @@
+{% extends "layout.html.twig" %}
+
+{% block main %}
+    {% include 'components/adminNav.html.twig' %}
+
+    <div class='adminVehicleMaintenanceTitleContainer'>
+        <h1 class='adminVehicleMaintenanceTitlePage'>(Admin) Atelier</h1>
+        <a class='buttonAddVehicleMaintenance' href="{{ path('AdminVehicleMaintenanceAdd') }}">Ajouter un véhicule à l'atelier</a>
+    </div>
+    <div class="adminVehicleMaintenanceTableContainer">
+        <table class="adminVehicleMaintenanceTable">
+            <thead>
+                <tr>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>Année</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for maintenance in vehicleMaintenances %}
+                    <tr onclick="window.location.href='{{ path('AdminVehicleMaintenanceEdit', {id: maintenance.id}) }}'">
+                        <td>{{ maintenance.brand }}</td>
+                        <td>{{ maintenance.model }}</td>
+                        <td>{{ maintenance.year }}</td>
+                        <td>
+                            <a class="adminVehicleMaintenanceDeleteButton"
+                            href="{{ path('AdminVehicleMaintenanceDelete', {id: maintenance.id}) }}">
+                                Supprimer 🗑
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

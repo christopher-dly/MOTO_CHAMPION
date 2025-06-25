@@ -45,7 +45,7 @@
                 <ul class='new_vehicle_card_list'>
                 {% for vehicle in vehicles %}
                     <li class='new_vehicle_card'>
-                        <a href="{{ path('NewVehicle', {id: vehicle.id}) }}">
+                        <a href="{{ path('NewVehicleDetail', {id: vehicle.id}) }}">
                         {% set logoClass = vehicle.information.brand == 'Suzuki' 
                             ? 'logo-suz' 
                             : (vehicle.information.brand == 'Kymco' ? 'logo-kymco' : '') 

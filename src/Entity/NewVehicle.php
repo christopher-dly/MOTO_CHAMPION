@@ -21,6 +21,9 @@ class NewVehicle
     #[Assert\Length(max: 50, maxMessage: "Le nom ne doit pas dépasser 50 caractères.")]
     private ?string $name = null;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $commercialOperation = null;
+
     #[ORM\ManyToOne(
         targetEntity: CyclePart::class,
         inversedBy: "newVehicles",
@@ -89,6 +92,18 @@ class NewVehicle
     
         return $this;
     }    
+
+    public function getCommercialOperation(): ?string
+    {
+        return $this->commercialOperation;
+    }
+
+    public function setCommercialOperation(?string $commercialOperation): self
+    {
+        $this->commercialOperation = $commercialOperation;
+
+        return $this;
+    }
 
     public function getCyclePart()
     {
