@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+
+{% include "components/adminNav.html.twig" %}
+<div class="administrator_globalContainer">
+  <h1>Administrateur</h1>
+
+  <div class="adminRegistrationForm">
+  {{ form_start(registrationForm) }}
+
+    {{ form_widget(registrationForm.email) }}
+    {{ form_errors(registrationForm.email) }}
+
+    {{ form_widget(registrationForm.password) }}
+    {{ form_errors(registrationForm.password) }}
+
+    {{ form_widget(registrationForm.submit, {'label':'Inscription'}) }}
+  {{ form_end(registrationForm) }}
+  </div>
+  <div>
+
+  </div>
+</div>
+
+{% endblock %}

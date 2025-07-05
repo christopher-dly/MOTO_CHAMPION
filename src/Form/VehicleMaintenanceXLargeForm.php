@@ -44,7 +44,9 @@ class VehicleMaintenanceXLargeForm extends AbstractType
             ->add('clutchOilChange', CheckboxType::class, [
                 'required' => false,
             ])
-            ->add('price', TextType::class);
+            ->add('price', TextType::class, [
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

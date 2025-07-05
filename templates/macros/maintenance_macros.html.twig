@@ -1,0 +1,11 @@
+{% macro hasData(maintenance) %}
+    {% for key, value in maintenance %}
+        {% if key != 'id' and value is not null %}
+            {% if value is same as(true) or (value is string and value != '') %}
+                {{- true -}}
+                {% return %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {{- false -}}
+{% endmacro %}

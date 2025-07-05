@@ -1,9 +1,12 @@
 {% extends 'layout.html.twig' %}
 {% block main %}
+<div class='new_vehicle_detail'>
+    {% if vehicle.commercialOperation is not null %}
     <div class='new_vehicle_detail_top_container'>
         <h3>OPERATION COMMERCIALE EN COURS</h3>
-        <p>#{{vehicle.commercialOperation}}</p>
+        <p>{{vehicle.commercialOperation}}</p>
     </div>
+    {% endif %}
     <div class='new_vehicle_detail_global_container'>
         <div class='new_vehicle_detail_left_container'>
             <div class='new_vehicle_detail_card'>
@@ -111,6 +114,7 @@
             </div>
         </div>
     </div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Sélection des éléments du DOM

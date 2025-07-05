@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+  <div class="login-container">
+    <div class="login-box">
+      <h1>Connexion</h1>
+
+      {% if error %}
+        <div class="login-alert-error">
+          {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+      {% endif %}
+
+      {{ form_start(loginForm) }}
+
+        <div class="login-form-group">
+          {{ form_label(loginForm.email, 'Adresse email', {'label_attr': {'class': 'login-form-label'}}) }}
+          {{ form_widget(loginForm.email, {'attr': {'class': 'login-form-control', 'placeholder': 'ex: admin@example.com'}}) }}
+          {{ form_errors(loginForm.email, {'attr': {'class': 'login-form-error'}}) }}
+        </div>
+
+        <div class="login-form-group">-
+          {{ form_label(loginForm.password, 'Mot de passe', {'label_attr': {'class': 'login-form-label'}}) }}
+          {{ form_widget(loginForm.password, {'attr': {'class': 'login-form-control', 'placeholder': '••••••••'}}) }}
+          {{ form_errors(loginForm.password, {'attr': {'class': 'login-form-error'}}) }}
+        </div>
+
+        <div class="login-form-group">
+          {{ form_widget(loginForm.submit, {'attr': {'class': 'login-form-submit'}, 'label': 'Connexion'}) }}
+        </div>
+
+      {{ form_end(loginForm) }}
+    </div>
+  </div>
+{% endblock %}

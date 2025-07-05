@@ -1,0 +1,114 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+<div class="workshop_global_container">
+    <div class="workshop_price_container">
+    </div>
+    <div class="workshop_search_container">
+    {{ form_start(workshop_form) }}
+        <div class="workshop_search_vehicle">
+            <div class="workshop_search_brand">
+                {{ form_widget(workshop_form.brand) }}
+                {{ form_errors(workshop_form.brand) }}
+            </div>
+            <div class="workshop_search_model">
+            {{ form_widget(workshop_form.model) }}
+            {{ form_errors(workshop_form.model) }}
+            </div>
+            <div class="workshop_search_year">
+            {{ form_widget(workshop_form.year) }}
+            {{ form_errors(workshop_form.year) }}
+            </div>
+        </div>
+        <div class="workshop_search_submit">
+        {{ form_widget(workshop_form.submit) }}
+        </div>
+    {{ form_end(workshop_form) }}
+    </div>
+    <div class="workshop_result_container">
+        {% if vehicleMaintenance is not null and vehicleMaintenance.vehicleMaintenanceLittle.price is not null %}
+        <div class="workshop_result_little">
+            <h3>Petite révision</h3>
+            <ul>
+                <li>Filtre à huile : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.oilFilter ? '✅' : '❌' }}</span></li>
+                <li>Nettoyage crépine : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.strainerCleaning ? '✅' : '❌' }}</span></li>
+                <li>Filtre à air : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.airFilter ? '✅' : '❌' }}</span></li>
+                <li>Bougies : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.sparkPlug ? '✅' : '❌' }}</span></li>
+                <li>Courroie variateur : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.variatorBelt ? '✅' : '❌' }}</span></li>
+                <li>Courroie transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.transmissionBelt ? '✅' : '❌' }}</span></li>
+                <li>Galets : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.pebble ? '✅' : '❌' }}</li>
+                <li>Vidange moteur : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.engineOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.transmissionOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange embrayage : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.clutchOilChange ? '✅' : '❌' }}</span></li>
+                <li>Prix : <span>{{ vehicleMaintenance.vehicleMaintenanceLittle.price }} €</span></li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if vehicleMaintenance is not null and vehicleMaintenance.vehicleMaintenanceMedium.price is not null %}
+        <div class="workshop_result_medium">
+            <h3>Moyenne révision</h3>
+            <ul>
+                <li>Filtre à huile : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.oilFilter ? '✅' : '❌' }}</span></li>
+                <li>Nettoyage crépine : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.strainerCleaning ? '✅' : '❌' }}</span></li>
+                <li>Filtre à air : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.airFilter ? '✅' : '❌' }}</span></li>
+                <li>Bougies : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.sparkPlug ? '✅' : '❌' }}</span></li>
+                <li>Courroie variateur : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.variatorBelt ? '✅' : '❌' }}</span></li>
+                <li>Courroie transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.transmissionBelt ? '✅' : '❌' }}</span></li>
+                <li>Galets : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.pebble ? '✅' : '❌' }}</li>
+                <li>Vidange moteur : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.engineOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.transmissionOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange embrayage : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.clutchOilChange ? '✅' : '❌' }}</span></li>
+                <li>Prix : <span>{{ vehicleMaintenance.vehicleMaintenanceMedium.price }} €</span></li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if vehicleMaintenance is not null and vehicleMaintenance.vehicleMaintenanceLarge.price is not null %}
+        <div class="workshop_result_large">
+            <h3>Grosse révision</h3>
+            <ul>
+                <li>Filtre à huile : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.oilFilter ? '✅' : '❌' }}</span></li>
+                <li>Nettoyage crépine : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.strainerCleaning ? '✅' : '❌' }}</span></li>
+                <li>Filtre à air : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.airFilter ? '✅' : '❌' }}</span></li>
+                <li>Bougies : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.sparkPlug ? '✅' : '❌' }}</span></li>
+                <li>Courroie variateur : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.variatorBelt ? '✅' : '❌' }}</span></li>
+                <li>Courroie transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.transmissionBelt ? '✅' : '❌' }}</span></li>
+                <li>Galets : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.pebble ? '✅' : '❌' }}</li>
+                <li>Vidange moteur : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.engineOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.transmissionOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange embrayage : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.clutchOilChange ? '✅' : '❌' }}</span></li>
+                <li>Prix : <span>{{ vehicleMaintenance.vehicleMaintenanceLarge.price }} €</span></li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if vehicleMaintenance is not null and vehicleMaintenance.vehicleMaintenanceXLarge.price is not null %}
+        <div class="workshop_result_XLarge">
+            <h3>Très Grosse révision</h3>
+            <ul>
+                <li>Filtre à huile : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.oilFilter ? '✅' : '❌' }}</span></li>
+                <li>Nettoyage crépine : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.strainerCleaning ? '✅' : '❌' }}</span></li>
+                <li>Filtre à air : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.airFilter ? '✅' : '❌' }}</span></li>
+                <li>Bougies : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.sparkPlug ? '✅' : '❌' }}</span></li>
+                <li>Courroie variateur : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.variatorBelt ? '✅' : '❌' }}</span></li>
+                <li>Courroie transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.transmissionBelt ? '✅' : '❌' }}</span></li>
+                <li>Galets : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.pebble ? '✅' : '❌' }}</li>
+                <li>Vidange moteur : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.engineOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange transmission : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.transmissionOilChange ? '✅' : '❌' }}</span></li>
+                <li>Vidange embrayage : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.clutchOilChange ? '✅' : '❌' }}</span></li>
+                <li>Prix : <span>{{ vehicleMaintenance.vehicleMaintenanceXLarge.price }} €</span></li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $('.select2').select2({
+            width: '100%',
+            placeholder: 'Choisissez une option',
+            allowClear: true
+        });
+    });
+</script>
+{% endblock %}

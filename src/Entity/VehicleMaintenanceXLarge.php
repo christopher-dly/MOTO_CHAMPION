@@ -16,41 +16,41 @@ class VehicleMaintenanceXLarge
     private ?int $id;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $oilFilter = false;
+    private ?bool $oilFilter = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $strainerCleaning = false;
+    private ?bool $strainerCleaning = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $airFilter = false;
+    private ?bool $airFilter = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $sparkPlug = false;
+    private ?bool $sparkPlug = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $variatorBelt = false;
+    private ?bool $variatorBelt = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $transmissionBelt = false;
+    private ?bool $transmissionBelt = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $pebble = false;
+    private ?bool $pebble = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $engineOilChange = false;
+    private ?bool $engineOilChange = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $transmissionOilChange = false;
+    private ?bool $transmissionOilChange = null;
     
     #[ORM\Column(type: 'boolean', nullable: true)]
-    private ?bool $clutchOilChange = false;
+    private ?bool $clutchOilChange = null;
     
     #[ORM\Column(type: 'string', nullable: true)]
-    private ?string $price;
+    private ?string $price = null;
 
     #[ORM\OneToMany(
         targetEntity: VehicleMaintenance::class,
-        mappedBy: "newVehicle",
+        mappedBy: "vehicleMaintenanceXLarge",
         cascade: ["persist", "remove"]
     )]
     private Collection $vehicleMaintenance;

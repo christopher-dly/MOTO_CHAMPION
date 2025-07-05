@@ -13,12 +13,6 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminActualityController extends AbstractController
 {
-    #[Route('/actualités', name: 'Actuality')]
-    public function actuality()
-    {
-        return $this->render('pages/actuality.html.twig');
-    }
-
     #[Route('/admin/actualités', name: 'AdminActuality', methods: ['GET','POST'])]
     public function adminActuality(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {

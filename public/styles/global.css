@@ -13,6 +13,7 @@
 @import url(adminPages/actuality.css);
 @import url(adminPages/vehicleMaintenance.css);
 @import url(adminPages/vehicleMaintenanceAdd_Edit.css);
+@import url(adminPages/login.css);
 
 @import url(userPages/new_vehicle.css);
 @import url(userPages/used_vehicle.css);
@@ -20,6 +21,7 @@
 @import url(userPages/used_vehicle_details.css);
 @import url(userPages/index.css);
 @import url(userPages/contact.css);
+@import url(userPages/workshop.css);
 
 :root {
     --blue: #030ED1;
